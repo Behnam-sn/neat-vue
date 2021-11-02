@@ -7,3 +7,7 @@
 svg {
 	@apply w-6 h-auto;
 }
+
+body {
+	@apply bg-customWhite text-black dark:bg-black dark:text-customWhite transition-all duration-500;
+}

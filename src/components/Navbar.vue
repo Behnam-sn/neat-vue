@@ -5,7 +5,9 @@
 	>
 		<div>Neat</div>
 		<div class="flex flex-row">
-			<MoonIcon class="mr-5" />
+			<div @click="changeTheme">
+				<MoonIcon class="mr-5" />
+			</div>
 			<BarsIcon />
 		</div>
 		<!-- <div id="nav">
@@ -21,6 +23,28 @@ import MoonIcon from "@/components/svg/MoonIcon.vue";
 
 export default {
 	name: "Navbar",
+	created: function() {
+		if (
+			localStorage.theme === "dark" ||
+			(!("theme" in localStorage) &&
+				window.matchMedia("(prefers-color-scheme: dark)").matches)
+		) {
+			document.documentElement.classList.add("dark");
+		} else {
+			document.documentElement.classList.remove("dark");
+		}
+	},
+	methods: {
+		changeTheme() {
+			if (localStorage.theme == "light") {
+				localStorage.theme = "dark";
+				document.documentElement.classList.add("dark");
+			} else {
+				localStorage.theme = "light";
+				document.documentElement.classList.remove("dark");
+			}
+		},
+	},
 	components: {
 		BarsIcon,
 		MoonIcon,
