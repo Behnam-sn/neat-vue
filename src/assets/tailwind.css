@@ -3,3 +3,7 @@
 @tailwind components;
 
 @tailwind utilities;
+
+svg {
+	@apply w-6 h-auto;
+}
