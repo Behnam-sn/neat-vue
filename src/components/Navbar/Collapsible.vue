@@ -2,7 +2,7 @@
 	<div
 		id="collapsible"
 		class="flex items-center justify-evenly duration-500"
-		:class="[isCollapse ? 'h-16' : 'h-0']"
+		:class="[isCollapse ? 'h-16 opacity-100' : 'h-0 opacity-0']"
 	>
 		<HomeIcon class="h-8" />
 		<UserIcon class="h-8" />
@@ -35,7 +35,7 @@ export default {
 
 <style lang="scss" scoped>
 #collapsible {
-	transition-property: height;
+	transition-property: opacity, height;
 	transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
 	overflow: hidden;
 }
