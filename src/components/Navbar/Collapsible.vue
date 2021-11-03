@@ -2,21 +2,23 @@
 	<div
 		id="collapsible"
 		class="flex items-center justify-evenly duration-500"
-		:class="[isCollapse ? 'h-20' : 'h-0']"
+		:class="[isCollapse ? 'h-16' : 'h-0']"
 	>
-		<HomeIcon class="w-8" />
-		<UserIcon class="w-8" />
-		<InfoIcon class="w-8" />
-		<CogIcon class="w-8" />
+		<HomeIcon class="h-8" />
+		<UserIcon class="h-8" />
+		<InfoIcon class="h-8" />
+		<CogIcon class="h-8" />
 	</div>
 </template>
 
 <script>
 import { mapGetters } from "vuex";
-import HomeIcon from "@/components/svg/HomeIcon.vue";
-import UserIcon from "@/components/svg/UserIcon.vue";
-import InfoIcon from "@/components/svg/InfoIcon.vue";
-import CogIcon from "@/components/svg/CogIcon.vue";
+
+import HomeIcon from "@/assets/svg/HomeIcon.vue";
+import UserIcon from "@/assets/svg/UserIcon.vue";
+import InfoIcon from "@/assets/svg/InfoIcon.vue";
+import CogIcon from "@/assets/svg/CogIcon.vue";
+
 export default {
 	name: "Collapsible",
 	computed: {

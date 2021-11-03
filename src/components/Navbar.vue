@@ -1,6 +1,6 @@
 <template>
-	<div id="nav" class="px-6 py-7 lg:hidden">
-		<div class="flex flex-row justify-between items-center">
+	<div id="nav" class="px-6 pt-7 lg:hidden">
+		<div class="flex flex-row justify-between items-center pb-3">
 			<div>Neat</div>
 			<div class="flex flex-row">
 				<button
@@ -30,9 +30,9 @@ import { mapGetters, mapMutations } from "vuex";
 
 import Collapsible from "@/components/Navbar/Collapsible.vue";
 
-import BarsIcon from "@/components/svg/BarsIcon.vue";
-import MoonIcon from "@/components/svg/MoonIcon.vue";
-import SunIcon from "@/components/svg/SunIcon.vue";
+import BarsIcon from "@/assets/svg/BarsIcon.vue";
+import MoonIcon from "@/assets/svg/MoonIcon.vue";
+import SunIcon from "@/assets/svg/SunIcon.vue";
 
 export default {
 	name: "Navbar",
