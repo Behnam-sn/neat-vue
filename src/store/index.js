@@ -5,7 +5,7 @@ Vue.use(Vuex);
 
 export default new Vuex.Store({
 	state: {
-		darkMode: false,
+		darkMode: localStorage.theme,
 	},
 	getters: {
 		getTheme: (state) => state.darkMode,
@@ -14,11 +14,11 @@ export default new Vuex.Store({
 		changeTheme(state) {
 			if (localStorage.theme == "light") {
 				localStorage.theme = "dark";
-				state.darkMode = true;
+				state.darkMode = "dark";
 				document.documentElement.classList.add("dark");
 			} else {
 				localStorage.theme = "light";
-				state.darkMode = false;
+				state.darkMode = "light";
 				document.documentElement.classList.remove("dark");
 			}
 		},

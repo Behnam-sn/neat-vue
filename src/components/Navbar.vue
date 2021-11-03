@@ -1,25 +1,26 @@
 <template>
-	<div
-		id="nav"
-		class="flex flex-row justify-between items-center px-6 py-7 lg:hidden"
-	>
-		<div>Neat</div>
-		<div class="flex flex-row">
-			<button
-				class="bg-black text-customWhite dark:bg-customWhite dark:text-black p-1 mr-5 rounded"
-				@click="changeTheme"
-			>
-				<transition name="fade" mode="out-in">
-					<SunIcon v-if="darkMode" />
-					<MoonIcon v-else />
-				</transition>
-			</button>
-			<BarsIcon />
-		</div>
-		<!-- <div id="nav">
+	<div id="nav">
+		<div
+			class="flex flex-row justify-between items-center px-6 py-7 lg:hidden"
+		>
+			<div>Neat</div>
+			<div class="flex flex-row">
+				<button
+					class="bg-black text-customWhite dark:bg-customWhite dark:text-black p-1 mr-5 rounded"
+					@click="changeTheme"
+				>
+					<transition name="fade" mode="out-in">
+						<SunIcon v-if="darkMode == 'dark'" />
+						<MoonIcon v-else />
+					</transition>
+				</button>
+				<BarsIcon />
+			</div>
+			<!-- <div id="nav">
 			<router-link to="/">Home</router-link> |
 			<router-link to="/about">About</router-link>
 		</div> -->
+		</div>
 	</div>
 </template>
 
