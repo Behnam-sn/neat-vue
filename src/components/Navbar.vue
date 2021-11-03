@@ -4,7 +4,7 @@
 			<h1 class="font-Poppins-Medium text-2xl">Neat</h1>
 			<div class="flex flex-row">
 				<button
-					class="bg-black text-customWhite dark:bg-customWhite dark:text-black p-1 mr-5 rounded-md"
+					class="transition duration-500 bg-black text-customWhite dark:bg-customWhite dark:text-black p-1 mr-5 rounded-md"
 					@click="changeTheme"
 				>
 					<transition name="fade" mode="out-in">
