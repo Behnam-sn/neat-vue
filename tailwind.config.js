@@ -1,10 +1,11 @@
 const colors = require("tailwindcss/colors");
 
 module.exports = {
-	purge: { content: ["./public/**/*.html", "./src/**/*.vue"] },
+	purge: {
+		content: ["./public/**/*.html", "./src/**/*.vue"],
+	},
 	darkMode: "class",
 	theme: {
-		extend: {},
 		colors: {
 			blueGray: colors.blueGray,
 			trueGray: colors.trueGray,
@@ -12,8 +13,6 @@ module.exports = {
 			customWhite: "#eeeeee",
 		},
 	},
-	variants: {
-		extend: {},
-	},
+	variants: {},
 	plugins: [],
 };

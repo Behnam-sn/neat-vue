@@ -5,9 +5,15 @@
 	>
 		<div>Neat</div>
 		<div class="flex flex-row">
-			<div @click="changeTheme">
-				<MoonIcon class="mr-5" />
-			</div>
+			<button
+				class="bg-black text-customWhite dark:bg-customWhite dark:text-black p-1 mr-5 rounded"
+				@click="changeTheme"
+			>
+				<transition name="fade" mode="out-in">
+					<SunIcon v-if="darkMode" />
+					<MoonIcon v-else />
+				</transition>
+			</button>
 			<BarsIcon />
 		</div>
 		<!-- <div id="nav">
@@ -18,8 +24,10 @@
 </template>
 
 <script>
+import { mapGetters, mapMutations } from "vuex";
 import BarsIcon from "@/components/svg/BarsIcon.vue";
 import MoonIcon from "@/components/svg/MoonIcon.vue";
+import SunIcon from "@/components/svg/SunIcon.vue";
 
 export default {
 	name: "Navbar",
@@ -35,24 +43,28 @@ export default {
 		}
 	},
 	methods: {
-		changeTheme() {
-			if (localStorage.theme == "light") {
-				localStorage.theme = "dark";
-				document.documentElement.classList.add("dark");
-			} else {
-				localStorage.theme = "light";
-				document.documentElement.classList.remove("dark");
-			}
-		},
+		...mapMutations(["changeTheme"]),
+	},
+	computed: {
+		...mapGetters({ darkMode: "getTheme" }),
 	},
 	components: {
 		BarsIcon,
 		MoonIcon,
+		SunIcon,
 	},
 };
 </script>
 
 <style lang="scss" scoped>
+.fade-enter-active,
+.fade-leave-active {
+	transition: opacity 0.15s ease;
+}
+.fade-enter,
+.fade-leave-to {
+	opacity: 0;
+}
 // #nav {
 // 	padding: 30px;
 
