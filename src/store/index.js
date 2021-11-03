@@ -6,9 +6,11 @@ Vue.use(Vuex);
 export default new Vuex.Store({
 	state: {
 		darkMode: localStorage.theme,
+		isCollapse: false,
 	},
 	getters: {
 		getTheme: (state) => state.darkMode,
+		getCollapseStatus: (state) => state.isCollapse,
 	},
 	mutations: {
 		changeTheme(state) {
@@ -21,6 +23,9 @@ export default new Vuex.Store({
 				state.darkMode = "light";
 				document.documentElement.classList.remove("dark");
 			}
+		},
+		collapse(state) {
+			state.isCollapse = !state.isCollapse;
 		},
 	},
 	actions: {},

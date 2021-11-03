@@ -1,12 +1,10 @@
 <template>
-	<div id="nav">
-		<div
-			class="flex flex-row justify-between items-center px-6 py-7 lg:hidden"
-		>
+	<div id="nav" class="px-6 py-7 lg:hidden">
+		<div class="flex flex-row justify-between items-center">
 			<div>Neat</div>
 			<div class="flex flex-row">
 				<button
-					class="bg-black text-customWhite dark:bg-customWhite dark:text-black p-1 mr-5 rounded"
+					class="bg-black text-customWhite dark:bg-customWhite dark:text-black p-1 mr-5 rounded-md"
 					@click="changeTheme"
 				>
 					<transition name="fade" mode="out-in">
@@ -14,18 +12,24 @@
 						<MoonIcon v-else />
 					</transition>
 				</button>
-				<BarsIcon />
+				<button @click="collapse">
+					<BarsIcon />
+				</button>
 			</div>
 			<!-- <div id="nav">
 			<router-link to="/">Home</router-link> |
 			<router-link to="/about">About</router-link>
 		</div> -->
 		</div>
+		<Collapsible />
 	</div>
 </template>
 
 <script>
 import { mapGetters, mapMutations } from "vuex";
+
+import Collapsible from "@/components/Navbar/Collapsible.vue";
+
 import BarsIcon from "@/components/svg/BarsIcon.vue";
 import MoonIcon from "@/components/svg/MoonIcon.vue";
 import SunIcon from "@/components/svg/SunIcon.vue";
@@ -44,12 +48,13 @@ export default {
 		}
 	},
 	methods: {
-		...mapMutations(["changeTheme"]),
+		...mapMutations(["changeTheme", "collapse"]),
 	},
 	computed: {
 		...mapGetters({ darkMode: "getTheme" }),
 	},
 	components: {
+		Collapsible,
 		BarsIcon,
 		MoonIcon,
 		SunIcon,
@@ -66,6 +71,7 @@ export default {
 .fade-leave-to {
 	opacity: 0;
 }
+
 // #nav {
 // 	padding: 30px;
 
