@@ -63,15 +63,6 @@ export default {
 </script>
 
 <style lang="scss" scoped>
-.fade-enter-active,
-.fade-leave-active {
-	transition: opacity 0.15s ease;
-}
-.fade-enter,
-.fade-leave-to {
-	opacity: 0;
-}
-
 // #nav {
 // 	padding: 30px;
 
