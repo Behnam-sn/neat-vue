@@ -5,6 +5,13 @@ module.exports = {
 	darkMode: "class",
 	theme: {
 		extend: {
+			fontFamily: {
+				"Rubik-bold": ["Rubik-bold", "sans-serif"],
+				"Rubik-Light": ["Rubik-Light", "sans-serif"],
+				"Rubik-Medium": ["Rubik-Medium", "sans-serif"],
+				"Poppins-Medium": ["Poppins-Medium", "sans-serif"],
+				"Poppins-Bold": ["Poppins-Bold", "sans-serif"],
+			},
 			colors: {
 				black: "#000000",
 				customWhite: "#eeeeee",

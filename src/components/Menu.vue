@@ -1,9 +1,10 @@
 <template>
 	<div
-		class="h-screen hidden lg:flex flex-col justify-between border-r-2 border-gray-300 dark:border-gray-500 py-10 px-5"
+		id="menu"
+		class="h-screen hidden lg:flex flex-col items-center justify-between border-r-2 border-gray-300 dark:border-gray-500 py-10 px-6"
 	>
 		<div class="flex flex-col items-center">
-			<div class="my-4">Neat</div>
+			<h1 class="font-Poppins-Medium text-xl my-4">Neat</h1>
 			<PlusIcon class="h-10 my-4" />
 		</div>
 		<div class="flex flex-col items-center">
@@ -56,3 +57,11 @@ export default {
 	},
 };
 </script>
+
+<style lang="scss" scoped>
+#menu {
+	transition-property: border-color;
+	transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
+	transition-duration: 500ms;
+}
+</style>

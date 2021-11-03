@@ -1,7 +1,7 @@
 <template>
 	<div id="nav" class="px-6 pt-7 lg:hidden">
 		<div class="flex flex-row justify-between items-center pb-3">
-			<div>Neat</div>
+			<h1 class="font-Poppins-Medium text-2xl">Neat</h1>
 			<div class="flex flex-row">
 				<button
 					class="bg-black text-customWhite dark:bg-customWhite dark:text-black p-1 mr-5 rounded-md"

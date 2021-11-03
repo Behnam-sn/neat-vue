@@ -4,10 +4,35 @@
 
 @tailwind utilities;
 
+@font-face {
+	font-family: "Rubik-Bold";
+	src: url(./fonts/Rubik-Bold.ttf) format("truetype");
+}
+
+@font-face {
+	font-family: "Rubik-Light";
+	src: url(./fonts/Rubik-Light.ttf) format("truetype");
+}
+
+@font-face {
+	font-family: "Rubik-Medium";
+	src: url(./fonts/Rubik-Medium.ttf) format("truetype");
+}
+
+@font-face {
+	font-family: "Poppins-Medium";
+	src: url(./fonts/Poppins-Medium.ttf) format("truetype");
+}
+
+@font-face {
+	font-family: "Poppins-Bold";
+	src: url(./fonts/Poppins-Bold.ttf) format("truetype");
+}
+
 svg {
 	@apply h-6 w-auto;
 }
 
 body {
-	@apply bg-customWhite text-black dark:bg-black dark:text-customWhite transition-all duration-500;
+	@apply bg-customWhite text-black dark:bg-black dark:text-customWhite transition duration-500;
 }
