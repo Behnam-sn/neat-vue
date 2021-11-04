@@ -1,8 +1,8 @@
 <template>
 	<div class="px-7 lg:w-full lg:mt-16 lg:px-16">
 		<div class="hidden lg:flex justify-between items-center">
-			<h1 class="font-Poppins-Bold text-7xl">Neat</h1>
-			<div>Login / Sign Up</div>
+			<h1 class="font-Poppins-Bold text-6xl">Neat</h1>
+			<LoginButton />
 		</div>
 		<div class="flex justify-center">
 			<div class="mt-24 lg:mt-60">
@@ -18,11 +18,19 @@
 				</h3>
 			</div>
 		</div>
+		<div class="flex lg:hidden justify-center mt-20">
+			<LoginButton />
+		</div>
 	</div>
 </template>
 
 <script>
+import LoginButton from "@/components/Home/LoginButton.vue";
+
 export default {
 	name: "Home",
+	components: {
+		LoginButton,
+	},
 };
 </script>

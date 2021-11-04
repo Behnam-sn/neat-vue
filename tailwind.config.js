@@ -9,6 +9,7 @@ module.exports = {
 				"Rubik-bold": ["Rubik-bold", "sans-serif"],
 				"Rubik-Light": ["Rubik-Light", "sans-serif"],
 				"Rubik-Medium": ["Rubik-Medium", "sans-serif"],
+				"Rubik-Regular": ["Rubik-Regular", "sans-serif"],
 				"Poppins-Medium": ["Poppins-Medium", "sans-serif"],
 				"Poppins-Bold": ["Poppins-Bold", "sans-serif"],
 			},

@@ -20,6 +20,11 @@
 }
 
 @font-face {
+	font-family: "Rubik-Regular";
+	src: url(./fonts/Rubik-Regular.ttf) format("truetype");
+}
+
+@font-face {
 	font-family: "Poppins-Medium";
 	src: url(./fonts/Poppins-Medium.ttf) format("truetype");
 }
