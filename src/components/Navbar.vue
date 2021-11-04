@@ -1,7 +1,9 @@
 <template>
 	<div id="nav" class="px-6 pt-7 lg:hidden">
 		<div class="flex flex-row justify-between items-center pb-3">
-			<h1 class="font-Poppins-Medium text-2xl">Neat</h1>
+			<router-link to="/">
+				<h1 class="font-Poppins-Medium text-2xl">Neat</h1>
+			</router-link>
 			<div class="flex flex-row">
 				<button
 					class="transition duration-500 bg-black text-customWhite dark:bg-customWhite dark:text-black p-1 mr-5 rounded-md"
