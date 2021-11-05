@@ -4,7 +4,9 @@
 		class="flex items-center justify-evenly duration-500"
 		:class="[isCollapse ? 'h-16 opacity-100' : 'h-0 opacity-0']"
 	>
-		<HomeIcon class="h-8" />
+		<router-link to="/public">
+			<HomeIcon class="h-8" />
+		</router-link>
 		<UserIcon class="h-8" />
 		<InfoIcon class="h-8" />
 		<CogIcon class="h-8" />

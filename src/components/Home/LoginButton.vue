@@ -1,7 +1,7 @@
 <template>
 	<router-link
 		to="/login"
-		class="transition duration-500 font-Rubik-Regular bg-black text-customWhite dark:bg-customWhite dark:text-black py-3 px-6 rounded-full focus:outline-none focus:ring-4 focus:ring-black focus:ring-opacity-50 hover:shadow-lg"
+		class="font-Rubik-Regular bg-black dark:bg-customWhite text-customWhite dark:text-black rounded-full py-3 px-6 transition duration-500"
 		>Login / Sign Up
 	</router-link>
 </template>
