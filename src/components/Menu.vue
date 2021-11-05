@@ -20,8 +20,8 @@
 				@click="changeTheme"
 			>
 				<transition name="fade" mode="out-in">
-					<SunIcon class="h-10 p-2" v-if="darkMode == 'dark'" />
-					<MoonIcon class="h-10 p-2" v-else />
+					<SunIcon class="h-11 p-2" v-if="darkMode == 'dark'" />
+					<MoonIcon class="h-11 p-2" v-else />
 				</transition>
 			</button>
 			<LoginIcon class="h-10 my-4" />
