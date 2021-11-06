@@ -1,8 +1,6 @@
 <template>
 	<div class="lg:w-full">
-		<div class="h-vh-15  flex">
-			<TitleBar title="Public Notes" class="lg:w-full px-7 lg:px-16" />
-		</div>
+		<TitleBar title="Public Notes" />
 		<div
 			class="lg:h-vh-85 lg:overflow-y-scroll grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-8 px-8 pb-64 lg:px-14 xl:px-28 lg:pt-16"
 		>

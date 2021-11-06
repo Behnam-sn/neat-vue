@@ -1,6 +1,6 @@
 <template>
-	<div class="px-7 lg:w-full lg:mt-16 lg:px-16">
-		<TitleBar :title="username + ' Notes'" class="mt-8 lg:mt-0" />
+	<div class="w-full">
+		<TitleBar :title="username + ' Notes'" />
 		<div>current user: {{ user }}</div>
 	</div>
 </template>

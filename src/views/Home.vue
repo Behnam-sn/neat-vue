@@ -1,8 +1,8 @@
 <template>
-	<div class="px-7 lg:w-full lg:mt-16 lg:px-16">
-		<TitleBar title="Neat" class="mt-14 lg:mt-0" />
-		<div class="flex justify-center">
-			<div class="mt-8 lg:mt-60">
+	<div class="w-full">
+		<TitleBar title="Neat" class="hidden lg:flex" />
+		<div class="flex justify-center px-7 lg:px-16">
+			<div class="mt-36 lg:mt-60">
 				<h2
 					class="transition duration-500 font-Rubik-Light text-3xl lg:text-4xl text-gray-500 dark:text-gray-400 lg:ml-2"
 				>
