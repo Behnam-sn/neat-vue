@@ -26,7 +26,9 @@
 					<MoonIcon class="h-11 p-2" v-else />
 				</transition>
 			</button>
-			<LoginIcon class="h-10 my-4" />
+			<button v-if="user" @click="logout">
+				<LogoutIcon class="h-10 my-4" />
+			</button>
 		</div>
 	</div>
 </template>
@@ -40,16 +42,17 @@ import UserIcon from "@/assets/svg/UserIcon.vue";
 import InfoIcon from "@/assets/svg/InfoIcon.vue";
 import MoonIcon from "@/assets/svg/MoonIcon.vue";
 import SunIcon from "@/assets/svg/SunIcon.vue";
-import LoginIcon from "@/assets/svg/LoginIcon.vue";
+import LogoutIcon from "@/assets/svg/LogoutIcon.vue";
 
 export default {
 	name: "Menu",
-	methods: {
-		...mapMutations(["changeTheme"]),
-	},
 	computed: {
-		...mapGetters({ darkMode: "getTheme" }),
+		...mapGetters({ darkMode: "getTheme", user: "getUser" }),
 	},
+	methods: {
+		...mapMutations(["changeTheme", "logout"]),
+	},
+
 	components: {
 		PlusIcon,
 		HomeIcon,
@@ -57,7 +60,7 @@ export default {
 		InfoIcon,
 		MoonIcon,
 		SunIcon,
-		LoginIcon,
+		LogoutIcon,
 	},
 };
 </script>
