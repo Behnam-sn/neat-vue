@@ -53,12 +53,3 @@ export default {
 	},
 };
 </script>
-
-<style lang="scss" scoped>
-.kfpldek {
-	height: 15vh;
-}
-.avgsdds {
-	height: 85vh;
-}
-</style>
