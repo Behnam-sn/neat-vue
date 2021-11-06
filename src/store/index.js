@@ -10,12 +10,14 @@ export default new Vuex.Store({
 		darkMode: localStorage.getItem("theme"),
 		user: localStorage.getItem("user"),
 		token: localStorage.getItem("token"),
+		publicNotes: undefined,
 	},
 	getters: {
 		getTheme: (state) => state.darkMode,
 		getCollapseStatus: (state) => state.isCollapse,
 		getUser: (state) => state.user,
 		getToken: (state) => state.token,
+		getPublicNotes: (state) => state.publicNotes,
 	},
 	mutations: {
 		changeTheme(state) {
@@ -45,6 +47,9 @@ export default new Vuex.Store({
 			localStorage.removeItem("token");
 			state.user = undefined;
 			state.token = undefined;
+		},
+		setPublicNotes(state, payload) {
+			state.publicNotes = payload;
 		},
 	},
 	actions: {
@@ -81,6 +86,16 @@ export default new Vuex.Store({
 							password: payload.password,
 						});
 					}
+				})
+				.catch((error) => {
+					console.log(error);
+				});
+		},
+		fetchPublicNotes({ commit }) {
+			axios
+				.get("notes/public-all")
+				.then((response) => {
+					commit("setPublicNotes", response.data);
 				})
 				.catch((error) => {
 					console.log(error);

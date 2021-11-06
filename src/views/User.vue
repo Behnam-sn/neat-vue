@@ -1,12 +1,13 @@
 <template>
-	<div>
-		<div>{{ user }}</div>
-		<div>{{ username }}</div>
+	<div class="px-7 lg:w-full lg:mt-16 lg:px-16">
+		<TitleBar :title="username + ' Notes'" class="mt-8 lg:mt-0" />
+		<div>current user: {{ user }}</div>
 	</div>
 </template>
 
 <script>
 import { mapGetters } from "vuex";
+import TitleBar from "@/components/TitleBar.vue";
 
 export default {
 	name: "User",
@@ -29,6 +30,9 @@ export default {
 		} else {
 			console.log("no");
 		}
+	},
+	components: {
+		TitleBar,
 	},
 };
 </script>

@@ -19,6 +19,10 @@ module.exports = {
 				customWhite: "#ffffff",
 				// customWhite: "#eeeeee",
 			},
+			height: {
+				"vh-85": "85vh",
+				"vh-15": "15vh",
+			},
 		},
 	},
 	variants: {
