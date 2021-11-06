@@ -48,9 +48,9 @@ export default {
 	name: "Login",
 	data: () => ({
 		signup: false,
-		username: "",
-		fullname: "",
-		password: "",
+		username: undefined,
+		fullname: undefined,
+		password: undefined,
 	}),
 	methods: {
 		...mapMutations(["setUser", "setToken"]),

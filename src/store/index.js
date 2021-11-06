@@ -5,8 +5,8 @@ Vue.use(Vuex);
 
 export default new Vuex.Store({
 	state: {
-		darkMode: localStorage.getItem("theme"),
 		isCollapse: false,
+		darkMode: localStorage.getItem("theme"),
 		user: localStorage.getItem("user"),
 		token: localStorage.getItem("token"),
 	},
