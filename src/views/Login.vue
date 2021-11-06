@@ -6,7 +6,7 @@
 				@click="changeMode"
 				class="font-Poppins-Light border-2 border-gray-400 rounded-full px-6 py-2 self-end"
 			>
-				{{ signup ? "Login" : "Sign Up" }}
+				{{ isSignup ? "Login" : "Sign Up" }}
 			</button>
 			<input
 				v-model="username"
@@ -21,7 +21,7 @@
 				type="text"
 				name="fullname"
 				placeholder="Fullname"
-				v-if="signup"
+				v-if="isSignup"
 			/>
 			<input
 				v-model="password"
@@ -34,43 +34,41 @@
 				@click="submit"
 				class="font-Poppins-Medium text-xl bg-black text-customWhite dark:bg-customWhite dark:text-black rounded-full px-16 py-3 mt-12 transition duration-500"
 			>
-				{{ signup ? "Sign Up" : "Login" }}
+				{{ isSignup ? "Sign Up" : "Login" }}
 			</button>
 		</div>
 	</div>
 </template>
 
 <script>
-import axios from "axios";
-import { mapMutations } from "vuex";
+import { mapActions } from "vuex";
 
 export default {
 	name: "Login",
 	data: () => ({
-		signup: false,
+		isSignup: false,
 		username: undefined,
 		fullname: undefined,
 		password: undefined,
 	}),
 	methods: {
-		...mapMutations(["setUser", "setToken"]),
+		...mapActions(["login", "signup"]),
 		changeMode() {
-			this.signup = !this.signup;
+			this.isSignup = !this.isSignup;
 		},
 		submit() {
-			const User = new FormData();
-			User.append("username", this.username);
-			User.append("password", this.password);
-
-			axios
-				.post("auth/login", User)
-				.then((response) => {
-					this.setToken(response.data.access_token);
-					this.setUser(this.username);
-				})
-				.catch(function(error) {
-					console.log(error);
+			if (this.isSignup) {
+				this.signup({
+					username: this.username,
+					fullname: this.fullname,
+					password: this.password,
 				});
+			} else {
+				this.login({
+					username: this.username,
+					password: this.password,
+				});
+			}
 		},
 	},
 };

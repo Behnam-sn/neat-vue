@@ -1,5 +1,6 @@
 import Vue from "vue";
 import Vuex from "vuex";
+import axios from "axios";
 
 Vue.use(Vuex);
 
@@ -46,6 +47,45 @@ export default new Vuex.Store({
 			state.token = undefined;
 		},
 	},
-	actions: {},
+	actions: {
+		login({ commit }, payload) {
+			const User = new FormData();
+			User.append("username", payload.username);
+			User.append("password", payload.password);
+
+			axios
+				.post("auth/login", User)
+				.then((response) => {
+					if (response.status == 200) {
+						commit("setUser", payload.username);
+						commit("setToken", response.data.access_token);
+					}
+				})
+				.catch((error) => {
+					console.log(error);
+				});
+		},
+		signup({ dispatch }, payload) {
+			const User = {
+				username: payload.username,
+				full_name: payload.fullname,
+				password: payload.password,
+			};
+
+			axios
+				.post("auth/signup", User)
+				.then((response) => {
+					if (response.status == 200) {
+						dispatch("login", {
+							username: payload.username,
+							password: payload.password,
+						});
+					}
+				})
+				.catch((error) => {
+					console.log(error);
+				});
+		},
+	},
 	modules: {},
 });
