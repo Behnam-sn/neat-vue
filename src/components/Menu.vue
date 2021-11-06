@@ -13,7 +13,9 @@
 			<router-link to="/public">
 				<HomeIcon class="h-10 my-4" />
 			</router-link>
-			<UserIcon class="h-10 my-4" />
+			<router-link :to="user ? `/u/${user}` : '/login'">
+				<UserIcon class="h-10 my-4" />
+			</router-link>
 			<InfoIcon class="h-10 my-4" />
 		</div>
 		<div class="flex flex-col items-center">
