@@ -9,7 +9,7 @@
 			<div
 				v-for="note in notes"
 				:key="note.id"
-				class="h-60 bg-gray-200 rounded-2xl overflow-hidden"
+				class="h-60 bg-gray-200 dark:bg-gray-700 rounded-2xl overflow-hidden transition duration-500"
 			>
 				<div class="overflow-hidden m-8">
 					<div class="font-Rubik-Medium text-2xl">
