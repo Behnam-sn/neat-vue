@@ -16,6 +16,9 @@
 			<router-link :to="user ? `/u/${user}` : '/login'">
 				<UserIcon class="h-10 my-4" />
 			</router-link>
+			<router-link to="/settings" v-if="user">
+				<CogIcon class="h-10 my-4" />
+			</router-link>
 			<InfoIcon class="h-10 my-4" />
 		</div>
 		<div class="flex flex-col items-center">
@@ -41,6 +44,7 @@ import { mapGetters, mapMutations } from "vuex";
 import PlusIcon from "@/assets/svg/PlusIcon.vue";
 import HomeIcon from "@/assets/svg/HomeIcon.vue";
 import UserIcon from "@/assets/svg/UserIcon.vue";
+import CogIcon from "@/assets/svg/CogIcon.vue";
 import InfoIcon from "@/assets/svg/InfoIcon.vue";
 import MoonIcon from "@/assets/svg/MoonIcon.vue";
 import SunIcon from "@/assets/svg/SunIcon.vue";
@@ -59,6 +63,7 @@ export default {
 		PlusIcon,
 		HomeIcon,
 		UserIcon,
+		CogIcon,
 		InfoIcon,
 		MoonIcon,
 		SunIcon,
