@@ -1,6 +1,7 @@
 import Vue from "vue";
 import Vuex from "vuex";
 import axios from "axios";
+import router from "../router";
 
 Vue.use(Vuex);
 
@@ -69,6 +70,7 @@ export default new Vuex.Store({
 					if (response.status == 200) {
 						commit("setUser", payload.username);
 						commit("setToken", response.data.access_token);
+						router.push(`/u/${payload.username}`);
 					}
 				})
 				.catch((error) => {

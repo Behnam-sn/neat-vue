@@ -7,7 +7,9 @@
 			<router-link to="/">
 				<h1 class="font-Poppins-Medium text-xl my-4">Neat</h1>
 			</router-link>
-			<PlusIcon class="h-10 my-4" />
+			<router-link :to="user ? '/addnote' : '/login'">
+				<PlusIcon class="h-11 my-4" />
+			</router-link>
 		</div>
 		<div class="flex flex-col items-center">
 			<router-link to="/public">
