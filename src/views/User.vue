@@ -1,5 +1,5 @@
 <template>
-	<div class="w-full">
+	<div>
 		<TitleBar :title="routeUsername + ' Notes'" />
 		<Notes :notesList="userNotes" />
 	</div>

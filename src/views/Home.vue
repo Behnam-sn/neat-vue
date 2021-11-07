@@ -1,5 +1,5 @@
 <template>
-	<div class="w-full">
+	<div>
 		<TitleBar title="Neat" class="hidden lg:flex" />
 		<div class="flex justify-center px-7 lg:px-16">
 			<div class="mt-36 lg:mt-60">

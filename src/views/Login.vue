@@ -1,5 +1,5 @@
 <template>
-	<div class="w-full flex flex-col items-center mt-32 mb-16">
+	<div class="flex flex-col items-center mt-32 mb-16">
 		<h1 class="hidden lg:block font-Poppins-Bold text-6xl mb-32">Neat</h1>
 		<div class="flex flex-col items-center">
 			<button

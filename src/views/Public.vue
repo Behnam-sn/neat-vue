@@ -1,5 +1,5 @@
 <template>
-	<div class="w-full">
+	<div>
 		<TitleBar title="Public Notes" />
 		<Notes :notesList="publicNotes" />
 	</div>

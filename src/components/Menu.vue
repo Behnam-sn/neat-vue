@@ -60,7 +60,6 @@ export default {
 	methods: {
 		...mapMutations(["changeTheme", "logout"]),
 	},
-
 	components: {
 		PlusIcon,
 		HomeIcon,

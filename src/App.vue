@@ -2,9 +2,11 @@
 	<div id="app" class="lg:flex">
 		<Navbar />
 		<Menu />
-		<transition name="component-fade" mode="out-in">
-			<router-view />
-		</transition>
+		<div class="w-full pt-16 lg:pt-0">
+			<transition name="component-fade" mode="out-in">
+				<router-view />
+			</transition>
+		</div>
 	</div>
 </template>
 

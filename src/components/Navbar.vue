@@ -1,21 +1,23 @@
 <template>
-	<div id="nav" class="px-6 pt-7 lg:hidden">
-		<div class="flex flex-row justify-between items-center pb-3">
+	<div
+		class="lg:hidden w-full fixed py-6 px-7 bg-customWhite dark:bg-black transition duration-500"
+	>
+		<div class="flex flex-row justify-between items-center">
 			<router-link to="/">
 				<h1 class="font-Poppins-Medium text-2xl">Neat</h1>
 			</router-link>
 			<div class="flex flex-row">
 				<button
-					class="transition duration-500 bg-black text-customWhite dark:bg-customWhite dark:text-black p-1 mr-5 rounded-md"
+					class="bg-black text-customWhite dark:bg-customWhite dark:text-black p-1 mr-5 rounded-md transition duration-500"
 					@click="changeTheme"
 				>
 					<transition name="fade" mode="out-in">
-						<SunIcon v-if="darkMode == 'dark'" />
-						<MoonIcon v-else />
+						<SunIcon class="h-7" v-if="darkMode == 'dark'" />
+						<MoonIcon class="h-7" v-else />
 					</transition>
 				</button>
 				<button @click="collapse">
-					<BarsIcon />
+					<BarsIcon class="h-7" />
 				</button>
 			</div>
 		</div>
