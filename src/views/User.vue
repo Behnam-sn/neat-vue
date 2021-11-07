@@ -1,38 +1,37 @@
 <template>
 	<div class="w-full">
-		<TitleBar :title="username + ' Notes'" />
-		<div>current user: {{ user }}</div>
+		<TitleBar :title="routeUsername + ' Notes'" />
+		<Notes :notesList="userNotes" />
 	</div>
 </template>
 
 <script>
-import { mapGetters } from "vuex";
+import { mapGetters, mapActions } from "vuex";
+
 import TitleBar from "@/components/TitleBar.vue";
+import Notes from "@/components/Notes.vue";
 
 export default {
 	name: "User",
+	mounted: function() {
+		if (this.routeUsername == this.currnetUser) {
+			this.fetchCurrentUserNotes();
+		} else {
+			this.fetchPublicNotesByAuthor(this.routeUsername);
+		}
+	},
 	computed: {
-		...mapGetters({ user: "getUser" }),
-		username() {
+		...mapGetters({ currnetUser: "getUser", userNotes: "getUserNotes" }),
+		routeUsername() {
 			return this.$route.params.username;
 		},
 	},
-	// mounted: function() {
-	// 	if (this.username == this.user) {
-	// 		console.log("yes");
-	// 	} else {
-	// 		console.log("no");
-	// 	}
-	// },
-	updated: function() {
-		if (this.username == this.user) {
-			console.log("yes");
-		} else {
-			console.log("no");
-		}
+	methods: {
+		...mapActions(["fetchCurrentUserNotes", "fetchPublicNotesByAuthor"]),
 	},
 	components: {
 		TitleBar,
+		Notes,
 	},
 };
 </script>
