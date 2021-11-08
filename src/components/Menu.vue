@@ -25,7 +25,7 @@
 		</div>
 		<div class="flex flex-col items-center">
 			<button
-				class="transition duration-500 bg-black text-customWhite dark:bg-customWhite dark:text-black my-4 rounded-md"
+				class="transition duration-500 bg-primary text-secondary dark:bg-secondary dark:text-primary my-4 rounded-md"
 				@click="changeTheme"
 			>
 				<transition name="fade" mode="out-in">

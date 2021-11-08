@@ -17,7 +17,7 @@
 			placeholder="Contect"
 		></textarea>
 		<button
-			class="absolute bottom-16 right-16 bg-customWhite dark:bg-black rounded-full p-7 transition duration-500"
+			class="absolute bottom-16 right-16 bg-secondary dark:bg-primary rounded-full p-7 transition duration-500"
 		>
 			<SendIcon class="h-9" />
 		</button>

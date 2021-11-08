@@ -44,5 +44,5 @@ svg {
 }
 
 body {
-	@apply bg-customWhite text-black dark:bg-black dark:text-customWhite transition duration-500;
+	@apply bg-secondary text-primary dark:bg-primary dark:text-secondary transition duration-500;
 }

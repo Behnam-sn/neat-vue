@@ -5,6 +5,11 @@ module.exports = {
 	darkMode: "class",
 	theme: {
 		extend: {
+			colors: {
+				primary: "#000000",
+				secondary: "#ffffff",
+				// secondary: "#eeeeee",
+			},
 			fontFamily: {
 				"Rubik-bold": ["Rubik-bold", "sans-serif"],
 				"Rubik-Light": ["Rubik-Light", "sans-serif"],
@@ -13,11 +18,6 @@ module.exports = {
 				"Poppins-Light": ["Poppins-Light", "sans-serif"],
 				"Poppins-Medium": ["Poppins-Medium", "sans-serif"],
 				"Poppins-Bold": ["Poppins-Bold", "sans-serif"],
-			},
-			colors: {
-				black: "#000000",
-				customWhite: "#ffffff",
-				// customWhite: "#eeeeee",
 			},
 			height: {
 				"vh-85": "85vh",

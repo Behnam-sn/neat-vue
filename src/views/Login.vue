@@ -32,7 +32,7 @@
 			/>
 			<button
 				@click="submit"
-				class="font-Poppins-Medium text-xl bg-black text-customWhite dark:bg-customWhite dark:text-black rounded-full px-16 py-3 mt-12 focus:outline-none focus:ring-2 focus:ring-gray-400 dark:focus:ring-gray-600 transition duration-500"
+				class="font-Poppins-Medium text-xl bg-primary text-secondary dark:bg-secondary dark:text-primary rounded-full px-16 py-3 mt-12 focus:outline-none focus:ring-2 focus:ring-gray-400 dark:focus:ring-gray-600 transition duration-500"
 			>
 				{{ isSignup ? "Sign Up" : "Login" }}
 			</button>
