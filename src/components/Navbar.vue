@@ -28,7 +28,7 @@
 <script>
 import { mapGetters, mapMutations } from "vuex";
 
-import Collapsible from "@/components/Navbar/Collapsible.vue";
+import Collapsible from "@/components/NavbarCollapsible.vue";
 
 import BarsIcon from "@/assets/svg/BarsIcon.vue";
 import MoonIcon from "@/assets/svg/MoonIcon.vue";
