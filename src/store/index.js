@@ -59,6 +59,9 @@ export default new Vuex.Store({
 		},
 	},
 	actions: {
+		goBack() {
+			window.history.length > 1 ? router.go(-1) : router.push("/");
+		},
 		login({ commit }, payload) {
 			const User = new FormData();
 			User.append("username", payload.username);
