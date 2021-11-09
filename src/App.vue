@@ -34,7 +34,9 @@ export default {
 
 .route-enter-active,
 .route-leave-active {
-	transition: opacity 0.4s ease;
+	transition-property: opacity;
+	transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
+	transition-duration: 300ms;
 }
 
 .route-enter-from,
