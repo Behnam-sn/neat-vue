@@ -44,5 +44,5 @@ svg {
 }
 
 body {
-	@apply bg-secondary text-primary dark:bg-primary dark:text-secondary transition duration-500;
+	@apply relative bg-secondary text-primary dark:bg-primary dark:text-secondary transition duration-500;
 }

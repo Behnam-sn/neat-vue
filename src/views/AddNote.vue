@@ -1,12 +1,12 @@
 <template>
 	<div
 		class="
-			lg:h-full
-			relative
+			h-screen
 			bg-gray-200
 			dark:bg-gray-700
 			transition
 			duration-500
+			overflow-y-scroll
 		"
 	>
 		<button
@@ -40,9 +40,10 @@
 			placeholder="Title"
 		/>
 		<textarea
+			id="txt"
+			@input="txtResize"
 			v-model="content"
 			class="
-				asas
 				font-Poppins-Light
 				text-xl
 				w-full
@@ -50,7 +51,8 @@
 				px-16
 				py-5
 				bg-transparent
-				lg:resize-none
+				resize-none
+				overflow-hidden
 				leading-9
 				focus:outline-none
 			"
@@ -95,6 +97,12 @@ export default {
 	},
 	methods: {
 		...mapActions(["goBack"]),
+		txtResize() {
+			const textarea = document.getElementById("txt");
+
+			textarea.style.height = "auto";
+			textarea.style.height = textarea.scrollHeight + "px";
+		},
 	},
 };
 </script>
