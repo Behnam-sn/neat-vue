@@ -13,7 +13,9 @@
 		<router-link to="/settings" v-if="user">
 			<CogIcon class="h-8" />
 		</router-link>
-		<InfoIcon class="h-8" />
+		<router-link to="/about">
+			<InfoIcon class="h-8" />
+		</router-link>
 		<button v-if="user" @click="logout">
 			<LogoutIcon class="h-8" />
 		</button>

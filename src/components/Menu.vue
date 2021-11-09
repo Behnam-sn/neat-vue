@@ -32,7 +32,9 @@
 			<router-link to="/settings" v-if="user">
 				<CogIcon class="h-10 my-4" />
 			</router-link>
-			<InfoIcon class="h-10 my-4" />
+			<router-link to="/about">
+				<InfoIcon class="h-10 my-4" />
+			</router-link>
 		</div>
 		<div class="flex flex-col items-center">
 			<button
