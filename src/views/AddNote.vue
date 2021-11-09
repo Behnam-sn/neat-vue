@@ -25,7 +25,7 @@
 			<BackArrowIcon class="h-8" />
 		</button>
 		<input
-			v-model="title"
+			v-model="note.title"
 			class="
 				font-Rubik-Medium
 				text-2xl
@@ -42,7 +42,7 @@
 		<textarea
 			id="txt"
 			@input="txtResize"
-			v-model="content"
+			v-model="note.content"
 			class="
 				font-Poppins-Light
 				text-xl
@@ -60,6 +60,7 @@
 			placeholder="Contect"
 		></textarea>
 		<button
+			@click="createNote(note)"
 			class="
 				hidden
 				lg:block
@@ -88,15 +89,18 @@ import SendIcon from "../assets/svg/SendIcon.vue";
 export default {
 	name: "AddNote",
 	data: () => ({
-		title: undefined,
-		content: undefined,
+		note: {
+			title: undefined,
+			content: undefined,
+			public: false,
+		},
 	}),
 	components: {
 		BackArrowIcon,
 		SendIcon,
 	},
 	methods: {
-		...mapActions(["goBack"]),
+		...mapActions(["goBack", "createNote"]),
 		txtResize() {
 			const textarea = document.getElementById("txt");
 

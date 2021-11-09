@@ -26,7 +26,7 @@
 			>
 				<div class="overflow-hidden m-8">
 					<div class="font-Rubik-Medium text-2xl">
-						{{ note.author }}
+						{{ note.title }}
 					</div>
 					<p class="font-Poppins-Light text-lg break-words">
 						{{ note.content }}
@@ -41,6 +41,7 @@
 						non proident, sunt in culpa qui officia deserunt mollit
 						anim id est laborum. -->
 					</p>
+					<div>{{ note.author }}</div>
 				</div>
 			</div>
 		</div>

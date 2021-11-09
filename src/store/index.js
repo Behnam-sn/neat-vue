@@ -134,6 +134,28 @@ export default createStore({
 					console.log(error);
 				});
 		},
+		createNote({ state }, payload) {
+			const Note = {
+				title: payload.title,
+				content: payload.content,
+				public: payload.public,
+			};
+
+			axios
+				.post("notes/", Note, {
+					headers: {
+						Authorization: "Bearer " + state.token,
+					},
+				})
+				.then((response) => {
+					if (response.status == 200) {
+						router.push(`/u/${state.user}`);
+					}
+				})
+				.catch((error) => {
+					console.log(error);
+				});
+		},
 	},
 	modules: {},
 });
