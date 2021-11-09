@@ -8,12 +8,12 @@
 <script>
 import { mapGetters, mapActions } from "vuex";
 
-import TitleBar from "@/components/TitleBar.vue";
-import Notes from "@/components/Notes.vue";
+import TitleBar from "../components/TitleBar.vue";
+import Notes from "../components/Notes.vue";
 
 export default {
 	name: "Public",
-	mounted: function() {
+	mounted: function () {
 		this.fetchPublicNotes();
 	},
 	computed: {

@@ -7,7 +7,8 @@
 
 <script>
 import { mapGetters } from "vuex";
-import LoginButton from "@/components/LoginButton.vue";
+
+import LoginButton from "./LoginButton.vue";
 
 export default {
 	name: "TitleBar",

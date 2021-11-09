@@ -1,11 +1,9 @@
-import Vue from "vue";
-import Vuex from "vuex";
+import { createStore } from "vuex";
 import axios from "axios";
+
 import router from "../router";
 
-Vue.use(Vuex);
-
-export default new Vuex.Store({
+export default createStore({
 	state: {
 		isCollapse: false,
 		darkMode: localStorage.getItem("theme"),
@@ -62,7 +60,7 @@ export default new Vuex.Store({
 		goBack() {
 			window.history.length > 1 ? router.go(-1) : router.push("/");
 		},
-		login({ commit }, payload) {
+		login({ commit, dispatch }, payload) {
 			const User = new FormData();
 			User.append("username", payload.username);
 			User.append("password", payload.password);
@@ -73,7 +71,8 @@ export default new Vuex.Store({
 					if (response.status == 200) {
 						commit("setUser", payload.username);
 						commit("setToken", response.data.access_token);
-						router.push(`/u/${payload.username}`);
+						dispatch("goBack");
+						// router.push(`/u/${payload.username}`);
 					}
 				})
 				.catch((error) => {

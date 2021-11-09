@@ -1,7 +1,18 @@
 <template>
 	<div
 		id="menu"
-		class="h-screen hidden lg:flex flex-col items-center justify-between border-r-2 border-gray-300 dark:border-gray-500 py-10 px-6"
+		class="
+			h-screen
+			hidden
+			lg:flex
+			flex-col
+			items-center
+			justify-between
+			border-r-2 border-gray-300
+			dark:border-gray-500
+			py-10
+			px-6
+		"
 	>
 		<div class="flex flex-col items-center">
 			<router-link to="/">
@@ -25,7 +36,15 @@
 		</div>
 		<div class="flex flex-col items-center">
 			<button
-				class="transition duration-500 bg-primary text-secondary dark:bg-secondary dark:text-primary my-4 rounded-md"
+				class="
+					transition
+					duration-500
+					bg-primary
+					text-secondary
+					dark:bg-secondary dark:text-primary
+					my-4
+					rounded-md
+				"
 				@click="changeTheme"
 			>
 				<transition name="fade" mode="out-in">
@@ -43,14 +62,14 @@
 <script>
 import { mapGetters, mapMutations } from "vuex";
 
-import PlusIcon from "@/assets/svg/PlusIcon.vue";
-import HomeIcon from "@/assets/svg/HomeIcon.vue";
-import UserIcon from "@/assets/svg/UserIcon.vue";
-import CogIcon from "@/assets/svg/CogIcon.vue";
-import InfoIcon from "@/assets/svg/InfoIcon.vue";
-import MoonIcon from "@/assets/svg/MoonIcon.vue";
-import SunIcon from "@/assets/svg/SunIcon.vue";
-import LogoutIcon from "@/assets/svg/LogoutIcon.vue";
+import PlusIcon from "../assets/svg/PlusIcon.vue";
+import HomeIcon from "../assets/svg/HomeIcon.vue";
+import UserIcon from "../assets/svg/UserIcon.vue";
+import CogIcon from "../assets/svg/CogIcon.vue";
+import InfoIcon from "../assets/svg/InfoIcon.vue";
+import MoonIcon from "../assets/svg/MoonIcon.vue";
+import SunIcon from "../assets/svg/SunIcon.vue";
+import LogoutIcon from "../assets/svg/LogoutIcon.vue";
 
 export default {
 	name: "Menu",

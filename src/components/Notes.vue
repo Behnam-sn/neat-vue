@@ -2,12 +2,27 @@
 	<div class="lg:h-vh-85 lg:overflow-y-scroll px-7 lg:px-16">
 		<SearchBar />
 		<div
-			class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-8 pb-64"
+			class="
+				grid grid-cols-1
+				sm:grid-cols-2
+				lg:grid-cols-3
+				xl:grid-cols-4
+				gap-8
+				pb-64
+			"
 		>
 			<div
 				v-for="note in notesList"
 				:key="note.id"
-				class="h-64 bg-gray-200 dark:bg-gray-700 rounded-2xl overflow-hidden transition duration-500"
+				class="
+					h-64
+					bg-gray-200
+					dark:bg-gray-700
+					rounded-2xl
+					overflow-hidden
+					transition
+					duration-500
+				"
 			>
 				<div class="overflow-hidden m-8">
 					<div class="font-Rubik-Medium text-2xl">
@@ -33,7 +48,7 @@
 </template>
 
 <script>
-import SearchBar from "@/components/SearchBar.vue";
+import SearchBar from "./SearchBar.vue";
 
 export default {
 	name: "Notes",

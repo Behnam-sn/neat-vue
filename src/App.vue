@@ -3,16 +3,18 @@
 		<Navbar />
 		<Menu />
 		<div class="w-full pt-16 lg:pt-0">
-			<transition name="component-fade" mode="out-in">
-				<router-view />
-			</transition>
+			<router-view v-slot="{ Component }">
+				<transition name="route" mode="out-in">
+					<component :is="Component" />
+				</transition>
+			</router-view>
 		</div>
 	</div>
 </template>
 
 <script>
-import Navbar from "@/components/Navbar.vue";
-import Menu from "@/components/Menu.vue";
+import Navbar from "./components/Navbar.vue";
+import Menu from "./components/Menu.vue";
 
 export default {
 	name: "Home",
@@ -30,12 +32,13 @@ export default {
 	-moz-osx-font-smoothing: grayscale;
 }
 
-.component-fade-enter-active,
-.component-fade-leave-active {
-	transition: opacity 0.3s ease;
+.route-enter-active,
+.route-leave-active {
+	transition: opacity 0.4s ease;
 }
-.component-fade-enter,
-.component-fade-leave-to {
+
+.route-enter-from,
+.route-leave-to {
 	opacity: 0;
 }
 

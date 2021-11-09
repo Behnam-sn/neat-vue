@@ -1,6 +1,17 @@
 <template>
 	<div
-		class="lg:hidden w-full fixed py-6 px-7 bg-secondary dark:bg-primary transition duration-500"
+		class="
+			z-10
+			lg:hidden
+			w-full
+			fixed
+			py-6
+			px-7
+			bg-secondary
+			dark:bg-primary
+			transition
+			duration-500
+		"
 	>
 		<div class="flex flex-row justify-between items-center">
 			<router-link to="/">
@@ -8,7 +19,16 @@
 			</router-link>
 			<div class="flex flex-row">
 				<button
-					class="bg-primary text-secondary dark:bg-secondary dark:text-primary p-1 mr-5 rounded-md transition duration-500"
+					class="
+						bg-primary
+						text-secondary
+						dark:bg-secondary dark:text-primary
+						p-1
+						mr-5
+						rounded-md
+						transition
+						duration-500
+					"
 					@click="changeTheme"
 				>
 					<transition name="fade" mode="out-in">
@@ -28,15 +48,15 @@
 <script>
 import { mapGetters, mapMutations } from "vuex";
 
-import Collapsible from "@/components/NavbarCollapsible.vue";
+import Collapsible from "./NavbarCollapsible.vue";
 
-import BarsIcon from "@/assets/svg/BarsIcon.vue";
-import MoonIcon from "@/assets/svg/MoonIcon.vue";
-import SunIcon from "@/assets/svg/SunIcon.vue";
+import BarsIcon from "../assets/svg/BarsIcon.vue";
+import MoonIcon from "../assets/svg/MoonIcon.vue";
+import SunIcon from "../assets/svg/SunIcon.vue";
 
 export default {
 	name: "Navbar",
-	created: function() {
+	created: function () {
 		if (
 			localStorage.theme === "dark" ||
 			(!("theme" in localStorage) &&

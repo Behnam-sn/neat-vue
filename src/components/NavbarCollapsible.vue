@@ -23,11 +23,11 @@
 <script>
 import { mapGetters, mapMutations } from "vuex";
 
-import HomeIcon from "@/assets/svg/HomeIcon.vue";
-import UserIcon from "@/assets/svg/UserIcon.vue";
-import InfoIcon from "@/assets/svg/InfoIcon.vue";
-import CogIcon from "@/assets/svg/CogIcon.vue";
-import LogoutIcon from "@/assets/svg/LogoutIcon.vue";
+import HomeIcon from "../assets/svg/HomeIcon.vue";
+import UserIcon from "../assets/svg/UserIcon.vue";
+import InfoIcon from "../assets/svg/InfoIcon.vue";
+import CogIcon from "../assets/svg/CogIcon.vue";
+import LogoutIcon from "../assets/svg/LogoutIcon.vue";
 
 export default {
 	name: "Collapsible",
