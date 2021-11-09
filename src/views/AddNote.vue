@@ -9,29 +9,75 @@
 			overflow-y-scroll
 		"
 	>
-		<button
-			@click="goBack"
-			class="
-				p-3
-				m-7
-				mb-2
-				rounded-full
-				hover:bg-gray-300
-				dark:hover:bg-gray-500
-				transition
-				duration-500
-			"
+		<div
+			class="flex justify-between items-center mx-4 lg:mx-7 py-3 lg:my-5"
 		>
-			<BackArrowIcon class="h-8" />
-		</button>
+			<button
+				@click="goBack"
+				class="
+					p-3
+					rounded-full
+					hover:bg-gray-300
+					dark:hover:bg-gray-500
+					transition
+					duration-500
+				"
+			>
+				<BackArrowIcon class="h-8" />
+			</button>
+			<div class="flex items-center mr-3">
+				<div
+					class="duration-300"
+					:class="{ 'text-gray-400': note.public }"
+				>
+					Private
+				</div>
+				<button
+					class="
+						w-14
+						h-8
+						flex
+						items-center
+						bg-gray-300
+						rounded-full
+						p-1
+						mx-4
+						duration-300
+						cursor-pointer
+					"
+					:class="{ 'bg-green-500': note.public }"
+					@click="togglePublic"
+				>
+					<div
+						class="
+							bg-white
+							w-6
+							h-6
+							rounded-full
+							shadow-md
+							transform
+							duration-300
+						"
+						:class="{ 'translate-x-6': note.public }"
+					></div>
+				</button>
+				<div
+					class="duration-300"
+					:class="{ 'text-gray-400': !note.public }"
+				>
+					Public
+				</div>
+			</div>
+		</div>
 		<input
 			v-model="note.title"
 			class="
 				font-Rubik-Medium
 				text-2xl
 				w-full
-				px-16
-				py-5
+				px-8
+				py-3
+				lg:px-20 lg:py-5
 				bg-transparent
 				focus:outline-none
 			"
@@ -47,9 +93,9 @@
 				font-Poppins-Light
 				text-xl
 				w-full
-				lg:h-4/5
-				px-16
-				py-5
+				px-8
+				py-3
+				lg:px-20 lg:py-5
 				bg-transparent
 				resize-none
 				overflow-hidden
@@ -106,6 +152,9 @@ export default {
 
 			textarea.style.height = "auto";
 			textarea.style.height = textarea.scrollHeight + "px";
+		},
+		togglePublic() {
+			this.note.public = !this.note.public;
 		},
 	},
 };

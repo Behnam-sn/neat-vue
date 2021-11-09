@@ -2,7 +2,7 @@
 	<div id="app" class="lg:flex">
 		<Navbar />
 		<Menu />
-		<div class="w-full pt-16 lg:pt-0">
+		<div class="w-full pt-24 lg:pt-0">
 			<router-view v-slot="{ Component }">
 				<transition name="route" mode="out-in">
 					<component :is="Component" />
