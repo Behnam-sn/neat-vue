@@ -48,6 +48,8 @@ export default createStore({
 			localStorage.removeItem("token");
 			state.user = undefined;
 			state.token = undefined;
+
+			router.push("/");
 		},
 		setPublicNotes(state, payload) {
 			state.publicNotes = payload;
