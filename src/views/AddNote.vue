@@ -27,7 +27,7 @@
 			</button>
 			<div class="flex items-center mr-3">
 				<div
-					class="duration-300"
+					class="font-Poppins-Bold duration-300"
 					:class="{ 'text-gray-400': note.public }"
 				>
 					Private
@@ -62,7 +62,7 @@
 					></div>
 				</button>
 				<div
-					class="duration-300"
+					class="font-Poppins-Bold duration-300"
 					:class="{ 'text-gray-400': !note.public }"
 				>
 					Public
@@ -106,7 +106,7 @@
 			placeholder="Contect"
 		></textarea>
 		<button
-			@click="createNote(note)"
+			@click="sendNote"
 			class="
 				hidden
 				lg:block
@@ -121,7 +121,10 @@
 				duration-500
 			"
 		>
-			<SendIcon class="h-9" />
+			<transition name="send" mode="out-in">
+				<CheckIcon class="h-9" v-if="sent" />
+				<SendIcon class="h-9" v-else />
+			</transition>
 		</button>
 	</div>
 </template>
@@ -131,6 +134,7 @@ import { mapActions } from "vuex";
 
 import BackArrowIcon from "../assets/svg/BackArrowIcon.vue";
 import SendIcon from "../assets/svg/SendIcon.vue";
+import CheckIcon from "../assets/svg/CheckIcon.vue";
 
 export default {
 	name: "AddNote",
@@ -140,13 +144,19 @@ export default {
 			content: undefined,
 			public: false,
 		},
+		sent: false,
 	}),
 	components: {
 		BackArrowIcon,
 		SendIcon,
+		CheckIcon,
 	},
 	methods: {
 		...mapActions(["goBack", "createNote"]),
+		sendNote() {
+			this.sent = true;
+			this.createNote(this.note);
+		},
 		txtResize() {
 			const textarea = document.getElementById("txt");
 
@@ -159,3 +169,17 @@ export default {
 	},
 };
 </script>
+
+<style scoped>
+.send-enter-active,
+.send-leave-active {
+	transition-property: opacity;
+	transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
+	transition-duration: 300ms;
+}
+
+.send-enter-from,
+.send-leave-to {
+	opacity: 0;
+}
+</style>
