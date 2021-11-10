@@ -13,11 +13,24 @@
 </template>
 
 <script>
+import { mapMutations } from "vuex";
+
 import Navbar from "./components/Navbar.vue";
 import Menu from "./components/Menu.vue";
 
 export default {
 	name: "Home",
+	created: function () {
+		if (localStorage.theme == undefined) {
+			this.initTheme();
+		}
+		if (localStorage.theme == "dark") {
+			document.documentElement.classList.add("dark");
+		}
+	},
+	methods: {
+		...mapMutations(["initTheme"]),
+	},
 	components: {
 		Navbar,
 		Menu,

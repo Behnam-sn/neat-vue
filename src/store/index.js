@@ -6,14 +6,14 @@ import router from "../router";
 export default createStore({
 	state: {
 		isCollapse: false,
-		darkMode: localStorage.getItem("theme"),
-		user: localStorage.getItem("user"),
-		token: localStorage.getItem("token"),
+		theme: localStorage.theme,
+		user: localStorage.user,
+		token: localStorage.token,
 		publicNotes: undefined,
 		userNotes: undefined,
 	},
 	getters: {
-		getTheme: (state) => state.darkMode,
+		getTheme: (state) => state.theme,
 		getCollapseStatus: (state) => state.isCollapse,
 		getUser: (state) => state.user,
 		getToken: (state) => state.token,
@@ -21,27 +21,31 @@ export default createStore({
 		getUserNotes: (state) => state.userNotes,
 	},
 	mutations: {
+		initTheme(state) {
+			localStorage.theme = "light";
+			state.theme = "light";
+		},
 		changeTheme(state) {
-			if (localStorage.theme == "light") {
-				localStorage.setItem("theme", "dark");
-				state.darkMode = "dark";
+			if (state.theme == "light") {
+				localStorage.theme = "dark";
+				state.theme = "dark";
 				document.documentElement.classList.add("dark");
 			} else {
-				localStorage.setItem("theme", "light");
-				state.darkMode = "light";
+				localStorage.theme = "light";
+				state.theme = "light";
 				document.documentElement.classList.remove("dark");
 			}
 		},
 		collapse(state) {
 			state.isCollapse = !state.isCollapse;
 		},
-		setUser(state, user) {
-			state.user = user;
-			localStorage.setItem("user", user);
+		setUser(state, payload) {
+			state.user = payload;
+			localStorage.user = payload;
 		},
-		setToken(state, token) {
-			state.token = token;
-			localStorage.setItem("token", token);
+		setToken(state, payload) {
+			state.token = payload;
+			localStorage.token = payload;
 		},
 		logout(state) {
 			localStorage.removeItem("user");

@@ -50,7 +50,7 @@
 				@click="changeTheme"
 			>
 				<transition name="fade" mode="out-in">
-					<SunIcon class="h-11 p-2" v-if="darkMode == 'dark'" />
+					<SunIcon class="h-11 p-2" v-if="theme == 'dark'" />
 					<MoonIcon class="h-11 p-2" v-else />
 				</transition>
 			</button>
@@ -76,7 +76,7 @@ import LogoutIcon from "../assets/svg/LogoutIcon.vue";
 export default {
 	name: "Menu",
 	computed: {
-		...mapGetters({ darkMode: "getTheme", user: "getUser" }),
+		...mapGetters({ theme: "getTheme", user: "getUser" }),
 	},
 	methods: {
 		...mapMutations(["changeTheme", "logout"]),

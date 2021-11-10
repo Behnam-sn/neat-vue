@@ -32,7 +32,7 @@
 					@click="changeTheme"
 				>
 					<transition name="fade" mode="out-in">
-						<SunIcon class="h-7" v-if="darkMode == 'dark'" />
+						<SunIcon class="h-7" v-if="theme == 'dark'" />
 						<MoonIcon class="h-7" v-else />
 					</transition>
 				</button>
@@ -56,22 +56,11 @@ import SunIcon from "../assets/svg/SunIcon.vue";
 
 export default {
 	name: "Navbar",
-	created: function () {
-		if (
-			localStorage.theme === "dark" ||
-			(!("theme" in localStorage) &&
-				window.matchMedia("(prefers-color-scheme: dark)").matches)
-		) {
-			document.documentElement.classList.add("dark");
-		} else {
-			document.documentElement.classList.remove("dark");
-		}
-	},
 	methods: {
 		...mapMutations(["changeTheme", "collapse"]),
 	},
 	computed: {
-		...mapGetters({ darkMode: "getTheme" }),
+		...mapGetters({ theme: "getTheme" }),
 	},
 	components: {
 		Collapsible,
@@ -81,18 +70,3 @@ export default {
 	},
 };
 </script>
-
-<style lang="scss" scoped>
-// #nav {
-// 	padding: 30px;
-
-// 	a {
-// 		font-weight: bold;
-// 		color: #2c3e50;
-
-// 		&.router-link-exact-active {
-// 			color: #42b983;
-// 		}
-// 	}
-// }
-</style>
