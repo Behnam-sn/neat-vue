@@ -71,6 +71,22 @@ export default createStore({
 		goBack() {
 			window.history.length > 1 ? router.go(-1) : router.push("/");
 		},
+		testToken({ state, commit }) {
+			if (state.token) {
+				axios
+					.post("auth/test-token", null, {
+						headers: {
+							Authorization: "Bearer " + state.token,
+						},
+					})
+					.then((response) => {
+						response.status;
+					})
+					.catch(() => {
+						commit("logout");
+					});
+			}
+		},
 		login({ commit, dispatch }, payload) {
 			const User = new FormData();
 			User.append("username", payload.username);

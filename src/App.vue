@@ -13,7 +13,7 @@
 </template>
 
 <script>
-import { mapMutations } from "vuex";
+import { mapMutations, mapActions } from "vuex";
 
 import Navbar from "./components/Navbar.vue";
 import Menu from "./components/Menu.vue";
@@ -22,9 +22,11 @@ export default {
 	name: "Home",
 	created: function () {
 		this.initTheme();
+		this.testToken();
 	},
 	methods: {
 		...mapMutations(["initTheme"]),
+		...mapActions(["testToken"]),
 	},
 	components: {
 		Navbar,
