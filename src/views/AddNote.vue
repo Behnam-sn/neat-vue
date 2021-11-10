@@ -154,8 +154,10 @@ export default {
 	methods: {
 		...mapActions(["goBack", "createNote"]),
 		sendNote() {
-			this.sent = true;
-			this.createNote(this.note);
+			if (this.note.content) {
+				this.sent = true;
+				this.createNote(this.note);
+			}
 		},
 		txtResize() {
 			const textarea = document.getElementById("txt");

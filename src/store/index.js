@@ -22,8 +22,13 @@ export default createStore({
 	},
 	mutations: {
 		initTheme(state) {
-			localStorage.theme = "light";
-			state.theme = "light";
+			if (localStorage.theme == undefined) {
+				localStorage.theme = "light";
+				state.theme = "light";
+			}
+			if (localStorage.theme == "dark") {
+				document.documentElement.classList.add("dark");
+			}
 		},
 		changeTheme(state) {
 			if (state.theme == "light") {

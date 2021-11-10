@@ -21,12 +21,7 @@ import Menu from "./components/Menu.vue";
 export default {
 	name: "Home",
 	created: function () {
-		if (localStorage.theme == undefined) {
-			this.initTheme();
-		}
-		if (localStorage.theme == "dark") {
-			document.documentElement.classList.add("dark");
-		}
+		this.initTheme();
 	},
 	methods: {
 		...mapMutations(["initTheme"]),
