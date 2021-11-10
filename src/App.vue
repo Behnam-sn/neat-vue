@@ -59,7 +59,9 @@ export default {
 
 .fade-enter-active,
 .fade-leave-active {
-	transition: opacity 0.2s ease;
+	transition-property: opacity;
+	transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
+	transition-duration: 200ms;
 }
 .fade-enter,
 .fade-leave-to {
