@@ -40,7 +40,7 @@
 }
 
 svg {
-	@apply h-6 w-auto;
+	@apply w-auto;
 }
 
 body {

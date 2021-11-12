@@ -8,13 +8,12 @@
 			dark:bg-gray-500 dark:hover:bg-gray-600
 			rounded-lg
 			px-6
-			mb-8
-			lg:mt-8 lg:mb-12
+			my-7
 			transition
 			duration-500
 		"
 	>
-		<SeachIcon class="text-gray-300" />
+		<SeachIcon class="h-6 text-gray-300" />
 		<input
 			v-model="search"
 			class="

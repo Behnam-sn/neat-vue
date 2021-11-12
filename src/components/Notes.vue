@@ -11,39 +11,43 @@
 				pb-64
 			"
 		>
-			<div
-				v-for="note in notesList"
-				:key="note.id"
-				class="
-					h-64
-					bg-gray-200
-					dark:bg-gray-700
-					rounded-2xl
-					overflow-hidden
-					transition
-					duration-500
-				"
-			>
-				<div class="overflow-hidden m-8">
-					<div class="font-Rubik-Medium text-2xl">
-						{{ note.title }}
+			<template v-for="note in notesList" :key="note.id">
+				<router-link :to="'/note/' + note.id">
+					<div
+						class="
+							h-60
+							lg:h-56
+							2xl:h-64
+							bg-gray-200
+							dark:bg-gray-700
+							rounded-2xl
+							overflow-hidden
+							transition
+							duration-500
+						"
+					>
+						<div class="overflow-hidden m-8">
+							<div class="font-Rubik-Medium text-xl">
+								{{ note.title }}
+							</div>
+							<p class="font-Poppins-Light break-words">
+								{{ note.content }}
+								<!-- Lorem ipsum dolor sit amet, consectetur
+								adipiscing elit, sed do eiusmod tempor
+								incididunt ut labore et dolore magna aliqua. Ut
+								enim ad minim veniam, quis nostrud exercitation
+								ullamco laboris nisi ut aliquip ex ea commodo
+								consequat. Duis aute irure dolor in
+								reprehenderit in voluptate velit esse cillum
+								dolore eu fugiat nulla pariatur. Excepteur sint
+								occaecat cupidatat non proident, sunt in culpa
+								qui officia deserunt mollit anim id est laborum. -->
+							</p>
+							<div>{{ note.author }}</div>
+						</div>
 					</div>
-					<p class="font-Poppins-Light text-lg break-words">
-						{{ note.content }}
-						<!-- {{ search }} -->
-						<!-- Lorem ipsum dolor sit amet, consectetur adipiscing elit,
-						sed do eiusmod tempor incididunt ut labore et dolore
-						magna aliqua. Ut enim ad minim veniam, quis nostrud
-						exercitation ullamco laboris nisi ut aliquip ex ea
-						commodo consequat. Duis aute irure dolor in
-						reprehenderit in voluptate velit esse cillum dolore eu
-						fugiat nulla pariatur. Excepteur sint occaecat cupidatat
-						non proident, sunt in culpa qui officia deserunt mollit
-						anim id est laborum. -->
-					</p>
-					<div>{{ note.author }}</div>
-				</div>
-			</div>
+				</router-link>
+			</template>
 		</div>
 	</div>
 </template>

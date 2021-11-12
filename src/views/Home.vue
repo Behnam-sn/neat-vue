@@ -8,9 +8,8 @@
 						transition
 						duration-500
 						font-Rubik-Light
-						text-3xl
-						lg:text-4xl
-						text-gray-500
+						text-3xl text-gray-500
+						2xl:text-4xl
 						dark:text-gray-400
 						lg:ml-2
 					"
@@ -22,9 +21,8 @@
 						transition
 						duration-500
 						font-Rubik-Medium
-						text-5xl
-						lg:text-6xl
-						text-gray-700
+						text-5xl text-gray-700
+						2xl:text-6xl
 						dark:text-gray-300
 						mt-6
 					"

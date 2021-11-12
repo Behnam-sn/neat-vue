@@ -24,16 +24,16 @@
 		</div>
 		<div class="flex flex-col items-center">
 			<router-link to="/public">
-				<HomeIcon class="h-10 my-4" />
+				<HomeIcon class="h-9 my-4" />
 			</router-link>
 			<router-link :to="user ? `/u/${user}` : '/login'">
-				<UserIcon class="h-10 my-4" />
+				<UserIcon class="h-9 my-4" />
 			</router-link>
 			<router-link to="/settings" v-if="user">
-				<CogIcon class="h-10 my-4" />
+				<CogIcon class="h-9 my-4" />
 			</router-link>
 			<router-link to="/about">
-				<InfoIcon class="h-10 my-4" />
+				<InfoIcon class="h-9 my-4" />
 			</router-link>
 		</div>
 		<div class="flex flex-col items-center">
@@ -55,7 +55,7 @@
 				</transition>
 			</button>
 			<button v-if="user" @click="logout">
-				<LogoutIcon class="h-10 my-4" />
+				<LogoutIcon class="h-9 my-4" />
 			</button>
 		</div>
 	</div>

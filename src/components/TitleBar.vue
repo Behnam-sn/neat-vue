@@ -1,6 +1,6 @@
 <template>
-	<div class="h-vh-15 flex justify-between items-center px-7 lg:px-16">
-		<h1 class="font-Poppins-Bold text-5xl lg:text-6xl capitalize">
+	<div class="lg:h-vh-15 flex justify-between items-center px-7 lg:px-16">
+		<h1 class="font-Poppins-Bold text-5xl 2xl:text-6xl capitalize">
 			{{ title }}
 		</h1>
 		<LoginButton class="hidden lg:block" v-if="!user" />
