@@ -9,6 +9,7 @@
 				</transition>
 			</router-view>
 		</div>
+		<FooterBar />
 	</div>
 </template>
 
@@ -17,6 +18,7 @@ import { mapMutations, mapActions } from "vuex";
 
 import Navbar from "./components/Navbar.vue";
 import Menu from "./components/Menu.vue";
+import FooterBar from "./components/FooterBar.vue";
 
 export default {
 	name: "Home",
@@ -31,6 +33,7 @@ export default {
 	components: {
 		Navbar,
 		Menu,
+		FooterBar,
 	},
 };
 </script>
