@@ -223,6 +223,28 @@ export default createStore({
 					});
 			}
 		},
+		updateNote({ state }, payload) {
+			const Note = {
+				title: payload.title,
+				content: payload.content,
+				public: payload.public,
+			};
+
+			axios
+				.put(`notes/?id=${payload.id}`, Note, {
+					headers: {
+						Authorization: "Bearer " + state.token,
+					},
+				})
+				.then((response) => {
+					if (response.status == 200) {
+						router.push(`/user/${state.user}`);
+					}
+				})
+				.catch((error) => {
+					console.log(error);
+				});
+		},
 	},
 	modules: {},
 });

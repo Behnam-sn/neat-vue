@@ -17,12 +17,10 @@ export default {
 		...mapGetters({ note: "getNote" }),
 	},
 	methods: {
-		...mapActions(["goBack", "createNote"]),
+		...mapActions(["goBack", "updateNote"]),
 		sendNote() {
-			if (this.note.content) {
-				this.sent = true;
-				this.createNote(this.note);
-			}
+			this.sent = true;
+			this.updateNote(this.note);
 		},
 		txtResize() {
 			const textarea = document.getElementById("txt");
