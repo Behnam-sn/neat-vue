@@ -11,6 +11,7 @@ export default createStore({
 		token: localStorage.token,
 		publicNotes: undefined,
 		userNotes: undefined,
+		note: undefined,
 	},
 	getters: {
 		getTheme: (state) => state.theme,
@@ -19,6 +20,7 @@ export default createStore({
 		getToken: (state) => state.token,
 		getPublicNotes: (state) => state.publicNotes,
 		getUserNotes: (state) => state.userNotes,
+		getNote: (state) => state.note,
 	},
 	mutations: {
 		initTheme(state) {
@@ -65,6 +67,9 @@ export default createStore({
 		},
 		setUserNotes(state, payload) {
 			state.userNotes = payload;
+		},
+		setNote(state, payload) {
+			state.note = payload;
 		},
 	},
 	actions: {
@@ -182,6 +187,41 @@ export default createStore({
 				.catch((error) => {
 					console.log(error);
 				});
+		},
+		fetchNote({ state, commit }, payload) {
+			if (state.user) {
+				axios
+					.get(`notes/id?id=${payload}`, {
+						headers: {
+							Authorization: "Bearer " + state.token,
+						},
+					})
+					.then((response) => {
+						if (response.status == 200) {
+							commit("setNote", response.data);
+						}
+						if (response.status == 204) {
+							commit("setNote", undefined);
+						}
+					})
+					.catch((error) => {
+						console.log(error);
+					});
+			} else {
+				axios
+					.get(`notes/public-id?id=${payload}`)
+					.then((response) => {
+						if (response.status == 200) {
+							commit("setNote", response.data);
+						}
+						if (response.status == 204) {
+							commit("setNote", undefined);
+						}
+					})
+					.catch((error) => {
+						console.log(error);
+					});
+			}
 		},
 	},
 	modules: {},
