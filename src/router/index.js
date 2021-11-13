@@ -73,13 +73,13 @@ const router = createRouter({
 	routes,
 });
 
-// router.beforeEach((to, from, next) => {
-// 	if (to.meta.title == "User") {
-// 		document.title = `Neat - ${to.params.id}`;
-// 	} else {
-// 		document.title = `Neat - ${to.meta.title}`;
-// 	}
-// 	next();
-// });
+router.beforeEach((to, from, next) => {
+	if (to.meta.title == "User") {
+		document.title = `Neat - ${to.params.username} Notes`;
+	} else {
+		document.title = `Neat - ${to.meta.title}`;
+	}
+	next();
+});
 
 export default router;
