@@ -245,6 +245,22 @@ export default createStore({
 					console.log(error);
 				});
 		},
+		deleteNote({ state }, payload) {
+			axios
+				.delete(`notes/?id=${payload}`, {
+					headers: {
+						Authorization: "Bearer " + state.token,
+					},
+				})
+				.then((response) => {
+					if (response.status == 200) {
+						router.push(`/user/${state.user}`);
+					}
+				})
+				.catch((error) => {
+					console.log(error);
+				});
+		},
 	},
 	modules: {},
 });

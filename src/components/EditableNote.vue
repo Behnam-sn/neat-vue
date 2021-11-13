@@ -4,6 +4,7 @@ import { mapGetters, mapActions } from "vuex";
 import BackArrowIcon from "../assets/svg/BackArrowIcon.vue";
 import SendIcon from "../assets/svg/SendIcon.vue";
 import CheckIcon from "../assets/svg/CheckIcon.vue";
+import TrashIcon from "../assets/svg/TrashIcon.vue";
 
 export default {
 	name: "EditableNote",
@@ -17,10 +18,14 @@ export default {
 		...mapGetters({ note: "getNote" }),
 	},
 	methods: {
-		...mapActions(["goBack", "updateNote"]),
+		...mapActions(["goBack", "updateNote", "deleteNote"]),
 		sendNote() {
 			this.sent = true;
 			this.updateNote(this.note);
+		},
+		removeNote() {
+			this.sent = true;
+			this.deleteNote(this.note.id);
 		},
 		txtResize() {
 			const textarea = document.getElementById("txt");
@@ -36,6 +41,7 @@ export default {
 		BackArrowIcon,
 		SendIcon,
 		CheckIcon,
+		TrashIcon,
 	},
 };
 </script>
@@ -58,47 +64,64 @@ export default {
 			>
 				<BackArrowIcon class="h-8" />
 			</button>
-			<div class="flex items-center mr-3">
-				<div
-					class="font-Poppins-Bold duration-300"
-					:class="{ 'text-gray-400': note.public }"
-				>
-					Private
-				</div>
+			<div class="flex">
 				<button
+					@click="removeNote"
 					class="
-						w-14
-						h-8
-						flex
-						items-center
-						bg-gray-300
+						p-3
+						mr-10
 						rounded-full
-						p-1
-						mx-4
-						duration-300
-						cursor-pointer
+						text-red-400
+						hover:text-red-500 hover:bg-gray-300
+						dark:hover:bg-gray-500
+						transition
+						duration-500
 					"
-					:class="{ 'bg-green-500': note.public }"
-					@click="togglePublic"
 				>
-					<div
-						class="
-							bg-white
-							w-6
-							h-6
-							rounded-full
-							shadow-md
-							transform
-							duration-300
-						"
-						:class="{ 'translate-x-6': note.public }"
-					></div>
+					<TrashIcon class="h-8" />
 				</button>
-				<div
-					class="font-Poppins-Bold duration-300"
-					:class="{ 'text-gray-400': !note.public }"
-				>
-					Public
+				<div class="flex items-center mr-3">
+					<div
+						class="font-Poppins-Bold duration-300"
+						:class="{ 'text-gray-400': note.public }"
+					>
+						Private
+					</div>
+					<button
+						class="
+							w-14
+							h-8
+							flex
+							items-center
+							bg-gray-300
+							rounded-full
+							p-1
+							mx-4
+							duration-300
+							cursor-pointer
+						"
+						:class="{ 'bg-green-500': note.public }"
+						@click="togglePublic"
+					>
+						<div
+							class="
+								bg-white
+								w-6
+								h-6
+								rounded-full
+								shadow-md
+								transform
+								duration-300
+							"
+							:class="{ 'translate-x-6': note.public }"
+						></div>
+					</button>
+					<div
+						class="font-Poppins-Bold duration-300"
+						:class="{ 'text-gray-400': !note.public }"
+					>
+						Public
+					</div>
 				</div>
 			</div>
 		</div>
