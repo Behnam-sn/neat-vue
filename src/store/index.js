@@ -104,7 +104,7 @@ export default createStore({
 						commit("setUser", payload.username);
 						commit("setToken", response.data.access_token);
 						dispatch("goBack");
-						// router.push(`/u/${payload.username}`);
+						// router.push(`/user/${payload.username}`);
 					}
 				})
 				.catch((error) => {
@@ -181,7 +181,7 @@ export default createStore({
 				})
 				.then((response) => {
 					if (response.status == 200) {
-						router.push(`/u/${state.user}`);
+						router.push(`/user/${state.user}`);
 					}
 				})
 				.catch((error) => {

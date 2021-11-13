@@ -7,7 +7,7 @@
 		<router-link to="/public">
 			<HomeIcon class="h-8" />
 		</router-link>
-		<router-link :to="user ? `/u/${user}` : '/login'">
+		<router-link :to="user ? `/user/${user}` : '/login'">
 			<UserIcon class="h-8" />
 		</router-link>
 		<router-link to="/settings" v-if="user">
