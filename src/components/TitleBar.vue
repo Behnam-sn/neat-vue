@@ -1,9 +1,9 @@
 <template>
 	<div class="lg:h-vh-15 flex justify-between items-center px-7 lg:px-16">
-		<h1 class="font-Poppins-Bold text-5xl 2xl:text-6xl capitalize">
+		<h1 class="font-Poppins-Bold text-5xl capitalize">
 			{{ title }}
 		</h1>
-		<LoginButton class="hidden lg:block" v-if="!user" />
+		<LoginButton class="hidden lg:block" v-if="!username" />
 	</div>
 </template>
 
@@ -16,7 +16,7 @@ export default {
 	name: "TitleBar",
 	props: ["title"],
 	computed: {
-		...mapGetters({ user: "getUser" }),
+		...mapGetters({ username: "getUsername" }),
 	},
 	components: {
 		LoginButton,

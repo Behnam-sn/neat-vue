@@ -17,7 +17,6 @@
 						class="
 							h-60
 							lg:h-56
-							2xl:h-64
 							bg-gray-200
 							dark:bg-gray-700
 							rounded-2xl

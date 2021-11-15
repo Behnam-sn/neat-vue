@@ -1,3 +1,22 @@
+<template>
+	<div
+		class="
+			h-screen
+			bg-gray-200
+			dark:bg-gray-700
+			transition
+			duration-500
+			overflow-y-scroll
+		"
+	>
+		<template v-if="note">
+			<template v-if="note.author == username"><EditableNote /></template>
+			<template v-else><ReadableNote /></template>
+		</template>
+		<template v-else>not public</template>
+	</div>
+</template>
+
 <script>
 import { mapGetters, mapActions } from "vuex";
 
@@ -10,7 +29,7 @@ export default {
 		this.fetchNote(this.routeId);
 	},
 	computed: {
-		...mapGetters({ note: "getNote", user: "getUser" }),
+		...mapGetters({ note: "getNote", username: "getUsername" }),
 		routeId() {
 			return this.$route.params.id;
 		},
@@ -24,24 +43,3 @@ export default {
 	},
 };
 </script>
-
-<template>
-	<div
-		class="
-			h-screen
-			bg-gray-200
-			dark:bg-gray-700
-			transition
-			duration-500
-			overflow-y-scroll
-		"
-	>
-		<template v-if="note">
-			<template v-if="note.author == user"><EditableNote /></template>
-			<template v-else><ReadableNote /></template>
-		</template>
-		<template v-else>not public</template>
-	</div>
-</template>
-
-<style></style>

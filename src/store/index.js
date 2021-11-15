@@ -7,20 +7,27 @@ export default createStore({
 	state: {
 		isCollapse: false,
 		theme: localStorage.theme,
-		user: localStorage.user,
+		username: localStorage.username,
 		token: localStorage.token,
 		publicNotes: undefined,
 		userNotes: undefined,
 		note: undefined,
+		user: {
+			username: undefined,
+			full_name: undefined,
+			created_at: undefined,
+			modified_at: undefined,
+		},
 	},
 	getters: {
 		getTheme: (state) => state.theme,
 		getCollapseStatus: (state) => state.isCollapse,
-		getUser: (state) => state.user,
+		getUsername: (state) => state.username,
 		getToken: (state) => state.token,
 		getPublicNotes: (state) => state.publicNotes,
 		getUserNotes: (state) => state.userNotes,
 		getNote: (state) => state.note,
+		getUser: (state) => state.user,
 	},
 	mutations: {
 		initTheme(state) {
@@ -46,18 +53,18 @@ export default createStore({
 		collapse(state) {
 			state.isCollapse = !state.isCollapse;
 		},
-		setUser(state, payload) {
-			state.user = payload;
-			localStorage.user = payload;
+		setUsername(state, payload) {
+			state.username = payload;
+			localStorage.username = payload;
 		},
 		setToken(state, payload) {
 			state.token = payload;
 			localStorage.token = payload;
 		},
 		logout(state) {
-			localStorage.removeItem("user");
+			localStorage.removeItem("username");
 			localStorage.removeItem("token");
-			state.user = undefined;
+			state.username = undefined;
 			state.token = undefined;
 
 			router.push("/");
@@ -70,6 +77,9 @@ export default createStore({
 		},
 		setNote(state, payload) {
 			state.note = payload;
+		},
+		setUser(state, payload) {
+			state.user = payload;
 		},
 	},
 	actions: {
@@ -101,7 +111,7 @@ export default createStore({
 				.post("auth/login", User)
 				.then((response) => {
 					if (response.status == 200) {
-						commit("setUser", payload.username);
+						commit("setUsername", payload.username);
 						commit("setToken", response.data.access_token);
 						dispatch("goBack");
 						// router.push(`/user/${payload.username}`);
@@ -181,7 +191,7 @@ export default createStore({
 				})
 				.then((response) => {
 					if (response.status == 200) {
-						router.push(`/user/${state.user}`);
+						router.push(`/user/${state.username}`);
 					}
 				})
 				.catch((error) => {
@@ -189,7 +199,7 @@ export default createStore({
 				});
 		},
 		fetchNote({ state, commit }, payload) {
-			if (state.user) {
+			if (state.username) {
 				axios
 					.get(`notes/id?id=${payload}`, {
 						headers: {
@@ -238,7 +248,7 @@ export default createStore({
 				})
 				.then((response) => {
 					if (response.status == 200) {
-						router.push(`/user/${state.user}`);
+						router.push(`/user/${state.username}`);
 					}
 				})
 				.catch((error) => {
@@ -254,7 +264,40 @@ export default createStore({
 				})
 				.then((response) => {
 					if (response.status == 200) {
-						router.push(`/user/${state.user}`);
+						router.push(`/user/${state.username}`);
+					}
+				})
+				.catch((error) => {
+					console.log(error);
+				});
+		},
+		fetchUser({ commit }, payload) {
+			axios
+				.get(`users/?username=${payload}`)
+				.then((response) => {
+					if (response.status == 200) {
+						commit("setUser", response.data);
+					}
+				})
+				.catch((error) => {
+					console.log(error);
+				});
+		},
+		updateUserDetails({ state, commit }) {
+			const User = {
+				username: state.user.username,
+				full_name: state.user.full_name,
+			};
+
+			axios
+				.put("users/", User, {
+					headers: {
+						Authorization: "Bearer " + state.token,
+					},
+				})
+				.then((response) => {
+					if (response.status == 200) {
+						commit("logout");
 					}
 				})
 				.catch((error) => {

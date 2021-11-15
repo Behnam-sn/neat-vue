@@ -18,7 +18,7 @@
 			<router-link to="/">
 				<h1 class="font-Poppins-Medium text-xl my-4">Neat</h1>
 			</router-link>
-			<router-link :to="user ? '/addnote' : '/login'">
+			<router-link :to="username ? '/addnote' : '/login'">
 				<PlusIcon class="h-11 my-4" />
 			</router-link>
 		</div>
@@ -26,10 +26,10 @@
 			<router-link to="/public">
 				<HomeIcon class="h-9 my-4" />
 			</router-link>
-			<router-link :to="user ? `/user/${user}` : '/login'">
+			<router-link :to="username ? `/user/${username}` : '/login'">
 				<UserIcon class="h-9 my-4" />
 			</router-link>
-			<router-link to="/settings" v-if="user">
+			<router-link to="/settings" v-if="username">
 				<CogIcon class="h-9 my-4" />
 			</router-link>
 			<router-link to="/about">
@@ -54,7 +54,7 @@
 					<MoonIcon class="h-11 p-2" v-else />
 				</transition>
 			</button>
-			<button v-if="user" @click="logout">
+			<button v-if="username" @click="logout">
 				<LogoutIcon class="h-9 my-4" />
 			</button>
 		</div>
@@ -76,7 +76,7 @@ import LogoutIcon from "../assets/svg/LogoutIcon.vue";
 export default {
 	name: "Menu",
 	computed: {
-		...mapGetters({ theme: "getTheme", user: "getUser" }),
+		...mapGetters({ theme: "getTheme", username: "getUsername" }),
 	},
 	methods: {
 		...mapMutations(["changeTheme", "logout"]),

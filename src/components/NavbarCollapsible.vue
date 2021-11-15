@@ -7,16 +7,16 @@
 		<router-link to="/public">
 			<HomeIcon class="h-8" />
 		</router-link>
-		<router-link :to="user ? `/user/${user}` : '/login'">
+		<router-link :to="username ? `/user/${username}` : '/login'">
 			<UserIcon class="h-8" />
 		</router-link>
-		<router-link to="/settings" v-if="user">
+		<router-link to="/settings" v-if="username">
 			<CogIcon class="h-8" />
 		</router-link>
 		<router-link to="/about">
 			<InfoIcon class="h-8" />
 		</router-link>
-		<button v-if="user" @click="logout">
+		<button v-if="username" @click="logout">
 			<LogoutIcon class="h-8" />
 		</button>
 	</div>
@@ -34,7 +34,10 @@ import LogoutIcon from "../assets/svg/LogoutIcon.vue";
 export default {
 	name: "Collapsible",
 	computed: {
-		...mapGetters({ isCollapse: "getCollapseStatus", user: "getUser" }),
+		...mapGetters({
+			isCollapse: "getCollapseStatus",
+			username: "getUsername",
+		}),
 	},
 	methods: {
 		...mapMutations(["logout"]),

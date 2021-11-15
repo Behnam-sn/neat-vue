@@ -21,7 +21,10 @@ export default {
 		}
 	},
 	computed: {
-		...mapGetters({ currnetUser: "getUser", userNotes: "getUserNotes" }),
+		...mapGetters({
+			currnetUser: "getUsername",
+			userNotes: "getUserNotes",
+		}),
 		routeUsername() {
 			return this.$route.params.username;
 		},
