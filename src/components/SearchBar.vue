@@ -31,7 +31,13 @@
 		/>
 		<button v-show="search" @click="clearSerach">
 			<CloseIcon
-				class="text-gray-500 dark:text-gray-800 transition duration-500"
+				class="
+					h-6
+					text-gray-500
+					dark:text-gray-800
+					transition
+					duration-500
+				"
 			/>
 		</button>
 	</div>
