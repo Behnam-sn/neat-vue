@@ -67,32 +67,67 @@
 					type="password"
 				/>
 			</div> -->
-			<div class="flex justify-between w-80 mt-8">
-				<button
-					class="
-						font-Poppins-Medium
-						text-sm
-						bg-red-500
-						rounded-full
-						px-7
-						py-2
-					"
-				>
-					Delete Account
-				</button>
-				<button
-					@click="changeUserDetails"
-					class="
-						font-Poppins-Medium
-						bg-green-500
-						rounded-full
-						px-7
-						py-2
-					"
-				>
-					Done
-				</button>
-			</div>
+			<button
+				@click="changeUserDetails"
+				class="
+					font-Poppins-Medium
+					bg-green-500
+					rounded-full
+					px-7
+					py-2
+					mt-8
+					hover:bg-green-400
+					dark:hover:bg-green-600
+					transition
+					duration-500
+				"
+			>
+				Update Account
+			</button>
+			<div
+				class="
+					border-b-4 border-gray-400
+					dark:border-gray-600
+					rounded-full
+					w-80
+					mt-8
+					transition
+					duration-500
+				"
+			></div>
+
+			<button
+				class="
+					font-Poppins-Medium
+					bg-red-500
+					rounded-full
+					px-7
+					py-2
+					mt-8
+					hover:bg-red-400
+					dark:hover:bg-red-600
+					transition
+					duration-500
+				"
+			>
+				Delete Account
+			</button>
+			<button
+				class="
+					font-Poppins-Medium
+					bg-blue-500
+					rounded-full
+					px-7
+					py-2
+					mt-8
+					hover:bg-blue-400
+					dark:hover:bg-blue-600
+					transition
+					duration-500
+				"
+			>
+				Change Password
+			</button>
 		</div>
 	</div>
 </template>
