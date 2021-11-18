@@ -11,7 +11,7 @@
 			border-r-2 border-gray-300
 			dark:border-gray-500
 			py-10
-			px-6
+			px-5
 		"
 	>
 		<div class="flex flex-col items-center">
