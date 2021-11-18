@@ -304,6 +304,22 @@ export default createStore({
 					console.log(error);
 				});
 		},
+		deleteAccount({ state, commit }, payload) {
+			axios
+				.delete(`users/?password=${payload}`, {
+					headers: {
+						Authorization: "Bearer " + state.token,
+					},
+				})
+				.then((response) => {
+					if (response.status == 200) {
+						commit("logout");
+					}
+				})
+				.catch((error) => {
+					console.log(error);
+				});
+		},
 	},
 	modules: {},
 });

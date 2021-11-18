@@ -59,6 +59,14 @@ const routes = [
 		component: () => import("../views/Settings.vue"),
 	},
 	{
+		path: "/deleteAccount",
+		name: "DeleteAccount",
+		meta: {
+			title: "Delete Account",
+		},
+		component: () => import("../views/DeleteAccount.vue"),
+	},
+	{
 		path: "/about",
 		name: "About",
 		meta: {

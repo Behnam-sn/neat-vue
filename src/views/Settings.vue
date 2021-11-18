@@ -46,27 +46,7 @@
 					type="text"
 				/>
 			</div>
-			<!-- <div class="flex flex-col pb-6">
-				<label class="font-Poppins-Medium text-lg">Password</label>
-				<input
-					class="
-						font-Poppins-Light
-						text-lg
-						bg-gray-200
-						dark:bg-gray-800
-						w-80
-						px-4
-						py-2
-						mt-2
-						rounded-lg
-						focus:outline-none focus:ring-2 focus:ring-gray-400
-						dark:focus:ring-gray-600
-						transition
-						duration-500
-					"
-					type="password"
-				/>
-			</div> -->
+
 			<button
 				@click="changeUserDetails"
 				class="
@@ -95,23 +75,24 @@
 					duration-500
 				"
 			></div>
-
-			<button
-				class="
-					font-Poppins-Medium
-					bg-red-500
-					rounded-full
-					px-7
-					py-2
-					mt-8
-					hover:bg-red-400
-					dark:hover:bg-red-600
-					transition
-					duration-500
-				"
-			>
-				Delete Account
-			</button>
+			<router-link to="/deleteAccount">
+				<button
+					class="
+						font-Poppins-Medium
+						bg-red-500
+						rounded-full
+						px-7
+						py-2
+						mt-8
+						hover:bg-red-400
+						dark:hover:bg-red-600
+						transition
+						duration-500
+					"
+				>
+					Delete Account
+				</button>
+			</router-link>
 			<button
 				class="
 					font-Poppins-Medium
