@@ -59,7 +59,15 @@ const routes = [
 		component: () => import("../views/Settings.vue"),
 	},
 	{
-		path: "/deleteAccount",
+		path: "/ChangePassword",
+		name: "ChangePassword",
+		meta: {
+			title: "Change Password",
+		},
+		component: () => import("../views/ChangePassword.vue"),
+	},
+	{
+		path: "/DeleteAccount",
 		name: "DeleteAccount",
 		meta: {
 			title: "Delete Account",

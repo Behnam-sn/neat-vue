@@ -320,6 +320,27 @@ export default createStore({
 					console.log(error);
 				});
 		},
+		changePassword({ state, commit }, payload) {
+			const password_update = {
+				password: payload.password,
+				new_password: payload.newPassword,
+			};
+
+			axios
+				.put("users/password", password_update, {
+					headers: {
+						Authorization: "Bearer " + state.token,
+					},
+				})
+				.then((response) => {
+					if (response.status == 200) {
+						commit("logout");
+					}
+				})
+				.catch((error) => {
+					console.log(error);
+				});
+		},
 	},
 	modules: {},
 });

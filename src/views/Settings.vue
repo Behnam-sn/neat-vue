@@ -75,7 +75,7 @@
 					duration-500
 				"
 			></div>
-			<router-link to="/deleteAccount">
+			<router-link to="/DeleteAccount">
 				<button
 					class="
 						font-Poppins-Medium
@@ -93,22 +93,24 @@
 					Delete Account
 				</button>
 			</router-link>
-			<button
-				class="
-					font-Poppins-Medium
-					bg-blue-500
-					rounded-full
-					px-7
-					py-2
-					mt-8
-					hover:bg-blue-400
-					dark:hover:bg-blue-600
-					transition
-					duration-500
-				"
-			>
-				Change Password
-			</button>
+			<router-link to="/ChangePassword">
+				<button
+					class="
+						font-Poppins-Medium
+						bg-blue-500
+						rounded-full
+						px-7
+						py-2
+						mt-8
+						hover:bg-blue-400
+						dark:hover:bg-blue-600
+						transition
+						duration-500
+					"
+				>
+					Change Password
+				</button>
+			</router-link>
 		</div>
 	</div>
 </template>
