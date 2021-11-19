@@ -14,6 +14,9 @@
 				to="/addnote"
 				class="
 					footer-bar-btn
+					flex
+					justify-center
+					items-center
 					absolute
 					w-16
 					h-16
@@ -23,9 +26,6 @@
 					dark:bg-primary
 					ring-gray-300
 					dark:ring-gray-800
-					flex
-					justify-center
-					items-center
 					transition
 					duration-500
 				"
