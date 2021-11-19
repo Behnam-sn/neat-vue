@@ -31,18 +31,23 @@
 				</h3>
 			</div>
 		</div>
-		<div class="flex lg:hidden justify-center mt-20">
+		<div class="flex lg:hidden justify-center mt-20" v-if="!username">
 			<LoginButton />
 		</div>
 	</div>
 </template>
 
 <script>
+import { mapGetters } from "vuex";
+
 import TitleBar from "../components/TitleBar.vue";
 import LoginButton from "../components/LoginButton.vue";
 
 export default {
 	name: "Home",
+	computed: {
+		...mapGetters({ username: "getUsername" }),
+	},
 	components: {
 		TitleBar,
 		LoginButton,
