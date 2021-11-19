@@ -56,11 +56,18 @@ import SunIcon from "../assets/svg/SunIcon.vue";
 
 export default {
 	name: "Navbar",
+	computed: {
+		...mapGetters({ theme: "getTheme", isCollapse: "getCollapseStatus" }),
+	},
+	watch: {
+		$route() {
+			if (this.isCollapse) {
+				this.collapse();
+			}
+		},
+	},
 	methods: {
 		...mapMutations(["changeTheme", "collapse"]),
-	},
-	computed: {
-		...mapGetters({ theme: "getTheme" }),
 	},
 	components: {
 		Collapsible,
