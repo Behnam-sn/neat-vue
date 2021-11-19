@@ -9,7 +9,38 @@
 				</transition>
 			</router-view>
 		</div>
-		<FooterBar />
+		<FooterBar v-if="isNotNote">
+			<router-link
+				to="/addnote"
+				class="
+					footer-bar-btn
+					absolute
+					w-16
+					h-16
+					ring-8
+					rounded-full
+					bg-secondary
+					dark:bg-primary
+					ring-gray-300
+					dark:ring-gray-800
+					flex
+					justify-center
+					items-center
+					transition
+					duration-500
+				"
+			>
+				<PlusIcon
+					class="
+						h-12
+						text-primary
+						dark:text-secondary
+						transition
+						duration-500
+					"
+				/>
+			</router-link>
+		</FooterBar>
 	</div>
 </template>
 
@@ -20,11 +51,24 @@ import Navbar from "./components/Navbar.vue";
 import Menu from "./components/Menu.vue";
 import FooterBar from "./components/FooterBar.vue";
 
+import PlusIcon from "./assets/svg/PlusIcon.vue";
+
 export default {
 	name: "Home",
 	created: function () {
 		this.initTheme();
 		this.testToken();
+	},
+	computed: {
+		isNotNote() {
+			let path = this.$route.path;
+
+			if (path.includes("/addnote") || path.includes("/note")) {
+				return false;
+			} else {
+				return true;
+			}
+		},
 	},
 	methods: {
 		...mapMutations(["initTheme"]),
@@ -34,6 +78,7 @@ export default {
 		Navbar,
 		Menu,
 		FooterBar,
+		PlusIcon,
 	},
 };
 </script>
@@ -43,6 +88,12 @@ export default {
 	// font-family: Avenir, Helvetica, Arial, sans-serif;
 	-webkit-font-smoothing: antialiased;
 	-moz-osx-font-smoothing: grayscale;
+}
+
+.footer-bar-btn {
+	top: -65%;
+	left: 50%;
+	transform: translate(-50%, 0);
 }
 
 .route-enter-active,
