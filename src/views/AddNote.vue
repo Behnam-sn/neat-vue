@@ -130,7 +130,7 @@
 </template>
 
 <script>
-import { mapActions } from "vuex";
+import { mapGetters, mapActions } from "vuex";
 
 import BackArrowIcon from "../assets/svg/BackArrowIcon.vue";
 import SendIcon from "../assets/svg/SendIcon.vue";
@@ -138,6 +138,11 @@ import CheckIcon from "../assets/svg/CheckIcon.vue";
 
 export default {
 	name: "AddNote",
+	created: function () {
+		if (!this.username) {
+			this.$router.push("/login");
+		}
+	},
 	data: () => ({
 		note: {
 			title: undefined,
@@ -146,10 +151,8 @@ export default {
 		},
 		sent: false,
 	}),
-	components: {
-		BackArrowIcon,
-		SendIcon,
-		CheckIcon,
+	computed: {
+		...mapGetters({ username: "getUsername" }),
 	},
 	methods: {
 		...mapActions(["goBack", "createNote"]),
@@ -168,6 +171,11 @@ export default {
 		togglePublic() {
 			this.note.public = !this.note.public;
 		},
+	},
+	components: {
+		BackArrowIcon,
+		SendIcon,
+		CheckIcon,
 	},
 };
 </script>

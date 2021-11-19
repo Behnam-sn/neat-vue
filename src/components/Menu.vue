@@ -18,7 +18,7 @@
 			<router-link to="/">
 				<h1 class="font-Poppins-Medium text-xl my-4">Neat</h1>
 			</router-link>
-			<router-link :to="username ? '/addnote' : '/login'">
+			<router-link to="/addnote">
 				<PlusIcon class="h-11 my-4" />
 			</router-link>
 		</div>
