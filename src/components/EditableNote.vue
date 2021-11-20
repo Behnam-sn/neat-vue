@@ -1,51 +1,3 @@
-<script>
-import { mapGetters, mapActions } from "vuex";
-
-import BackArrowIcon from "../assets/svg/BackArrowIcon.vue";
-import SendIcon from "../assets/svg/SendIcon.vue";
-import CheckIcon from "../assets/svg/CheckIcon.vue";
-import TrashIcon from "../assets/svg/TrashIcon.vue";
-
-export default {
-	name: "EditableNote",
-	mounted: function () {
-		this.txtResize();
-	},
-	data: () => ({
-		sent: false,
-	}),
-	computed: {
-		...mapGetters({ note: "getNote" }),
-	},
-	methods: {
-		...mapActions(["goBack", "updateNote", "deleteNote"]),
-		sendNote() {
-			this.sent = true;
-			this.updateNote(this.note);
-		},
-		removeNote() {
-			this.sent = true;
-			this.deleteNote(this.note.id);
-		},
-		txtResize() {
-			const textarea = document.getElementById("txt");
-
-			textarea.style.height = "auto";
-			textarea.style.height = textarea.scrollHeight + "px";
-		},
-		togglePublic() {
-			this.note.public = !this.note.public;
-		},
-	},
-	components: {
-		BackArrowIcon,
-		SendIcon,
-		CheckIcon,
-		TrashIcon,
-	},
-};
-</script>
-
 <template>
 	<div>
 		<div
@@ -184,5 +136,101 @@ export default {
 				<SendIcon class="h-9" v-else />
 			</transition>
 		</button>
+		<FooterBar>
+			<button
+				@click="sendNote"
+				class="
+					footer-bar-btn
+					flex
+					justify-center
+					items-center
+					absolute
+					w-16
+					h-16
+					ring-8
+					rounded-full
+					bg-secondary
+					dark:bg-primary
+					ring-gray-300
+					dark:ring-gray-800
+					transition
+					duration-500
+				"
+			>
+				<transition name="send" mode="out-in">
+					<CheckIcon
+						v-if="sent"
+						class="
+							h-8
+							text-primary
+							dark:text-secondary
+							transition
+							duration-500
+						"
+					/>
+					<SendIcon
+						v-else
+						class="
+							h-8
+							text-primary
+							dark:text-secondary
+							transition
+							duration-500
+						"
+					/>
+				</transition>
+			</button>
+		</FooterBar>
 	</div>
 </template>
+
+<script>
+import { mapGetters, mapActions } from "vuex";
+
+import FooterBar from "../components/FooterBar.vue";
+
+import BackArrowIcon from "../assets/svg/BackArrowIcon.vue";
+import SendIcon from "../assets/svg/SendIcon.vue";
+import CheckIcon from "../assets/svg/CheckIcon.vue";
+import TrashIcon from "../assets/svg/TrashIcon.vue";
+
+export default {
+	name: "EditableNote",
+	mounted: function () {
+		this.txtResize();
+	},
+	data: () => ({
+		sent: false,
+	}),
+	computed: {
+		...mapGetters({ note: "getNote" }),
+	},
+	methods: {
+		...mapActions(["goBack", "updateNote", "deleteNote"]),
+		sendNote() {
+			this.sent = true;
+			this.updateNote(this.note);
+		},
+		removeNote() {
+			this.sent = true;
+			this.deleteNote(this.note.id);
+		},
+		txtResize() {
+			const textarea = document.getElementById("txt");
+
+			textarea.style.height = "auto";
+			textarea.style.height = textarea.scrollHeight + "px";
+		},
+		togglePublic() {
+			this.note.public = !this.note.public;
+		},
+	},
+	components: {
+		FooterBar,
+		BackArrowIcon,
+		SendIcon,
+		CheckIcon,
+		TrashIcon,
+	},
+};
+</script>
