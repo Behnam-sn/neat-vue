@@ -17,22 +17,7 @@
 				<BackArrowIcon class="h-8" />
 			</button>
 			<div class="flex">
-				<button
-					@click="removeNote"
-					class="
-						p-3
-						mr-10
-						rounded-full
-						text-red-400
-						hover:text-red-500 hover:bg-gray-300
-						dark:hover:bg-gray-500
-						transition
-						duration-500
-					"
-				>
-					<TrashIcon class="h-8" />
-				</button>
-				<div class="flex items-center mr-3">
+				<div class="flex items-center mr-9 lg:mr-14">
 					<div
 						class="font-Poppins-Bold duration-300"
 						:class="{ 'text-gray-400': note.public }"
@@ -75,6 +60,23 @@
 						Public
 					</div>
 				</div>
+				<button
+					@click="removeNote"
+					class="
+						p-3
+						rounded-full
+						text-red-400
+						dark:text-red-500
+						hover:text-red-500
+						dark:hover:text-red-400
+						hover:bg-gray-300
+						dark:hover:bg-gray-500
+						transition
+						duration-500
+					"
+				>
+					<TrashIcon class="h-8" />
+				</button>
 			</div>
 		</div>
 		<input
