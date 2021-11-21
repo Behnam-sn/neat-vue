@@ -49,49 +49,38 @@
 		</div>
 		<div class="flex flex-col items-center">
 			<MenuChangeThemeButton />
-
-			<MenuButton
-				v-if="username"
-				@click="logout"
-				address="/"
-				tooltipText="Log Out"
-			>
-				<LogoutIcon class="h-9 my-4" />
-			</MenuButton>
+			<MenuLogoutButton />
 		</div>
 	</div>
 </template>
 
 <script>
-import { mapGetters, mapMutations } from "vuex";
+import { mapGetters } from "vuex";
 
 import MenuButton from "./MenuButton.vue";
 import MenuChangeThemeButton from "./MenuChangeThemeButton.vue";
+import MenuLogoutButton from "./MenuLogoutButton.vue";
 
 import PlusIcon from "../assets/svg/PlusIcon.vue";
 import HomeIcon from "../assets/svg/HomeIcon.vue";
 import UserIcon from "../assets/svg/UserIcon.vue";
 import CogIcon from "../assets/svg/CogIcon.vue";
 import InfoIcon from "../assets/svg/InfoIcon.vue";
-import LogoutIcon from "../assets/svg/LogoutIcon.vue";
 
 export default {
 	name: "Menu",
 	computed: {
 		...mapGetters({ username: "getUsername" }),
 	},
-	methods: {
-		...mapMutations(["logout"]),
-	},
 	components: {
 		MenuButton,
 		MenuChangeThemeButton,
+		MenuLogoutButton,
 		PlusIcon,
 		HomeIcon,
 		UserIcon,
 		CogIcon,
 		InfoIcon,
-		LogoutIcon,
 	},
 };
 </script>
