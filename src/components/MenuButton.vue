@@ -6,7 +6,6 @@
 		<slot></slot>
 		<div
 			class="
-				aa
 				absolute
 				left-20
 				w-auto

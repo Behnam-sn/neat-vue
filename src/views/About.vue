@@ -74,7 +74,7 @@
 					neat-backend
 				</a>
 			</div>
-			<div class="font-Roboto-Medium mt-7">Tech stack :</div>
+			<div class="font-Roboto-Medium mt-7">Tech Stack :</div>
 			<div class="flex flex-col lg:flex-row">
 				<a
 					class="
@@ -85,8 +85,10 @@
 						p-5
 						m-5
 						mb-16
-						hover:bg-gray-200
-						dark:hover:bg-gray-800
+						bg-gray-200
+						dark:bg-gray-800
+						hover:bg-gray-100
+						dark:hover:bg-gray-700
 						rounded-xl
 						transition
 						duration-500
@@ -106,8 +108,10 @@
 						p-5
 						m-5
 						mb-16
-						hover:bg-gray-200
-						dark:hover:bg-gray-800
+						bg-gray-200
+						dark:bg-gray-800
+						hover:bg-gray-100
+						dark:hover:bg-gray-700
 						rounded-xl
 						transition
 						duration-500
@@ -127,8 +131,10 @@
 						p-5
 						m-5
 						mb-16
-						hover:bg-gray-200
-						dark:hover:bg-gray-800
+						bg-gray-200
+						dark:bg-gray-800
+						hover:bg-gray-100
+						dark:hover:bg-gray-700
 						rounded-xl
 						transition
 						duration-500
@@ -148,8 +154,10 @@
 						p-5
 						m-5
 						mb-16
-						hover:bg-gray-200
-						dark:hover:bg-gray-800
+						bg-gray-200
+						dark:bg-gray-800
+						hover:bg-gray-100
+						dark:hover:bg-gray-700
 						rounded-xl
 						transition
 						duration-500
