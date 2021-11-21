@@ -26,6 +26,7 @@
 				origin-center
 				transition
 				duration-500
+				delay-150
 				group-hover:scale-100
 			"
 		>
