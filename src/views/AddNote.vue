@@ -12,19 +12,7 @@
 		<div
 			class="flex justify-between items-center mx-4 lg:mx-7 py-3 lg:my-5"
 		>
-			<button
-				@click="goBack"
-				class="
-					p-3
-					rounded-full
-					hover:bg-gray-300
-					dark:hover:bg-gray-500
-					transition
-					duration-500
-				"
-			>
-				<BackArrowIcon class="h-8" />
-			</button>
+			<GoBackButton />
 			<div class="flex items-center mr-3">
 				<div
 					class="font-Poppins-Bold duration-300"
@@ -178,8 +166,8 @@
 import { mapGetters, mapActions } from "vuex";
 
 import FooterBar from "../components/FooterBar.vue";
+import GoBackButton from "../components/GoBackButton.vue";
 
-import BackArrowIcon from "../assets/svg/BackArrowIcon.vue";
 import SendIcon from "../assets/svg/SendIcon.vue";
 import CheckIcon from "../assets/svg/CheckIcon.vue";
 
@@ -202,7 +190,7 @@ export default {
 		...mapGetters({ username: "getUsername" }),
 	},
 	methods: {
-		...mapActions(["goBack", "createNote"]),
+		...mapActions(["createNote"]),
 		sendNote() {
 			if (this.note.content) {
 				this.sent = true;
@@ -221,7 +209,7 @@ export default {
 	},
 	components: {
 		FooterBar,
-		BackArrowIcon,
+		GoBackButton,
 		SendIcon,
 		CheckIcon,
 	},

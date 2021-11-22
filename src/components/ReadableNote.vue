@@ -1,40 +1,9 @@
-<script>
-import { mapGetters, mapActions } from "vuex";
-
-import BackArrowIcon from "../assets/svg/BackArrowIcon.vue";
-
-export default {
-	name: "ReadableNote",
-	computed: {
-		...mapGetters({ note: "getNote" }),
-	},
-	methods: {
-		...mapActions(["goBack"]),
-	},
-	components: {
-		BackArrowIcon,
-	},
-};
-</script>
-
 <template>
 	<div>
 		<div
 			class="flex justify-between items-center mx-4 lg:mx-7 py-3 lg:my-5"
 		>
-			<button
-				@click="goBack"
-				class="
-					p-3
-					rounded-full
-					hover:bg-gray-300
-					dark:hover:bg-gray-500
-					transition
-					duration-500
-				"
-			>
-				<BackArrowIcon class="h-8" />
-			</button>
+			<GoBackButton />
 		</div>
 		<div
 			class="font-Rubik-Medium text-2xl w-full px-8 py-3 lg:px-20 lg:py-5"
@@ -59,3 +28,19 @@ export default {
 		<div class="lg:px-20">created_at: {{ note.created_at }}</div>
 	</div>
 </template>
+
+<script>
+import { mapGetters } from "vuex";
+
+import GoBackButton from "./GoBackButton.vue";
+
+export default {
+	name: "ReadableNote",
+	computed: {
+		...mapGetters({ note: "getNote" }),
+	},
+	components: {
+		GoBackButton,
+	},
+};
+</script>
