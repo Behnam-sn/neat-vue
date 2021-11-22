@@ -39,7 +39,7 @@
 <script>
 import { mapGetters, mapMutations } from "vuex";
 
-import LogoutIcon from "../assets/svg/LogoutIcon.vue";
+import LogoutIcon from "../../assets/svg/LogoutIcon.vue";
 
 export default {
 	name: "MenuLogoutButton",

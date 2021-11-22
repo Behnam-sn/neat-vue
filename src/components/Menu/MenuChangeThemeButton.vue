@@ -55,8 +55,8 @@
 <script>
 import { mapGetters, mapMutations } from "vuex";
 
-import MoonIcon from "../assets/svg/MoonIcon.vue";
-import SunIcon from "../assets/svg/SunIcon.vue";
+import MoonIcon from "../../assets/svg/MoonIcon.vue";
+import SunIcon from "../../assets/svg/SunIcon.vue";
 
 export default {
 	name: "MenuChangeThemeButton",

@@ -57,9 +57,9 @@
 <script>
 import { mapGetters } from "vuex";
 
-import MenuButton from "./MenuButton.vue";
-import MenuChangeThemeButton from "./MenuChangeThemeButton.vue";
-import MenuLogoutButton from "./MenuLogoutButton.vue";
+import MenuButton from "./Menu/MenuButton.vue";
+import MenuChangeThemeButton from "./Menu/MenuChangeThemeButton.vue";
+import MenuLogoutButton from "./Menu/MenuLogoutButton.vue";
 
 import PlusIcon from "../assets/svg/PlusIcon.vue";
 import HomeIcon from "../assets/svg/HomeIcon.vue";
