@@ -32,7 +32,7 @@
 <script>
 import { mapGetters } from "vuex";
 
-import GoBackButton from "./GoBackButton.vue";
+import GoBackButton from "./Note/GoBackButton.vue";
 
 export default {
 	name: "ReadableNote",

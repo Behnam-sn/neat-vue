@@ -165,8 +165,8 @@
 <script>
 import { mapGetters, mapActions } from "vuex";
 
+import GoBackButton from "../components/Note/GoBackButton.vue";
 import FooterBar from "../components/FooterBar.vue";
-import GoBackButton from "../components/GoBackButton.vue";
 
 import SendIcon from "../assets/svg/SendIcon.vue";
 import CheckIcon from "../assets/svg/CheckIcon.vue";
@@ -208,8 +208,8 @@ export default {
 		},
 	},
 	components: {
-		FooterBar,
 		GoBackButton,
+		FooterBar,
 		SendIcon,
 		CheckIcon,
 	},

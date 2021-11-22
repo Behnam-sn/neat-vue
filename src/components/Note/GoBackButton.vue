@@ -21,7 +21,7 @@
 <script>
 import { mapActions } from "vuex";
 
-import BackArrowIcon from "../assets/svg/BackArrowIcon.vue";
+import BackArrowIcon from "../../assets/svg/BackArrowIcon.vue";
 
 export default {
 	name: "GoBackButton",

@@ -255,9 +255,9 @@ export default createStore({
 					console.log(error);
 				});
 		},
-		deleteNote({ state }, payload) {
+		deleteNote({ state }) {
 			axios
-				.delete(`notes/?id=${payload}`, {
+				.delete(`notes/?id=${state.note.id}`, {
 					headers: {
 						Authorization: "Bearer " + state.token,
 					},

@@ -48,23 +48,7 @@
 						Public
 					</div>
 				</div>
-				<button
-					@click="removeNote"
-					class="
-						p-3
-						rounded-full
-						text-red-400
-						dark:text-red-500
-						hover:text-red-500
-						dark:hover:text-red-400
-						hover:bg-gray-300
-						dark:hover:bg-gray-500
-						transition
-						duration-500
-					"
-				>
-					<TrashIcon class="h-8" />
-				</button>
+				<DeleteButton />
 			</div>
 		</div>
 		<input
@@ -91,6 +75,7 @@
 				font-Poppins-Light
 				text-xl
 				w-full
+				h-auto
 				px-8
 				py-3
 				lg:px-20 lg:py-5
@@ -178,15 +163,19 @@
 import { mapGetters, mapActions } from "vuex";
 
 import FooterBar from "./FooterBar.vue";
-import GoBackButton from "./GoBackButton.vue";
+import GoBackButton from "./Note/GoBackButton.vue";
+import DeleteButton from "./Note/DeleteButton.vue";
 
 import SendIcon from "../assets/svg/SendIcon.vue";
 import CheckIcon from "../assets/svg/CheckIcon.vue";
-import TrashIcon from "../assets/svg/TrashIcon.vue";
 
 export default {
 	name: "EditableNote",
-	mounted: function () {
+	// mounted: function () {
+	// 	this.txtResize();
+	// 	console.log("mounted");
+	// },
+	updated: function () {
 		this.txtResize();
 	},
 	data: () => ({
@@ -196,19 +185,13 @@ export default {
 		...mapGetters({ note: "getNote" }),
 	},
 	methods: {
-		...mapActions(["goBack", "updateNote", "deleteNote"]),
+		...mapActions(["updateNote"]),
 		sendNote() {
 			this.sent = true;
 			this.updateNote(this.note);
 		},
-		removeNote() {
-			this.sent = true;
-			this.deleteNote(this.note.id);
-		},
 		txtResize() {
 			const textarea = document.getElementById("txt");
-
-			textarea.style.height = "auto";
 			textarea.style.height = textarea.scrollHeight + "px";
 		},
 		togglePublic() {
@@ -218,9 +201,9 @@ export default {
 	components: {
 		FooterBar,
 		GoBackButton,
+		DeleteButton,
 		SendIcon,
 		CheckIcon,
-		TrashIcon,
 	},
 };
 </script>
