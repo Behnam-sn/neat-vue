@@ -1,7 +1,25 @@
 <template>
-	<div>
-		<TitleBar :title="routeUsername + ' Notes'" />
-		<Notes :notesList="userNotes" />
+	<div class="h-full">
+		<div
+			v-if="userNotes === 'notFound'"
+			class="
+				w-full
+				h-full
+				flex
+				justify-center
+				items-center
+				font-Poppins-Bold
+				text-2xl
+				mt-56
+				lg:mt-0
+			"
+		>
+			User Not Found
+		</div>
+		<div v-else>
+			<TitleBar :title="routeUsername + ' Notes'" />
+			<Notes :notesList="userNotes" />
+		</div>
 	</div>
 </template>
 
