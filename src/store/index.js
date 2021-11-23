@@ -163,6 +163,7 @@ export default createStore({
 					commit("setUserNotes", response.data);
 				})
 				.catch((error) => {
+					commit("setUserNotes", "notFound");
 					console.log(error);
 				});
 		},
@@ -173,6 +174,7 @@ export default createStore({
 					commit("setUserNotes", response.data);
 				})
 				.catch((error) => {
+					commit("setUserNotes", "notFound");
 					console.log(error);
 				});
 		},
@@ -211,10 +213,11 @@ export default createStore({
 							commit("setNote", response.data);
 						}
 						if (response.status == 204) {
-							commit("setNote", undefined);
+							commit("setNote", "notPublic");
 						}
 					})
 					.catch((error) => {
+						commit("setNote", "notFound");
 						console.log(error);
 					});
 			} else {
@@ -225,10 +228,11 @@ export default createStore({
 							commit("setNote", response.data);
 						}
 						if (response.status == 204) {
-							commit("setNote", undefined);
+							commit("setNote", "notPublic");
 						}
 					})
 					.catch((error) => {
+						commit("setNote", "notFound");
 						console.log(error);
 					});
 			}

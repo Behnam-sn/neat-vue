@@ -1,19 +1,59 @@
 <template>
-	<div
-		class="
-			h-screen
-			bg-gray-200
-			dark:bg-gray-700
-			transition
-			duration-500
-			overflow-y-scroll
-		"
-	>
-		<template v-if="note">
-			<template v-if="note.author == username"><EditableNote /></template>
-			<template v-else><ReadableNote /></template>
-		</template>
-		<template v-else>not public</template>
+	<div class="h-full">
+		<div
+			v-if="note === 'notFound'"
+			class="
+				w-full
+				h-full
+				flex
+				justify-center
+				items-center
+				font-Poppins-Bold
+				text-2xl
+				mt-56
+				lg:mt-0
+				bg-gray-200
+				dark:bg-gray-700
+				transition
+				duration-500
+			"
+		>
+			Note Not Found
+		</div>
+		<div
+			v-else-if="note === 'notPublic'"
+			class="
+				w-full
+				h-full
+				flex
+				justify-center
+				items-center
+				font-Poppins-Bold
+				text-2xl
+				mt-56
+				lg:mt-0
+				bg-gray-200
+				dark:bg-gray-700
+				transition
+				duration-500
+			"
+		>
+			Note Not Public
+		</div>
+		<div
+			v-else
+			class="
+				h-screen
+				bg-gray-200
+				dark:bg-gray-700
+				transition
+				duration-500
+				overflow-y-scroll
+			"
+		>
+			<EditableNote v-if="note.author === username" />
+			<ReadableNote v-else />
+		</div>
 	</div>
 </template>
 
