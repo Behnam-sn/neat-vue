@@ -30,14 +30,17 @@
 					bg-secondary
 					w-auto
 					min-w-max
-					py-5
-					px-10
+					py-6
+					px-8
 					m-2
 					rounded-md
 					shadow-md
 					z-10
 				"
 			>
+				<div class="font-Poppins-Medium text-primary mb-2">
+					Delete This Note?
+				</div>
 				<button
 					@click="deleteNote"
 					class="
@@ -47,7 +50,7 @@
 						hover:bg-red-200
 						text-red-500
 						hover:text-red-600
-						p-4
+						p-3
 						m-1
 						rounded-md
 						transition
@@ -63,7 +66,7 @@
 						text-sm
 						hover:bg-gray-200
 						text-primary
-						p-4
+						p-3
 						m-1
 						rounded-md
 						transition
