@@ -15,36 +15,27 @@
 				<router-link :to="'/note/' + note.id">
 					<div
 						class="
-							h-60
-							lg:h-56
+							h-56
+							p-7
 							bg-gray-200
 							dark:bg-gray-700
 							rounded-2xl
-							overflow-hidden
 							transition
 							duration-500
 						"
 					>
-						<div class="overflow-hidden m-8">
-							<div class="font-Rubik-Medium text-xl">
-								{{ note.title }}
-							</div>
-							<pre class="font-Poppins-Light break-words">{{
-								note.content
-							}}</pre>
-							<!-- Lorem ipsum dolor sit amet, consectetur
-								adipiscing elit, sed do eiusmod tempor
-								incididunt ut labore et dolore magna aliqua. Ut
-								enim ad minim veniam, quis nostrud exercitation
-								ullamco laboris nisi ut aliquip ex ea commodo
-								consequat. Duis aute irure dolor in
-								reprehenderit in voluptate velit esse cillum
-								dolore eu fugiat nulla pariatur. Excepteur sint
-								occaecat cupidatat non proident, sunt in culpa
-								qui officia deserunt mollit anim id est laborum. -->
-
-							<div>{{ note.author }}</div>
+						<div class="font-Rubik-Medium text-xl mb-1">
+							{{ note.title }}
 						</div>
+						<pre
+							class="
+								font-Poppins-Light
+								whitespace-pre-wrap
+								h-36
+								overflow-hidden
+							"
+							>{{ note.content }}</pre
+						>
 					</div>
 				</router-link>
 			</template>
