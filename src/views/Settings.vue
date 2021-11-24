@@ -46,6 +46,10 @@
 					type="text"
 				/>
 			</div>
+			<div class="w-80">
+				<DateAndTime title="Created" :value="user.created_at" />
+				<DateAndTime title="Modified" :value="user.modified_at" />
+			</div>
 
 			<button
 				@click="changeUserDetails"
@@ -117,7 +121,9 @@
 
 <script>
 import { mapGetters, mapActions } from "vuex";
+
 import TitleBar from "../components/TitleBar.vue";
+import DateAndTime from "../components/DateAndTime.vue";
 
 export default {
 	name: "Settings",
@@ -135,6 +141,7 @@ export default {
 	},
 	components: {
 		TitleBar,
+		DateAndTime,
 	},
 };
 </script>

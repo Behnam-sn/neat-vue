@@ -29,9 +29,10 @@
 							<div class="font-Rubik-Medium text-xl">
 								{{ note.title }}
 							</div>
-							<p class="font-Poppins-Light break-words">
-								{{ note.content }}
-								<!-- Lorem ipsum dolor sit amet, consectetur
+							<pre class="font-Poppins-Light break-words">{{
+								note.content
+							}}</pre>
+							<!-- Lorem ipsum dolor sit amet, consectetur
 								adipiscing elit, sed do eiusmod tempor
 								incididunt ut labore et dolore magna aliqua. Ut
 								enim ad minim veniam, quis nostrud exercitation
@@ -41,7 +42,7 @@
 								dolore eu fugiat nulla pariatur. Excepteur sint
 								occaecat cupidatat non proident, sunt in culpa
 								qui officia deserunt mollit anim id est laborum. -->
-							</p>
+
 							<div>{{ note.author }}</div>
 						</div>
 					</div>
