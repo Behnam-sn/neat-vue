@@ -18,6 +18,7 @@ module.exports = {
 				"Poppins-Bold": ["Poppins-Bold", "sans-serif"],
 				"Roboto-Medium": ["Roboto-Medium", "sans-serif"],
 				"Roboto-Regular": ["Roboto-Regular", "sans-serif"],
+				"Roboto-Bold": ["Roboto-Bold", "sans-serif"],
 			},
 			height: {
 				"vh-85": "85vh",

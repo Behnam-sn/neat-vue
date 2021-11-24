@@ -41,7 +41,7 @@
 			Note Not Public
 		</div>
 		<div
-			v-else
+			v-else-if="note !== undefined"
 			class="
 				h-screen
 				bg-gray-200

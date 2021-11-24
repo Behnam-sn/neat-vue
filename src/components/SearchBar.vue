@@ -1,5 +1,5 @@
 <template>
-	<div class="flex items-center relative my-7">
+	<div class="flex items-center relative mb-7">
 		<SeachIcon class="absolute left-4 h-6 text-gray-300" />
 		<input
 			v-model="search"

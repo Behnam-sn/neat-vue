@@ -1,7 +1,7 @@
 <template>
 	<div>
 		<div
-			class="flex justify-between items-center mx-4 lg:mx-7 py-3 lg:my-5"
+			class="flex justify-between items-center mx-4 lg:mx-7 my-4 lg:my-6"
 		>
 			<GoBackButton />
 			<div class="flex">
@@ -51,6 +51,23 @@
 				<DeleteButton />
 			</div>
 		</div>
+		<div
+			class="
+				mx-8
+				lg:mx-12
+				flex flex-col
+				lg:flex-row
+				items-end
+				justify-end
+			"
+		>
+			<DateAndTime
+				title="Created"
+				:value="note.created_at"
+				class="lg:mr-6"
+			/>
+			<DateAndTime title="Modified" :value="note.modified_at" />
+		</div>
 		<input
 			v-model="note.title"
 			class="
@@ -58,8 +75,8 @@
 				text-2xl
 				w-full
 				px-8
-				py-3
-				lg:px-20 lg:py-5
+				my-3
+				lg:px-20 lg:my-4
 				bg-transparent
 				focus:outline-none
 			"
@@ -77,8 +94,8 @@
 				w-full
 				h-auto
 				px-8
-				py-3
-				lg:px-20 lg:py-5
+				my-3
+				lg:px-20 lg:my-4
 				bg-transparent
 				resize-none
 				overflow-hidden
@@ -88,8 +105,7 @@
 			name="contect"
 			placeholder="Contect"
 		></textarea>
-		<div class="lg:px-20">modified_at: {{ note.modified_at }}</div>
-		<div class="lg:px-20">created_at: {{ note.created_at }}</div>
+
 		<button
 			@click="sendNote"
 			class="
@@ -163,6 +179,7 @@
 import { mapGetters, mapActions } from "vuex";
 
 import FooterBar from "./FooterBar.vue";
+import DateAndTime from "./DateAndTime.vue";
 import GoBackButton from "./Note/GoBackButton.vue";
 import DeleteButton from "./Note/DeleteButton.vue";
 
@@ -200,6 +217,7 @@ export default {
 	},
 	components: {
 		FooterBar,
+		DateAndTime,
 		GoBackButton,
 		DeleteButton,
 		SendIcon,
