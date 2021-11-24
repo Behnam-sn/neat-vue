@@ -69,8 +69,8 @@
 				bg-transparent
 				focus:outline-none
 			"
+			dir="auto"
 			type="text"
-			name="title"
 			placeholder="Title"
 		/>
 		<textarea
@@ -90,7 +90,7 @@
 				leading-9
 				focus:outline-none
 			"
-			name="contect"
+			dir="auto"
 			placeholder="Contect"
 		></textarea>
 		<button

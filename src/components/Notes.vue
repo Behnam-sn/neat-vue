@@ -23,7 +23,7 @@
 							duration-500
 						"
 					>
-						<div class="font-Rubik-Medium text-xl mb-1">
+						<div class="font-Rubik-Medium text-xl mb-1" dir="auto">
 							{{ note.title }}
 						</div>
 						<pre
@@ -33,6 +33,7 @@
 								h-36
 								overflow-hidden
 							"
+							dir="auto"
 							>{{ note.content }}</pre
 						>
 					</div>

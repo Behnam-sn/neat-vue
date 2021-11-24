@@ -24,6 +24,7 @@
 		</div>
 		<div
 			class="font-Rubik-Medium text-2xl w-full px-8 my-3 lg:px-20 lg:y-5"
+			dir="auto"
 		>
 			{{ note.title }}
 		</div>
@@ -39,6 +40,7 @@
 				leading-9
 				overflow-hidden
 			"
+			dir="auto"
 			>{{ note.content }}</pre
 		>
 	</div>
