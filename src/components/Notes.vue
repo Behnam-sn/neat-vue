@@ -8,7 +8,6 @@
 				lg:grid-cols-3
 				xl:grid-cols-4
 				gap-8
-				pb-64
 			"
 		>
 			<template v-for="note in notesList" :key="note.id">

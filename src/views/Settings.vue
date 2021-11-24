@@ -1,7 +1,7 @@
 <template>
 	<div>
 		<TitleBar title="Settings" />
-		<div class="flex flex-col items-center justify-center mt-24 mb-16">
+		<div class="flex flex-col items-center justify-center mt-24 lg:mb-16">
 			<div class="flex flex-col pb-6">
 				<label class="font-Poppins-Medium text-lg">Username</label>
 				<input

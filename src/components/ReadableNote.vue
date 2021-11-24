@@ -29,14 +29,15 @@
 		</div>
 		<pre
 			class="
-				font-Poppins-Light
-				text-xl
 				w-full
 				px-8
 				my-3
 				lg:px-20 lg:y-5
-				overflow-hidden
+				font-Poppins-Light
+				text-xl
+				whitespace-pre-wrap
 				leading-9
+				overflow-hidden
 			"
 			>{{ note.content }}</pre
 		>

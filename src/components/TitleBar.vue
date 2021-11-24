@@ -1,5 +1,16 @@
 <template>
-	<div class="lg:h-vh-15 flex justify-between items-center px-7 lg:px-16">
+	<div
+		class="
+			lg:h-vh-15
+			flex
+			justify-between
+			items-center
+			px-7
+			lg:px-16
+			mb-6
+			lg:mb-0
+		"
+	>
 		<h1 class="font-Poppins-Bold text-5xl capitalize">
 			{{ title }}
 		</h1>

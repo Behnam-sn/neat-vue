@@ -2,7 +2,7 @@
 	<div id="app" class="lg:flex">
 		<Navbar />
 		<Menu />
-		<div class="w-full pt-24 lg:pt-0">
+		<div class="w-full pt-24 lg:pt-0" :class="{ 'mb-56': isNotNote }">
 			<router-view v-slot="{ Component }">
 				<transition name="route" mode="out-in">
 					<component :is="Component" />
