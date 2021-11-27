@@ -47,7 +47,7 @@
 				group-hover:scale-100
 			"
 		>
-			Change Theme
+			Theme
 		</div>
 	</button>
 </template>
