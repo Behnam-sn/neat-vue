@@ -24,28 +24,6 @@
 					type="password"
 				/>
 			</div>
-			<!-- <div class="flex flex-col pb-6">
-				<label class="font-Poppins-Medium text-lg">New Password</label>
-				<input
-					v-model="newPassword"
-					class="
-						font-Poppins-Light
-						text-lg
-						bg-gray-200
-						dark:bg-gray-800
-						w-80
-						px-4
-						py-2
-						mt-2
-						rounded-lg
-						focus:outline-none focus:ring-2 focus:ring-gray-400
-						dark:focus:ring-gray-600
-						transition
-						duration-500
-					"
-					type="password"
-				/>
-			</div> -->
 			<button
 				@click="deleteUser"
 				class="

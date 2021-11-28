@@ -5,6 +5,36 @@
 @tailwind utilities;
 
 @font-face {
+	font-family: "Poppins-Bold";
+	src: url(./fonts/Poppins-Bold.ttf) format("truetype");
+}
+
+@font-face {
+	font-family: "Poppins-Light";
+	src: url(./fonts/Poppins-Light.ttf) format("truetype");
+}
+
+@font-face {
+	font-family: "Poppins-Medium";
+	src: url(./fonts/Poppins-Medium.ttf) format("truetype");
+}
+
+@font-face {
+	font-family: "Roboto-Bold";
+	src: url(./fonts/Roboto-Bold.ttf) format("truetype");
+}
+
+@font-face {
+	font-family: "Roboto-Medium";
+	src: url(./fonts/Roboto-Medium.ttf) format("truetype");
+}
+
+@font-face {
+	font-family: "Roboto-Regular";
+	src: url(./fonts/Roboto-Regular.ttf) format("truetype");
+}
+
+@font-face {
 	font-family: "Rubik-Bold";
 	src: url(./fonts/Rubik-Bold.ttf) format("truetype");
 }
@@ -22,36 +52,6 @@
 @font-face {
 	font-family: "Rubik-Regular";
 	src: url(./fonts/Rubik-Regular.ttf) format("truetype");
-}
-
-@font-face {
-	font-family: "Poppins-Light";
-	src: url(./fonts/Poppins-Light.ttf) format("truetype");
-}
-
-@font-face {
-	font-family: "Poppins-Medium";
-	src: url(./fonts/Poppins-Medium.ttf) format("truetype");
-}
-
-@font-face {
-	font-family: "Poppins-Bold";
-	src: url(./fonts/Poppins-Bold.ttf) format("truetype");
-}
-
-@font-face {
-	font-family: "Roboto-Medium";
-	src: url(./fonts/Roboto-Medium.ttf) format("truetype");
-}
-
-@font-face {
-	font-family: "Roboto-Regular";
-	src: url(./fonts/Roboto-Regular.ttf) format("truetype");
-}
-
-@font-face {
-	font-family: "Roboto-Bold";
-	src: url(./fonts/Roboto-Bold.ttf) format("truetype");
 }
 
 svg {
