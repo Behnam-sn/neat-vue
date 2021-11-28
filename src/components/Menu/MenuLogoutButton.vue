@@ -30,7 +30,7 @@
 				group-hover:scale-100
 			"
 		>
-			Log Out
+			Logout
 		</div>
 	</button>
 </template>

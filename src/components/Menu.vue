@@ -24,13 +24,13 @@
 			</MenuButton>
 		</div>
 		<div class="flex flex-col items-center">
-			<MenuButton address="/public" tooltipText="Public">
+			<MenuButton address="/public" tooltipText="Public Notes">
 				<HomeIcon class="h-9 my-4" />
 			</MenuButton>
 
 			<MenuButton
 				:address="username ? `/user/${username}` : '/login'"
-				:tooltipText="username ? 'Your Page' : 'Login'"
+				:tooltipText="username ? 'Your Notes' : 'Login'"
 			>
 				<UserIcon class="h-9 my-4" />
 			</MenuButton>
