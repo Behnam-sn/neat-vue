@@ -39,11 +39,11 @@ const Notes = {
 					console.log(error);
 				});
 		},
-		fetchCurrentUserNotes({ state, commit }) {
+		fetchCurrentUserNotes({ rootState, commit }) {
 			axios
 				.get("notes/", {
 					headers: {
-						Authorization: "Bearer " + state.token,
+						Authorization: "Bearer " + rootState.token,
 					},
 				})
 				.then((response) => {

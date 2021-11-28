@@ -1,6 +1,5 @@
 <template>
 	<button
-		v-if="username"
 		@click="logout"
 		class="flex items-center justify-center relative group"
 	>
@@ -37,15 +36,12 @@
 </template>
 
 <script>
-import { mapGetters, mapActions } from "vuex";
+import { mapActions } from "vuex";
 
 import LogoutIcon from "../../assets/svg/LogoutIcon.vue";
 
 export default {
 	name: "MenuLogoutButton",
-	computed: {
-		...mapGetters({ username: "getUsername" }),
-	},
 	methods: {
 		...mapActions(["logout"]),
 	},

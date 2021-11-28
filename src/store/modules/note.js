@@ -22,8 +22,7 @@ const Note = {
 		},
 	},
 	actions: {
-		createNote({ state }, payload) {
-			console.log(state.token);
+		createNote({ rootState }, payload) {
 			const Note = {
 				title: payload.title,
 				content: payload.content,
@@ -33,24 +32,24 @@ const Note = {
 			axios
 				.post("notes/", Note, {
 					headers: {
-						Authorization: "Bearer " + state.token,
+						Authorization: "Bearer " + rootState.token,
 					},
 				})
 				.then((response) => {
 					if (response.status == 200) {
-						router.push(`/user/${state.username}`);
+						router.push(`/user/${rootState.username}`);
 					}
 				})
 				.catch((error) => {
 					console.log(error);
 				});
 		},
-		fetchNote({ state, commit }, payload) {
-			if (state.username) {
+		fetchNote({ rootState, commit }, payload) {
+			if (rootState.username) {
 				axios
 					.get(`notes/id?id=${payload}`, {
 						headers: {
-							Authorization: "Bearer " + state.token,
+							Authorization: "Bearer " + rootState.token,
 						},
 					})
 					.then((response) => {
@@ -82,7 +81,7 @@ const Note = {
 					});
 			}
 		},
-		updateNote({ state }, payload) {
+		updateNote({ rootState }, payload) {
 			const Note = {
 				title: payload.title,
 				content: payload.content,
@@ -92,28 +91,28 @@ const Note = {
 			axios
 				.put(`notes/?id=${payload.id}`, Note, {
 					headers: {
-						Authorization: "Bearer " + state.token,
+						Authorization: "Bearer " + rootState.token,
 					},
 				})
 				.then((response) => {
 					if (response.status == 200) {
-						router.push(`/user/${state.username}`);
+						router.push(`/user/${rootState.username}`);
 					}
 				})
 				.catch((error) => {
 					console.log(error);
 				});
 		},
-		deleteNote({ state }) {
+		deleteNote({ state, rootState }) {
 			axios
 				.delete(`notes/?id=${state.note.id}`, {
 					headers: {
-						Authorization: "Bearer " + state.token,
+						Authorization: "Bearer " + rootState.token,
 					},
 				})
 				.then((response) => {
 					if (response.status == 200) {
-						router.push(`/user/${state.username}`);
+						router.push(`/user/${rootState.username}`);
 					}
 				})
 				.catch((error) => {

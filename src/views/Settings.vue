@@ -52,7 +52,7 @@
 			</div>
 
 			<button
-				@click="changeUserDetails"
+				@click="changeUser"
 				class="
 					font-Poppins-Medium
 					bg-green-500
@@ -134,9 +134,9 @@ export default {
 		...mapGetters({ username: "getUsername", user: "getUser" }),
 	},
 	methods: {
-		...mapActions(["fetchUser", "updateUserDetails"]),
-		changeUserDetails() {
-			this.updateUserDetails();
+		...mapActions(["fetchUser", "updateUser"]),
+		changeUser() {
+			this.updateUser();
 		},
 	},
 	components: {

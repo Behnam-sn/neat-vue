@@ -49,7 +49,7 @@
 		</div>
 		<div class="flex flex-col items-center">
 			<MenuChangeThemeButton />
-			<MenuLogoutButton />
+			<MenuLogoutButton v-if="username" />
 		</div>
 	</div>
 </template>

@@ -4,8 +4,6 @@ import router from "../../router";
 
 const User = {
 	state: () => ({
-		username: localStorage.username,
-		token: localStorage.token,
 		user: {
 			username: null,
 			full_name: null,
@@ -14,30 +12,20 @@ const User = {
 		},
 	}),
 	getters: {
-		getUsername: (state) => state.username,
-		getToken: (state) => state.token,
 		getUser: (state) => state.user,
 	},
 	mutations: {
-		setUsername(state, payload) {
-			state.username = payload;
-			localStorage.username = payload;
-		},
-		setToken(state, payload) {
-			state.token = payload;
-			localStorage.token = payload;
-		},
 		setUser(state, payload) {
 			state.user = payload;
 		},
 	},
 	actions: {
-		testToken({ state, dispatch }) {
-			if (state.token) {
+		testToken({ rootState, dispatch }) {
+			if (rootState.token) {
 				axios
 					.post("auth/test-token", null, {
 						headers: {
-							Authorization: "Bearer " + state.token,
+							Authorization: "Bearer " + rootState.token,
 						},
 					})
 					.then((response) => {
@@ -47,14 +35,6 @@ const User = {
 						dispatch("logout");
 					});
 			}
-		},
-		logout({ commit }) {
-			localStorage.removeItem("username");
-			localStorage.removeItem("token");
-			commit("setUsername", undefined);
-			commit("setToken", undefined);
-
-			router.push("/");
 		},
 		signup({ dispatch }, payload) {
 			const User = {
@@ -95,7 +75,14 @@ const User = {
 					console.log(error);
 				});
 		},
+		logout({ commit }) {
+			commit("setUsername", undefined);
+			commit("setToken", undefined);
+			localStorage.removeItem("username");
+			localStorage.removeItem("token");
 
+			router.push("/");
+		},
 		fetchUser({ commit }, payload) {
 			axios
 				.get(`users/?username=${payload}`)
@@ -108,7 +95,7 @@ const User = {
 					console.log(error);
 				});
 		},
-		updateUserDetails({ state, dispatch }) {
+		updateUser({ state, rootState, dispatch }) {
 			const User = {
 				username: state.user.username,
 				full_name: state.user.full_name,
@@ -117,7 +104,7 @@ const User = {
 			axios
 				.put("users/", User, {
 					headers: {
-						Authorization: "Bearer " + state.token,
+						Authorization: "Bearer " + rootState.token,
 					},
 				})
 				.then((response) => {
@@ -129,7 +116,7 @@ const User = {
 					console.log(error);
 				});
 		},
-		changePassword({ state, dispatch }, payload) {
+		changePassword({ rootState, dispatch }, payload) {
 			const password_update = {
 				password: payload.password,
 				new_password: payload.newPassword,
@@ -138,7 +125,7 @@ const User = {
 			axios
 				.put("users/password", password_update, {
 					headers: {
-						Authorization: "Bearer " + state.token,
+						Authorization: "Bearer " + rootState.token,
 					},
 				})
 				.then((response) => {
@@ -150,11 +137,11 @@ const User = {
 					console.log(error);
 				});
 		},
-		deleteAccount({ state, dispatch }, payload) {
+		deleteAccount({ rootState, dispatch }, payload) {
 			axios
 				.delete(`users/?password=${payload}`, {
 					headers: {
-						Authorization: "Bearer " + state.token,
+						Authorization: "Bearer " + rootState.token,
 					},
 				})
 				.then((response) => {
