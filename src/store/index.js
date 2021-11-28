@@ -1,57 +1,52 @@
 import { createStore } from "vuex";
-import axios from "axios";
 
+import axios from "axios";
 import router from "../router";
+
+// import Note from "./modules/note";
+// import Notes from "./modules/notes";
+// import User from "./modules/user";
 
 export default createStore({
 	state: {
-		isCollapse: false,
+		collapseStatus: false,
 		theme: localStorage.theme,
 		username: localStorage.username,
 		token: localStorage.token,
-		publicNotes: undefined,
-		userNotes: undefined,
-		note: undefined,
+		publicNotes: null,
+		userNotes: null,
 		user: {
-			username: undefined,
-			full_name: undefined,
-			created_at: undefined,
-			modified_at: undefined,
+			username: null,
+			full_name: null,
+			created_at: null,
+			modified_at: null,
+		},
+		note: {
+			title: null,
+			content: null,
+			push: null,
+			author: null,
+			created_at: null,
+			modified_at: null,
 		},
 	},
 	getters: {
+		getCollapseStatus: (state) => state.collapseStatus,
 		getTheme: (state) => state.theme,
-		getCollapseStatus: (state) => state.isCollapse,
 		getUsername: (state) => state.username,
 		getToken: (state) => state.token,
 		getPublicNotes: (state) => state.publicNotes,
 		getUserNotes: (state) => state.userNotes,
-		getNote: (state) => state.note,
 		getUser: (state) => state.user,
+		getNote: (state) => state.note,
 	},
 	mutations: {
-		initTheme(state) {
-			if (localStorage.theme == undefined) {
-				localStorage.theme = "light";
-				state.theme = "light";
-			}
-			if (localStorage.theme == "dark") {
-				document.documentElement.classList.add("dark");
-			}
+		setCollapseStatus(state, payload) {
+			state.collapseStatus = payload;
 		},
-		changeTheme(state) {
-			if (state.theme == "light") {
-				localStorage.theme = "dark";
-				state.theme = "dark";
-				document.documentElement.classList.add("dark");
-			} else {
-				localStorage.theme = "light";
-				state.theme = "light";
-				document.documentElement.classList.remove("dark");
-			}
-		},
-		collapse(state) {
-			state.isCollapse = !state.isCollapse;
+		setTheme(state, payload) {
+			state.theme = payload;
+			localStorage.theme = payload;
 		},
 		setUsername(state, payload) {
 			state.username = payload;
@@ -61,32 +56,43 @@ export default createStore({
 			state.token = payload;
 			localStorage.token = payload;
 		},
-		logout(state) {
-			localStorage.removeItem("username");
-			localStorage.removeItem("token");
-			state.username = undefined;
-			state.token = undefined;
-
-			router.push("/");
-		},
 		setPublicNotes(state, payload) {
 			state.publicNotes = payload;
 		},
 		setUserNotes(state, payload) {
 			state.userNotes = payload;
 		},
-		setNote(state, payload) {
-			state.note = payload;
-		},
 		setUser(state, payload) {
 			state.user = payload;
+		},
+		setNote(state, payload) {
+			state.note = payload;
 		},
 	},
 	actions: {
 		goBack() {
 			window.history.length > 1 ? router.go(-1) : router.push("/");
 		},
-		testToken({ state, commit }) {
+		collapse({ state, commit }) {
+			commit("setCollapseStatus", !state.collapseStatus);
+		},
+		initTheme({ state, commit }) {
+			if (state.theme === "dark") {
+				document.documentElement.classList.add("dark");
+			} else {
+				commit("setTheme", "light");
+			}
+		},
+		changeTheme({ state, commit }) {
+			if (state.theme === "light") {
+				commit("setTheme", "dark");
+				document.documentElement.classList.add("dark");
+			} else {
+				commit("setTheme", "light");
+				document.documentElement.classList.remove("dark");
+			}
+		},
+		testToken({ state, dispatch }) {
 			if (state.token) {
 				axios
 					.post("auth/test-token", null, {
@@ -98,26 +104,51 @@ export default createStore({
 						response.status;
 					})
 					.catch(() => {
-						commit("logout");
+						dispatch("logout");
 					});
 			}
 		},
-		login({ commit, dispatch }, payload) {
-			const User = new FormData();
-			User.append("username", payload.username);
-			User.append("password", payload.password);
+		logout({ commit }) {
+			localStorage.removeItem("username");
+			localStorage.removeItem("token");
+			commit("setUsername", undefined);
+			commit("setToken", undefined);
 
+			router.push("/");
+		},
+		fetchPublicNotes({ commit }) {
 			axios
-				.post("auth/login", User)
+				.get("notes/public-all")
 				.then((response) => {
-					if (response.status == 200) {
-						commit("setUsername", payload.username);
-						commit("setToken", response.data.access_token);
-						dispatch("goBack");
-						// router.push(`/user/${payload.username}`);
-					}
+					commit("setPublicNotes", response.data);
 				})
 				.catch((error) => {
+					console.log(error);
+				});
+		},
+		fetchPublicNotesByAuthor({ commit }, payload) {
+			axios
+				.get(`notes/public-author?author=${payload}`)
+				.then((response) => {
+					commit("setUserNotes", response.data);
+				})
+				.catch((error) => {
+					commit("setUserNotes", "notFound");
+					console.log(error);
+				});
+		},
+		fetchCurrentUserNotes({ state, commit }) {
+			axios
+				.get("notes/", {
+					headers: {
+						Authorization: "Bearer " + state.token,
+					},
+				})
+				.then((response) => {
+					commit("setUserNotes", response.data);
+				})
+				.catch((error) => {
+					commit("setUserNotes", "notFound");
 					console.log(error);
 				});
 		},
@@ -142,39 +173,92 @@ export default createStore({
 					console.log(error);
 				});
 		},
-		fetchPublicNotes({ commit }) {
+		login({ commit, dispatch }, payload) {
+			const User = new FormData();
+			User.append("username", payload.username);
+			User.append("password", payload.password);
+
 			axios
-				.get("notes/public-all")
+				.post("auth/login", User)
 				.then((response) => {
-					commit("setPublicNotes", response.data);
+					if (response.status == 200) {
+						commit("setUsername", payload.username);
+						commit("setToken", response.data.access_token);
+						dispatch("goBack");
+					}
 				})
 				.catch((error) => {
 					console.log(error);
 				});
 		},
-		fetchCurrentUserNotes({ state, commit }) {
+
+		fetchUser({ commit }, payload) {
 			axios
-				.get("notes/", {
+				.get(`users/?username=${payload}`)
+				.then((response) => {
+					if (response.status == 200) {
+						commit("setUser", response.data);
+					}
+				})
+				.catch((error) => {
+					console.log(error);
+				});
+		},
+		updateUserDetails({ state, dispatch }) {
+			const User = {
+				username: state.user.username,
+				full_name: state.user.full_name,
+			};
+
+			axios
+				.put("users/", User, {
 					headers: {
 						Authorization: "Bearer " + state.token,
 					},
 				})
 				.then((response) => {
-					commit("setUserNotes", response.data);
+					if (response.status == 200) {
+						dispatch("logout");
+					}
 				})
 				.catch((error) => {
-					commit("setUserNotes", "notFound");
 					console.log(error);
 				});
 		},
-		fetchPublicNotesByAuthor({ commit }, payload) {
+		changePassword({ state, dispatch }, payload) {
+			const password_update = {
+				password: payload.password,
+				new_password: payload.newPassword,
+			};
+
 			axios
-				.get(`notes/public-author?author=${payload}`)
+				.put("users/password", password_update, {
+					headers: {
+						Authorization: "Bearer " + state.token,
+					},
+				})
 				.then((response) => {
-					commit("setUserNotes", response.data);
+					if (response.status == 200) {
+						dispatch("logout");
+					}
 				})
 				.catch((error) => {
-					commit("setUserNotes", "notFound");
+					console.log(error);
+				});
+		},
+		deleteAccount({ state, dispatch }, payload) {
+			axios
+				.delete(`users/?password=${payload}`, {
+					headers: {
+						Authorization: "Bearer " + state.token,
+					},
+				})
+				.then((response) => {
+					if (response.status == 200) {
+						dispatch("logout");
+					}
+				})
+				.catch((error) => {
 					console.log(error);
 				});
 		},
@@ -275,76 +359,10 @@ export default createStore({
 					console.log(error);
 				});
 		},
-		fetchUser({ commit }, payload) {
-			axios
-				.get(`users/?username=${payload}`)
-				.then((response) => {
-					if (response.status == 200) {
-						commit("setUser", response.data);
-					}
-				})
-				.catch((error) => {
-					console.log(error);
-				});
-		},
-		updateUserDetails({ state, commit }) {
-			const User = {
-				username: state.user.username,
-				full_name: state.user.full_name,
-			};
-
-			axios
-				.put("users/", User, {
-					headers: {
-						Authorization: "Bearer " + state.token,
-					},
-				})
-				.then((response) => {
-					if (response.status == 200) {
-						commit("logout");
-					}
-				})
-				.catch((error) => {
-					console.log(error);
-				});
-		},
-		deleteAccount({ state, commit }, payload) {
-			axios
-				.delete(`users/?password=${payload}`, {
-					headers: {
-						Authorization: "Bearer " + state.token,
-					},
-				})
-				.then((response) => {
-					if (response.status == 200) {
-						commit("logout");
-					}
-				})
-				.catch((error) => {
-					console.log(error);
-				});
-		},
-		changePassword({ state, commit }, payload) {
-			const password_update = {
-				password: payload.password,
-				new_password: payload.newPassword,
-			};
-
-			axios
-				.put("users/password", password_update, {
-					headers: {
-						Authorization: "Bearer " + state.token,
-					},
-				})
-				.then((response) => {
-					if (response.status == 200) {
-						commit("logout");
-					}
-				})
-				.catch((error) => {
-					console.log(error);
-				});
-		},
 	},
-	modules: {},
+	// modules: {
+	// 	Note,
+	// 	Notes,
+	// 	User,
+	// },
 });

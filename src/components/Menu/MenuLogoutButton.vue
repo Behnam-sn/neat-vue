@@ -37,7 +37,7 @@
 </template>
 
 <script>
-import { mapGetters, mapMutations } from "vuex";
+import { mapGetters, mapActions } from "vuex";
 
 import LogoutIcon from "../../assets/svg/LogoutIcon.vue";
 
@@ -47,7 +47,7 @@ export default {
 		...mapGetters({ username: "getUsername" }),
 	},
 	methods: {
-		...mapMutations(["logout"]),
+		...mapActions(["logout"]),
 	},
 	components: {
 		LogoutIcon,

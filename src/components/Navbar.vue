@@ -46,7 +46,7 @@
 </template>
 
 <script>
-import { mapGetters, mapMutations } from "vuex";
+import { mapGetters, mapActions } from "vuex";
 
 import Collapsible from "./NavbarCollapsible.vue";
 
@@ -57,17 +57,20 @@ import SunIcon from "../assets/svg/SunIcon.vue";
 export default {
 	name: "Navbar",
 	computed: {
-		...mapGetters({ theme: "getTheme", isCollapse: "getCollapseStatus" }),
+		...mapGetters({
+			theme: "getTheme",
+			collapseStatus: "getCollapseStatus",
+		}),
 	},
 	watch: {
 		$route() {
-			if (this.isCollapse) {
+			if (this.collapseStatus) {
 				this.collapse();
 			}
 		},
 	},
 	methods: {
-		...mapMutations(["changeTheme", "collapse"]),
+		...mapActions(["changeTheme", "collapse"]),
 	},
 	components: {
 		Collapsible,

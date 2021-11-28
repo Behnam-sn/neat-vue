@@ -2,7 +2,7 @@
 	<div
 		id="collapsible"
 		class="flex items-end justify-evenly mt-2 transition duration-500"
-		:class="[isCollapse ? 'h-14 opacity-100' : 'h-0 opacity-0']"
+		:class="[collapseStatus ? 'h-14 opacity-100' : 'h-0 opacity-0']"
 	>
 		<router-link to="/public">
 			<HomeIcon class="h-8" />
@@ -23,7 +23,7 @@
 </template>
 
 <script>
-import { mapGetters, mapMutations } from "vuex";
+import { mapGetters, mapActions } from "vuex";
 
 import HomeIcon from "../assets/svg/HomeIcon.vue";
 import UserIcon from "../assets/svg/UserIcon.vue";
@@ -35,12 +35,12 @@ export default {
 	name: "Collapsible",
 	computed: {
 		...mapGetters({
-			isCollapse: "getCollapseStatus",
+			collapseStatus: "getCollapseStatus",
 			username: "getUsername",
 		}),
 	},
 	methods: {
-		...mapMutations(["logout"]),
+		...mapActions(["logout"]),
 	},
 	components: {
 		HomeIcon,

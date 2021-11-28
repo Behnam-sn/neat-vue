@@ -53,7 +53,7 @@
 </template>
 
 <script>
-import { mapGetters, mapMutations } from "vuex";
+import { mapGetters, mapActions } from "vuex";
 
 import MoonIcon from "../../assets/svg/MoonIcon.vue";
 import SunIcon from "../../assets/svg/SunIcon.vue";
@@ -64,7 +64,7 @@ export default {
 		...mapGetters({ theme: "getTheme" }),
 	},
 	methods: {
-		...mapMutations(["changeTheme"]),
+		...mapActions(["changeTheme"]),
 	},
 	components: {
 		MoonIcon,

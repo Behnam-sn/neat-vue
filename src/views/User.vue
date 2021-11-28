@@ -32,7 +32,7 @@ import Notes from "../components/Notes.vue";
 export default {
 	name: "User",
 	mounted: function () {
-		if (this.routeUsername == this.currnetUser) {
+		if (this.routeUsername === this.currnetUser) {
 			this.fetchCurrentUserNotes();
 		} else {
 			this.fetchPublicNotesByAuthor(this.routeUsername);

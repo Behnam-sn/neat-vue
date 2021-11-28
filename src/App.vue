@@ -48,7 +48,7 @@
 </template>
 
 <script>
-import { mapMutations, mapActions } from "vuex";
+import { mapActions } from "vuex";
 
 import Navbar from "./components/Navbar.vue";
 import Menu from "./components/Menu.vue";
@@ -74,8 +74,7 @@ export default {
 		},
 	},
 	methods: {
-		...mapMutations(["initTheme"]),
-		...mapActions(["testToken"]),
+		...mapActions(["initTheme", "testToken"]),
 	},
 	components: {
 		Navbar,
