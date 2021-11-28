@@ -22,6 +22,7 @@ export default createStore({
 			modified_at: null,
 		},
 		note: {
+			id: null,
 			title: null,
 			content: null,
 			push: null,
