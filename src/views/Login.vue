@@ -32,13 +32,20 @@
 					py-2
 					mt-8
 					rounded-lg
-					focus:outline-none focus:ring-2 focus:ring-gray-400
+					ring-2 ring-transparent
+					focus:outline-none focus:ring-gray-400
 					dark:focus:ring-gray-600
 					transition
 					duration-500
 				"
+				:class="{
+					'ring-red-600':
+						errors.empty_username ||
+						errors.invalid_username ||
+						errors.not_authorised ||
+						errors.already_exists,
+				}"
 				type="text"
-				name="username"
 				placeholder="Username"
 			/>
 			<input
@@ -53,13 +60,13 @@
 					py-2
 					mt-5
 					rounded-lg
-					focus:outline-none focus:ring-2 focus:ring-gray-400
+					ring-2 ring-transparent
+					focus:outline-none focus:ring-gray-400
 					dark:focus:ring-gray-600
 					transition
 					duration-500
 				"
 				type="text"
-				name="fullname"
 				placeholder="Fullname"
 				v-if="isSignup"
 			/>
@@ -75,13 +82,17 @@
 					py-2
 					mt-5
 					rounded-lg
-					focus:outline-none focus:ring-2 focus:ring-gray-400
+					ring-2 ring-transparent
+					focus:outline-none focus:ring-gray-400
 					dark:focus:ring-gray-600
 					transition
 					duration-500
 				"
+				:class="{
+					'ring-red-600':
+						errors.empty_password || errors.not_authorised,
+				}"
 				type="password"
-				name="password"
 				placeholder="Password"
 			/>
 			<button
@@ -122,7 +133,7 @@
 </template>
 
 <script>
-import { mapGetters, mapActions } from "vuex";
+import { mapGetters, mapMutations, mapActions } from "vuex";
 
 export default {
 	name: "Login",
@@ -137,9 +148,11 @@ export default {
 		}),
 	},
 	methods: {
+		...mapMutations(["resetErrors"]),
 		...mapActions(["checkLoginData", "login", "signup"]),
 		changeMode() {
 			this.isSignup = !this.isSignup;
+			this.resetErrors();
 		},
 		submit() {
 			this.checkLoginData();
