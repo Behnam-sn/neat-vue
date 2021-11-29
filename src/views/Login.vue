@@ -21,7 +21,7 @@
 				{{ isSignup ? "Login" : "Sign Up" }}
 			</button>
 			<input
-				v-model="username"
+				v-model="loginData.username"
 				class="
 					font-Poppins-Light
 					bg-gray-200
@@ -42,7 +42,7 @@
 				placeholder="Username"
 			/>
 			<input
-				v-model="fullname"
+				v-model="loginData.full_name"
 				class="
 					font-Poppins-Light
 					bg-gray-200
@@ -64,7 +64,7 @@
 				v-if="isSignup"
 			/>
 			<input
-				v-model="password"
+				v-model="loginData.password"
 				class="
 					font-Poppins-Light
 					bg-gray-200
@@ -104,38 +104,47 @@
 			>
 				{{ isSignup ? "Sign Up" : "Login" }}
 			</button>
+			<div class="font-Poppins-Light text-lg text-red-600 mt-14">
+				<ul class="list-disc list-outside">
+					<li v-if="errors.empty_username">Username required</li>
+					<li v-if="errors.invalid_username">
+						Please enter valid Username
+					</li>
+					<li v-if="errors.empty_password">Password required</li>
+					<li v-if="errors.not_authorised">
+						Username / Password is wrong
+					</li>
+					<li v-if="errors.already_exists">User already exists</li>
+				</ul>
+			</div>
 		</div>
 	</div>
 </template>
 
 <script>
-import { mapActions } from "vuex";
+import { mapGetters, mapActions } from "vuex";
 
 export default {
 	name: "Login",
 	data: () => ({
 		isSignup: false,
-		username: undefined,
-		fullname: undefined,
-		password: undefined,
 	}),
+	computed: {
+		...mapGetters({
+			loginIsSafe: "getLoginIsSafe",
+			loginData: "getLoginData",
+			errors: "getErrors",
+		}),
+	},
 	methods: {
-		...mapActions(["login", "signup"]),
+		...mapActions(["checkLoginData", "login", "signup"]),
 		changeMode() {
 			this.isSignup = !this.isSignup;
 		},
 		submit() {
-			if (this.isSignup) {
-				this.signup({
-					username: this.username,
-					fullname: this.fullname,
-					password: this.password,
-				});
-			} else {
-				this.login({
-					username: this.username,
-					password: this.password,
-				});
+			this.checkLoginData();
+			if (this.loginIsSafe) {
+				this.isSignup ? this.signup() : this.login();
 			}
 		},
 	},
