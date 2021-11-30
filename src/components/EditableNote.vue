@@ -86,13 +86,11 @@
 		/>
 		<textarea
 			id="txt"
-			@input="txtResize"
 			v-model="note.content"
 			class="
 				font-Poppins-Light
 				text-xl
 				w-full
-				h-auto
 				px-8
 				my-3
 				lg:px-20 lg:my-4
@@ -188,10 +186,9 @@ import CheckIcon from "../assets/svg/CheckIcon.vue";
 
 export default {
 	name: "EditableNote",
-	// mounted: function () {
-	// 	this.txtResize();
-	// 	console.log("mounted");
-	// },
+	mounted: function () {
+		this.txtResize();
+	},
 	updated: function () {
 		this.txtResize();
 	},
@@ -209,6 +206,7 @@ export default {
 		},
 		txtResize() {
 			const textarea = document.getElementById("txt");
+			textarea.style.height = "auto";
 			textarea.style.height = textarea.scrollHeight + "px";
 		},
 		togglePublic() {
