@@ -1,7 +1,7 @@
 <template>
 	<div class="h-full">
 		<div
-			v-if="userNotes === 'notFound'"
+			v-if="notes === 'notFound'"
 			class="
 				w-full
 				h-full
@@ -18,7 +18,7 @@
 		</div>
 		<div v-else>
 			<TitleBar :title="routeUsername + ' Notes'" />
-			<Notes :notesList="userNotes" />
+			<Notes />
 		</div>
 	</div>
 </template>
@@ -41,7 +41,7 @@ export default {
 	computed: {
 		...mapGetters({
 			currnetUser: "getUsername",
-			userNotes: "getUserNotes",
+			notes: "getNotes",
 		}),
 		routeUsername() {
 			return this.$route.params.username;

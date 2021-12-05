@@ -1,5 +1,5 @@
 <template>
-	<div class="flex items-center relative mb-7">
+	<div class="relative flex items-center mb-7">
 		<SeachIcon class="absolute left-4 h-6 text-gray-300" />
 		<input
 			v-model="search"
@@ -19,7 +19,6 @@
 				duration-500
 			"
 			type="text"
-			name="search"
 			placeholder="Search"
 		/>
 		<button v-show="search" @click="clearSerach" class="absolute right-4">
@@ -43,11 +42,16 @@ import CloseIcon from "../assets/svg/CloseIcon.vue";
 export default {
 	name: "SearchBar",
 	data: () => ({
-		search: undefined,
+		search: "",
 	}),
 	methods: {
 		clearSerach() {
-			this.search = undefined;
+			this.search = "";
+		},
+	},
+	watch: {
+		search() {
+			console.log(this.search);
 		},
 	},
 	components: {

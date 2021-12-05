@@ -6,8 +6,8 @@ import router from "./router";
 import store from "./store";
 import "./assets/tailwind.css";
 
-axios.defaults.withCredentials = true;
-axios.defaults.baseURL = "http://127.0.0.1:8000/api/v1/"; // the FastAPI backend
+// axios.defaults.withCredentials = true;
+axios.defaults.baseURL = "http://127.0.0.1:8000/api/v1/"; // FastAPI backend
 
 axios.interceptors.response.use(undefined, function (error) {
 	if (error) {

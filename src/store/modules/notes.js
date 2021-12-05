@@ -2,19 +2,15 @@ import axios from "axios";
 
 const Notes = {
 	state: () => ({
-		publicNotes: null,
-		userNotes: null,
+		notes: null,
+		searchNotes: null,
 	}),
 	getters: {
-		getPublicNotes: (state) => state.publicNotes,
-		getUserNotes: (state) => state.userNotes,
+		getNotes: (state) => state.notes,
 	},
 	mutations: {
-		setPublicNotes(state, payload) {
-			state.publicNotes = payload;
-		},
-		setUserNotes(state, payload) {
-			state.userNotes = payload;
+		setNotes(state, payload) {
+			state.notes = payload;
 		},
 	},
 	actions: {
@@ -22,7 +18,7 @@ const Notes = {
 			axios
 				.get("notes/public-all")
 				.then((response) => {
-					commit("setPublicNotes", response.data);
+					commit("setNotes", response.data);
 				})
 				.catch((error) => {
 					console.log(error);
@@ -32,10 +28,10 @@ const Notes = {
 			axios
 				.get(`notes/public-author?author=${payload}`)
 				.then((response) => {
-					commit("setUserNotes", response.data);
+					commit("setNotes", response.data);
 				})
 				.catch((error) => {
-					commit("setUserNotes", "notFound");
+					commit("setNotes", "notFound");
 					console.log(error);
 				});
 		},
@@ -47,10 +43,10 @@ const Notes = {
 					},
 				})
 				.then((response) => {
-					commit("setUserNotes", response.data);
+					commit("setNotes", response.data);
 				})
 				.catch((error) => {
-					commit("setUserNotes", "notFound");
+					commit("setNotes", "notFound");
 					console.log(error);
 				});
 		},

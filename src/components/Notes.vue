@@ -10,7 +10,7 @@
 				gap-8
 			"
 		>
-			<template v-for="note in notesList" :key="note.id">
+			<template v-for="note in notes" :key="note.id">
 				<router-link :to="'/note/' + note.id">
 					<div
 						class="
@@ -44,11 +44,15 @@
 </template>
 
 <script>
+import { mapGetters } from "vuex";
+
 import SearchBar from "./SearchBar.vue";
 
 export default {
 	name: "Notes",
-	props: ["notesList"],
+	computed: {
+		...mapGetters({ notes: "getNotes" }),
+	},
 	components: {
 		SearchBar,
 	},
