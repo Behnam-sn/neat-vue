@@ -30,7 +30,7 @@ const Notes = {
 					console.log(error);
 				});
 		},
-		fetchPublicNotesByAuthor({ commi, dispatch }, payload) {
+		fetchPublicNotesByAuthor({ commit, dispatch }, payload) {
 			dispatch("clearSearchNotes");
 
 			axios

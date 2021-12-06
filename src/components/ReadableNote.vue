@@ -34,7 +34,10 @@
 				lg:px-20 lg:my-5
 			"
 		>
-			Author: {{ note.author }}
+			<div class="pr-3">Author:</div>
+			<router-link :to="`/user/${note.author}`">
+				{{ note.author }}
+			</router-link>
 		</div>
 		<div
 			class="font-Rubik-Medium text-2xl w-full px-8 lg:px-20 my-3 lg:my-5"
