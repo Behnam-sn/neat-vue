@@ -68,7 +68,7 @@ import CogIcon from "../assets/svg/CogIcon.vue";
 import InfoIcon from "../assets/svg/InfoIcon.vue";
 
 export default {
-	name: "Menu",
+	name: "SideMenu",
 	computed: {
 		...mapGetters({ username: "getUsername" }),
 	},
