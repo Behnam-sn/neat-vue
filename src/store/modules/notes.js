@@ -7,14 +7,20 @@ const Notes = {
 	}),
 	getters: {
 		getNotes: (state) => state.notes,
+		getSearchNotes: (state) => state.searchNotes,
 	},
 	mutations: {
 		setNotes(state, payload) {
 			state.notes = payload;
 		},
+		setSearchNotes(state, payload) {
+			state.searchNotes = payload;
+		},
 	},
 	actions: {
-		fetchPublicNotes({ commit }) {
+		fetchPublicNotes({ commit, dispatch }) {
+			dispatch("clearSearchNotes");
+
 			axios
 				.get("notes/public-all")
 				.then((response) => {
@@ -24,7 +30,9 @@ const Notes = {
 					console.log(error);
 				});
 		},
-		fetchPublicNotesByAuthor({ commit }, payload) {
+		fetchPublicNotesByAuthor({ commi, dispatch }, payload) {
+			dispatch("clearSearchNotes");
+
 			axios
 				.get(`notes/public-author?author=${payload}`)
 				.then((response) => {
@@ -35,7 +43,9 @@ const Notes = {
 					console.log(error);
 				});
 		},
-		fetchCurrentUserNotes({ rootState, commit }) {
+		fetchCurrentUserNotes({ rootState, commit, dispatch }) {
+			dispatch("clearSearchNotes");
+
 			axios
 				.get("notes/", {
 					headers: {
@@ -49,6 +59,45 @@ const Notes = {
 					commit("setNotes", "notFound");
 					console.log(error);
 				});
+		},
+		searchAllPublicNotes({ commit }, payload) {
+			axios
+				.get(`notes/public-search-all/?text=${payload}`)
+				.then((response) => {
+					commit("setSearchNotes", response.data);
+				})
+				.catch((error) => {
+					console.log(error);
+				});
+		},
+		searchPublicNotesByAuthor({ commit }, payload) {
+			axios
+				.get(
+					`notes/public-search-author?text=${payload.text}&author=${payload.author}`
+				)
+				.then((response) => {
+					commit("setSearchNotes", response.data);
+				})
+				.catch((error) => {
+					console.log(error);
+				});
+		},
+		searchCurrentUserNotes({ rootState, commit }, payload) {
+			axios
+				.get(`notes/search?text=${payload}`, {
+					headers: {
+						Authorization: "Bearer " + rootState.token,
+					},
+				})
+				.then((response) => {
+					commit("setSearchNotes", response.data);
+				})
+				.catch((error) => {
+					console.log(error);
+				});
+		},
+		clearSearchNotes({ commit }) {
+			commit("setSearchNotes", null);
 		},
 	},
 };

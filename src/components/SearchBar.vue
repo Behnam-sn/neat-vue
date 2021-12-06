@@ -2,26 +2,32 @@
 	<div class="relative flex items-center mb-7">
 		<SeachIcon class="absolute left-4 h-6 text-gray-300" />
 		<input
-			v-model="search"
+			v-model="searchText"
 			class="
 				w-full
+				px-12
+				py-3
+				font-Rubik-Light
+				text-lg
+				placeholder-gray-500
+				dark:placeholder-gray-200
 				bg-gray-100
 				hover:bg-gray-200
 				focus:bg-gray-200
 				dark:bg-gray-500 dark:hover:bg-gray-400 dark:focus:bg-gray-400
 				rounded-lg
-				font-Rubik-Light
-				text-lg
-				px-12
-				py-3
-				focus:outline-none
+				outline-none
 				transition
 				duration-500
 			"
 			type="text"
 			placeholder="Search"
 		/>
-		<button v-show="search" @click="clearSerach" class="absolute right-4">
+		<button
+			v-show="searchText"
+			@click="clearSerach"
+			class="absolute right-4"
+		>
 			<CloseIcon
 				class="
 					h-6
@@ -36,22 +42,53 @@
 </template>
 
 <script>
+import { mapGetters, mapActions } from "vuex";
+
 import SeachIcon from "../assets/svg/SeachIcon.vue";
 import CloseIcon from "../assets/svg/CloseIcon.vue";
 
 export default {
 	name: "SearchBar",
 	data: () => ({
-		search: "",
+		searchText: "",
 	}),
-	methods: {
-		clearSerach() {
-			this.search = "";
-		},
+	computed: {
+		...mapGetters({
+			currnetUser: "getUsername",
+		}),
 	},
 	watch: {
-		search() {
-			console.log(this.search);
+		searchText() {
+			if (this.searchText == "") {
+				this.clearSearchNotes();
+			} else {
+				if (this.$route.path == "/public") {
+					this.searchAllPublicNotes(this.searchText);
+				} else {
+					let author = this.$route.params.username;
+
+					if (author == this.currnetUser) {
+						this.searchCurrentUserNotes(this.searchText);
+					} else {
+						this.searchPublicNotesByAuthor({
+							author: author,
+							text: this.searchText,
+						});
+					}
+				}
+			}
+		},
+	},
+	methods: {
+		...mapActions([
+			"searchAllPublicNotes",
+			"searchPublicNotesByAuthor",
+			"searchCurrentUserNotes",
+			"clearSearchNotes",
+		]),
+		clearSerach() {
+			this.searchText = "";
+			this.clearSearchNotes();
 		},
 	},
 	components: {
