@@ -1,7 +1,7 @@
 <template>
 	<div id="app" class="lg:flex">
 		<Navbar />
-		<Menu />
+		<SideMenu />
 		<div
 			class="w-full pt-24 lg:pt-0 lg:mb-0"
 			:class="{ 'mb-56': isNotNote }"
@@ -12,38 +12,7 @@
 				</transition>
 			</router-view>
 		</div>
-		<FooterBar v-if="isNotNote">
-			<router-link
-				to="/addnote"
-				class="
-					footer-bar-btn
-					flex
-					justify-center
-					items-center
-					absolute
-					w-16
-					h-16
-					ring-8
-					rounded-full
-					bg-secondary
-					dark:bg-primary
-					ring-gray-300
-					dark:ring-gray-800
-					transition
-					duration-500
-				"
-			>
-				<PlusIcon
-					class="
-						h-12
-						text-primary
-						dark:text-secondary
-						transition
-						duration-500
-					"
-				/>
-			</router-link>
-		</FooterBar>
+		<FooterBar />
 	</div>
 </template>
 
@@ -51,10 +20,8 @@
 import { mapActions } from "vuex";
 
 import Navbar from "./components/Navbar.vue";
-import Menu from "./components/Menu.vue";
+import SideMenu from "./components/SideMenu.vue";
 import FooterBar from "./components/FooterBar.vue";
-
-import PlusIcon from "./assets/svg/PlusIcon.vue";
 
 export default {
 	name: "Home",
@@ -65,7 +32,6 @@ export default {
 	computed: {
 		isNotNote() {
 			let path = this.$route.path;
-
 			if (path.includes("/addnote") || path.includes("/note")) {
 				return false;
 			} else {
@@ -78,9 +44,8 @@ export default {
 	},
 	components: {
 		Navbar,
-		Menu,
+		SideMenu,
 		FooterBar,
-		PlusIcon,
 	},
 };
 </script>
@@ -91,12 +56,6 @@ export default {
 	font-smooth: always;
 	-webkit-font-smoothing: antialiased;
 	-moz-osx-font-smoothing: grayscale;
-}
-
-.footer-bar-btn {
-	top: -65%;
-	left: 50%;
-	transform: translate(-50%, 0);
 }
 
 .route-enter-active,

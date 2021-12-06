@@ -5,9 +5,10 @@ import router from "../../router";
 const Note = {
 	state: () => ({
 		note: {
-			title: null,
-			content: null,
-			push: null,
+			title: "",
+			content: "",
+			public: false,
+			id: null,
 			author: null,
 			created_at: null,
 			modified_at: null,
@@ -22,11 +23,11 @@ const Note = {
 		},
 	},
 	actions: {
-		createNote({ rootState }, payload) {
+		createNote({ rootState, state }) {
 			const Note = {
-				title: payload.title,
-				content: payload.content,
-				public: payload.public,
+				title: state.note.title,
+				content: state.note.content,
+				public: state.note.public,
 			};
 
 			axios
@@ -81,15 +82,15 @@ const Note = {
 					});
 			}
 		},
-		updateNote({ rootState }, payload) {
+		updateNote({ rootState, state }) {
 			const Note = {
-				title: payload.title,
-				content: payload.content,
-				public: payload.public,
+				title: state.note.title,
+				content: state.note.content,
+				public: state.note.public,
 			};
 
 			axios
-				.put(`notes/?id=${payload.id}`, Note, {
+				.put(`notes/?id=${state.note.id}`, Note, {
 					headers: {
 						Authorization: "Bearer " + rootState.token,
 					},
@@ -103,7 +104,7 @@ const Note = {
 					console.log(error);
 				});
 		},
-		deleteNote({ state, rootState }) {
+		deleteNote({ rootState, state }) {
 			axios
 				.delete(`notes/?id=${state.note.id}`, {
 					headers: {
@@ -118,6 +119,17 @@ const Note = {
 				.catch((error) => {
 					console.log(error);
 				});
+		},
+		clearNote({ commit }) {
+			commit("setNote", {
+				title: "",
+				content: "",
+				public: false,
+				id: null,
+				author: null,
+				created_at: null,
+				modified_at: null,
+			});
 		},
 	},
 };

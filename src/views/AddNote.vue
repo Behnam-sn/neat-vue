@@ -114,51 +114,6 @@
 				<SendIcon class="h-9" v-else />
 			</transition>
 		</button>
-		<FooterBar>
-			<button
-				@click="sendNote"
-				class="
-					footer-bar-btn
-					flex
-					justify-center
-					items-center
-					absolute
-					w-16
-					h-16
-					ring-8
-					rounded-full
-					bg-secondary
-					dark:bg-primary
-					ring-gray-300
-					dark:ring-gray-800
-					transition
-					duration-500
-				"
-			>
-				<transition name="send" mode="out-in">
-					<CheckIcon
-						v-if="sent"
-						class="
-							h-8
-							text-primary
-							dark:text-secondary
-							transition
-							duration-500
-						"
-					/>
-					<SendIcon
-						v-else
-						class="
-							h-8
-							text-primary
-							dark:text-secondary
-							transition
-							duration-500
-						"
-					/>
-				</transition>
-			</button>
-		</FooterBar>
 	</div>
 </template>
 
@@ -166,40 +121,35 @@
 import { mapGetters, mapActions } from "vuex";
 
 import GoBackButton from "../components/Note/GoBackButton.vue";
-import FooterBar from "../components/FooterBar.vue";
 
 import SendIcon from "../assets/svg/SendIcon.vue";
 import CheckIcon from "../assets/svg/CheckIcon.vue";
 
 export default {
 	name: "AddNote",
-	created: function () {
+	mounted: function () {
 		if (!this.username) {
 			this.$router.push("/login");
 		}
+
+		this.clearNote();
 	},
 	data: () => ({
-		note: {
-			title: undefined,
-			content: undefined,
-			public: false,
-		},
 		sent: false,
 	}),
 	computed: {
-		...mapGetters({ username: "getUsername" }),
+		...mapGetters({ username: "getUsername", note: "getNote" }),
 	},
 	methods: {
-		...mapActions(["createNote"]),
+		...mapActions(["createNote", "clearNote"]),
 		sendNote() {
-			if (this.note.content) {
+			if (this.note.content != "" || this.note.title != "") {
 				this.sent = true;
-				this.createNote(this.note);
+				this.createNote();
 			}
 		},
 		txtResize() {
 			const textarea = document.getElementById("txt");
-
 			textarea.style.height = "auto";
 			textarea.style.height = textarea.scrollHeight + "px";
 		},
@@ -209,7 +159,6 @@ export default {
 	},
 	components: {
 		GoBackButton,
-		FooterBar,
 		SendIcon,
 		CheckIcon,
 	},

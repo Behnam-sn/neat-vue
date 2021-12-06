@@ -125,58 +125,12 @@
 				<SendIcon class="h-9" v-else />
 			</transition>
 		</button>
-		<FooterBar>
-			<button
-				@click="sendNote"
-				class="
-					footer-bar-btn
-					flex
-					justify-center
-					items-center
-					absolute
-					w-16
-					h-16
-					ring-8
-					rounded-full
-					bg-secondary
-					dark:bg-primary
-					ring-gray-300
-					dark:ring-gray-800
-					transition
-					duration-500
-				"
-			>
-				<transition name="send" mode="out-in">
-					<CheckIcon
-						v-if="sent"
-						class="
-							h-8
-							text-primary
-							dark:text-secondary
-							transition
-							duration-500
-						"
-					/>
-					<SendIcon
-						v-else
-						class="
-							h-8
-							text-primary
-							dark:text-secondary
-							transition
-							duration-500
-						"
-					/>
-				</transition>
-			</button>
-		</FooterBar>
 	</div>
 </template>
 
 <script>
 import { mapGetters, mapActions } from "vuex";
 
-import FooterBar from "./FooterBar.vue";
 import DateAndTime from "./DateAndTime.vue";
 import GoBackButton from "./Note/GoBackButton.vue";
 import DeleteButton from "./Note/DeleteButton.vue";
@@ -201,8 +155,10 @@ export default {
 	methods: {
 		...mapActions(["updateNote"]),
 		sendNote() {
-			this.sent = true;
-			this.updateNote(this.note);
+			if (this.note.content != "" || this.note.title != "") {
+				this.sent = true;
+				this.updateNote();
+			}
 		},
 		txtResize() {
 			const textarea = document.getElementById("txt");
@@ -214,7 +170,6 @@ export default {
 		},
 	},
 	components: {
-		FooterBar,
 		DateAndTime,
 		GoBackButton,
 		DeleteButton,
