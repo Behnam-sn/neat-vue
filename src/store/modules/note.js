@@ -13,37 +13,47 @@ const Note = {
 			created_at: null,
 			modified_at: null,
 		},
+		loading: false,
 	}),
 	getters: {
 		getNote: (state) => state.note,
+		getLoading: (state) => state.loading,
 	},
 	mutations: {
 		setNote(state, payload) {
 			state.note = payload;
 		},
+		setLoading(state, payload) {
+			state.loading = payload;
+		},
 	},
 	actions: {
-		createNote({ rootState, state }) {
-			const Note = {
-				title: state.note.title,
-				content: state.note.content,
-				public: state.note.public,
-			};
+		createNote({ rootState, state, commit }) {
+			if (state.note.content != "" || state.note.title != "") {
+				commit("setLoading", true);
 
-			axios
-				.post("notes/", Note, {
-					headers: {
-						Authorization: "Bearer " + rootState.token,
-					},
-				})
-				.then((response) => {
-					if (response.status == 200) {
-						router.push(`/user/${rootState.username}`);
-					}
-				})
-				.catch((error) => {
-					console.log(error);
-				});
+				const Note = {
+					title: state.note.title,
+					content: state.note.content,
+					public: state.note.public,
+				};
+
+				axios
+					.post("notes/", Note, {
+						headers: {
+							Authorization: "Bearer " + rootState.token,
+						},
+					})
+					.then((response) => {
+						if (response.status == 200) {
+							commit("setLoading", false);
+							router.push(`/user/${rootState.username}`);
+						}
+					})
+					.catch((error) => {
+						console.log(error);
+					});
+			}
 		},
 		fetchNote({ rootState, commit }, payload) {
 			if (rootState.username) {
@@ -82,29 +92,36 @@ const Note = {
 					});
 			}
 		},
-		updateNote({ rootState, state }) {
-			const Note = {
-				title: state.note.title,
-				content: state.note.content,
-				public: state.note.public,
-			};
+		updateNote({ rootState, state, commit }) {
+			if (state.note.content != "" || state.note.title != "") {
+				commit("setLoading", true);
 
-			axios
-				.put(`notes/?id=${state.note.id}`, Note, {
-					headers: {
-						Authorization: "Bearer " + rootState.token,
-					},
-				})
-				.then((response) => {
-					if (response.status == 200) {
-						router.push(`/user/${rootState.username}`);
-					}
-				})
-				.catch((error) => {
-					console.log(error);
-				});
+				const Note = {
+					title: state.note.title,
+					content: state.note.content,
+					public: state.note.public,
+				};
+
+				axios
+					.put(`notes/?id=${state.note.id}`, Note, {
+						headers: {
+							Authorization: "Bearer " + rootState.token,
+						},
+					})
+					.then((response) => {
+						if (response.status == 200) {
+							commit("setLoading", false);
+							router.push(`/user/${rootState.username}`);
+						}
+					})
+					.catch((error) => {
+						console.log(error);
+					});
+			}
 		},
-		deleteNote({ rootState, state }) {
+		deleteNote({ rootState, state, commit }) {
+			commit("setLoading", true);
+
 			axios
 				.delete(`notes/?id=${state.note.id}`, {
 					headers: {
@@ -113,6 +130,7 @@ const Note = {
 				})
 				.then((response) => {
 					if (response.status == 200) {
+						commit("setLoading", false);
 						router.push(`/user/${rootState.username}`);
 					}
 				})

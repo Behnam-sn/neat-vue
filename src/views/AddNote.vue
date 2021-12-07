@@ -94,7 +94,7 @@
 			placeholder="Contect"
 		></textarea>
 		<button
-			@click="sendNote"
+			@click="createNote"
 			class="
 				hidden
 				lg:block
@@ -110,7 +110,7 @@
 			"
 		>
 			<transition name="send" mode="out-in">
-				<CheckIcon class="h-9" v-if="sent" />
+				<YinYangIcon class="h-9" v-if="loading" />
 				<SendIcon class="h-9" v-else />
 			</transition>
 		</button>
@@ -123,7 +123,7 @@ import { mapGetters, mapActions } from "vuex";
 import GoBackButton from "../components/Note/GoBackButton.vue";
 
 import SendIcon from "../assets/svg/SendIcon.vue";
-import CheckIcon from "../assets/svg/CheckIcon.vue";
+import YinYangIcon from "../assets/svg/YinYangIcon.vue";
 
 export default {
 	name: "AddNote",
@@ -131,23 +131,17 @@ export default {
 		if (!this.username) {
 			this.$router.push("/login");
 		}
-
 		this.clearNote();
 	},
-	data: () => ({
-		sent: false,
-	}),
 	computed: {
-		...mapGetters({ username: "getUsername", note: "getNote" }),
+		...mapGetters({
+			username: "getUsername",
+			note: "getNote",
+			loading: "getLoading",
+		}),
 	},
 	methods: {
 		...mapActions(["createNote", "clearNote"]),
-		sendNote() {
-			if (this.note.content != "" || this.note.title != "") {
-				this.sent = true;
-				this.createNote();
-			}
-		},
 		txtResize() {
 			const textarea = document.getElementById("txt");
 			textarea.style.height = "auto";
@@ -160,7 +154,7 @@ export default {
 	components: {
 		GoBackButton,
 		SendIcon,
-		CheckIcon,
+		YinYangIcon,
 	},
 };
 </script>

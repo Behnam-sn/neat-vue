@@ -35,10 +35,10 @@
 			>
 				<button v-if="isNote" @click="sendNote">
 					<transition name="send" mode="out-in">
-						<CheckIcon
-							v-if="sent"
+						<YinYangIcon
+							v-if="loading"
 							class="
-								h-8
+								h-9
 								text-primary
 								dark:text-secondary
 								transition
@@ -78,15 +78,16 @@ import { mapGetters, mapActions } from "vuex";
 
 import PlusIcon from "../assets/svg/PlusIcon.vue";
 import SendIcon from "../assets/svg/SendIcon.vue";
-import CheckIcon from "../assets/svg/CheckIcon.vue";
+import YinYangIcon from "../assets/svg/YinYangIcon.vue";
 
 export default {
 	name: "FooterBar",
-	data: () => ({
-		sent: false,
-	}),
 	computed: {
-		...mapGetters({ username: "getUsername", note: "getNote" }),
+		...mapGetters({
+			username: "getUsername",
+			note: "getNote",
+			loading: "getLoading",
+		}),
 		path() {
 			return this.$route.path.toLowerCase();
 		},
@@ -105,20 +106,17 @@ export default {
 	methods: {
 		...mapActions(["createNote", "updateNote"]),
 		sendNote() {
-			if (this.note.content != "" || this.note.title != "") {
-				this.sent = true;
-				if (this.path == "/addnote") {
-					this.createNote();
-				} else {
-					this.updateNote();
-				}
+			if (this.path == "/addnote") {
+				this.createNote();
+			} else {
+				this.updateNote();
 			}
 		},
 	},
 	components: {
 		PlusIcon,
 		SendIcon,
-		CheckIcon,
+		YinYangIcon,
 	},
 };
 </script>

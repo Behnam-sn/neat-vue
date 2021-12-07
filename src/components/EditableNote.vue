@@ -105,7 +105,7 @@
 		></textarea>
 
 		<button
-			@click="sendNote"
+			@click="updateNote"
 			class="
 				hidden
 				lg:block
@@ -121,7 +121,7 @@
 			"
 		>
 			<transition name="send" mode="out-in">
-				<CheckIcon class="h-9" v-if="sent" />
+				<YinYangIcon class="h-9" v-if="loading" />
 				<SendIcon class="h-9" v-else />
 			</transition>
 		</button>
@@ -136,7 +136,7 @@ import GoBackButton from "./Note/GoBackButton.vue";
 import DeleteButton from "./Note/DeleteButton.vue";
 
 import SendIcon from "../assets/svg/SendIcon.vue";
-import CheckIcon from "../assets/svg/CheckIcon.vue";
+import YinYangIcon from "../assets/svg/YinYangIcon.vue";
 
 export default {
 	name: "EditableNote",
@@ -146,20 +146,11 @@ export default {
 	updated: function () {
 		this.txtResize();
 	},
-	data: () => ({
-		sent: false,
-	}),
 	computed: {
-		...mapGetters({ note: "getNote" }),
+		...mapGetters({ note: "getNote", loading: "getLoading" }),
 	},
 	methods: {
 		...mapActions(["updateNote"]),
-		sendNote() {
-			if (this.note.content != "" || this.note.title != "") {
-				this.sent = true;
-				this.updateNote();
-			}
-		},
 		txtResize() {
 			const textarea = document.getElementById("txt");
 			textarea.style.height = "auto";
@@ -174,7 +165,7 @@ export default {
 		GoBackButton,
 		DeleteButton,
 		SendIcon,
-		CheckIcon,
+		YinYangIcon,
 	},
 };
 </script>
