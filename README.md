@@ -1,24 +1,12 @@
 # neat-frontend
 
-## Project setup
-```
-npm install
-```
+Neat is a note app
 
-### Compiles and hot-reloads for development
-```
-npm run serve
-```
+## Tech Stack
 
-### Compiles and minifies for production
-```
-npm run build
-```
-
-### Lints and fixes files
-```
-npm run lint
-```
-
-### Customize configuration
-See [Configuration Reference](https://cli.vuejs.org/config/).
+-   Vite
+-   Vue (3)
+-   Vuex
+-   Vue-Router
+-   Axios
+-   Tailwind CSS
