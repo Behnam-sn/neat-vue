@@ -63,52 +63,43 @@ const Notes = {
 				});
 		},
 		searchAllPublicNotes({ commit }, payload) {
-			commit("setSearching", true);
-			setTimeout(() => {
-				axios
-					.get(`notes/public-search-all/?text=${payload}`)
-					.then((response) => {
-						commit("setSearchNotes", response.data);
-						commit("setSearching", false);
-					})
-					.catch((error) => {
-						console.log(error);
-					});
-			}, 1000);
+			axios
+				.get(`notes/public-search-all/?text=${payload}`)
+				.then((response) => {
+					commit("setSearchNotes", response.data);
+					commit("setSearching", false);
+				})
+				.catch((error) => {
+					console.log(error);
+				});
 		},
 		searchPublicNotesByAuthor({ commit }, payload) {
-			commit("setSearching", true);
-			setTimeout(() => {
-				axios
-					.get(
-						`notes/public-search-author?text=${payload.text}&author=${payload.author}`
-					)
-					.then((response) => {
-						commit("setSearchNotes", response.data);
-						commit("setSearching", false);
-					})
-					.catch((error) => {
-						console.log(error);
-					});
-			}, 1000);
+			axios
+				.get(
+					`notes/public-search-author?text=${payload.text}&author=${payload.author}`
+				)
+				.then((response) => {
+					commit("setSearchNotes", response.data);
+					commit("setSearching", false);
+				})
+				.catch((error) => {
+					console.log(error);
+				});
 		},
 		searchCurrentUserNotes({ rootState, commit }, payload) {
-			commit("setSearching", true);
-			setTimeout(() => {
-				axios
-					.get(`notes/search?text=${payload}`, {
-						headers: {
-							Authorization: "Bearer " + rootState.token,
-						},
-					})
-					.then((response) => {
-						commit("setSearchNotes", response.data);
-						commit("setSearching", false);
-					})
-					.catch((error) => {
-						console.log(error);
-					});
-			}, 1000);
+			axios
+				.get(`notes/search?text=${payload}`, {
+					headers: {
+						Authorization: "Bearer " + rootState.token,
+					},
+				})
+				.then((response) => {
+					commit("setSearchNotes", response.data);
+					commit("setSearching", false);
+				})
+				.catch((error) => {
+					console.log(error);
+				});
 		},
 		clearSearchNotes({ commit }) {
 			commit("setSearchNotes", null);

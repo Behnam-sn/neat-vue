@@ -42,7 +42,7 @@
 </template>
 
 <script>
-import { mapGetters, mapActions } from "vuex";
+import { mapGetters, mapMutations, mapActions } from "vuex";
 
 import SeachIcon from "../assets/svg/SeachIcon.vue";
 import CloseIcon from "../assets/svg/CloseIcon.vue";
@@ -51,6 +51,7 @@ export default {
 	name: "SearchBar",
 	data: () => ({
 		searchText: "",
+		awaitingSearch: false,
 	}),
 	computed: {
 		...mapGetters({ currnetUser: "getUsername" }),
@@ -60,24 +61,32 @@ export default {
 			if (this.searchText == "") {
 				this.clearSearchNotes();
 			} else {
-				if (this.$route.path == "/public") {
-					this.searchAllPublicNotes(this.searchText);
-				} else {
-					let author = this.$route.params.username;
+				this.setSearching(true);
+				if (!this.awaitingSearch) {
+					setTimeout(() => {
+						if (this.$route.path == "/public") {
+							this.searchAllPublicNotes(this.searchText);
+						} else {
+							let author = this.$route.params.username;
 
-					if (author == this.currnetUser) {
-						this.searchCurrentUserNotes(this.searchText);
-					} else {
-						this.searchPublicNotesByAuthor({
-							author: author,
-							text: this.searchText,
-						});
-					}
+							if (author == this.currnetUser) {
+								this.searchCurrentUserNotes(this.searchText);
+							} else {
+								this.searchPublicNotesByAuthor({
+									author: author,
+									text: this.searchText,
+								});
+							}
+						}
+						this.awaitingSearch = false;
+					}, 1000);
 				}
+				this.awaitingSearch = true;
 			}
 		},
 	},
 	methods: {
+		...mapMutations(["setSearching"]),
 		...mapActions([
 			"searchAllPublicNotes",
 			"searchPublicNotesByAuthor",
