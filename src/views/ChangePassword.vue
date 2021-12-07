@@ -3,11 +3,11 @@
 		<TitleBar title="Change Password" />
 		<div class="flex flex-col items-center justify-center mt-24 mb-16">
 			<div class="flex flex-col pb-6">
-				<label class="font-Poppins-Medium text-lg">Password</label>
+				<label class="font-Poppins font-medium text-lg">Password</label>
 				<input
 					v-model="password_update.password"
 					class="
-						font-Poppins-Light
+						font-Poppins font-light
 						text-lg
 						bg-gray-200
 						dark:bg-gray-800
@@ -25,11 +25,13 @@
 				/>
 			</div>
 			<div class="flex flex-col pb-6">
-				<label class="font-Poppins-Medium text-lg">New Password</label>
+				<label class="font-Poppins font-medium text-lg"
+					>New Password</label
+				>
 				<input
 					v-model="password_update.newPassword"
 					class="
-						font-Poppins-Light
+						font-Poppins font-light
 						text-lg
 						bg-gray-200
 						dark:bg-gray-800
@@ -49,7 +51,7 @@
 			<button
 				@click="updatePassword"
 				class="
-					font-Poppins-Medium
+					font-Poppins font-medium
 					bg-blue-500
 					rounded-full
 					px-7

@@ -2,7 +2,7 @@
 	<router-link
 		to="/login"
 		class="
-			font-Rubik-Regular
+			font-Rubik font-normal
 			bg-primary
 			dark:bg-secondary
 			text-secondary

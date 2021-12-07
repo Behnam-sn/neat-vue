@@ -1,12 +1,14 @@
 <template>
 	<div class="flex flex-col items-center mt-32 mb-16">
-		<h1 class="hidden lg:block font-Poppins-Bold text-6xl mb-32">Neat</h1>
+		<h1 class="hidden lg:block font-Poppins font-bold text-6xl mb-32">
+			Neat
+		</h1>
 		<div class="flex flex-col items-center">
 			<button
 				@click="changeMode"
 				class="
 					self-end
-					font-Poppins-Light
+					font-Poppins font-light
 					border-2 border-gray-400
 					dark:border-gray-500
 					rounded-full
@@ -23,7 +25,7 @@
 			<input
 				v-model="loginData.username"
 				class="
-					font-Poppins-Light
+					font-Poppins font-light
 					bg-gray-200
 					dark:bg-gray-800
 					text-lg
@@ -51,7 +53,7 @@
 			<input
 				v-model="loginData.full_name"
 				class="
-					font-Poppins-Light
+					font-Poppins font-light
 					bg-gray-200
 					dark:bg-gray-800
 					text-lg
@@ -73,7 +75,7 @@
 			<input
 				v-model="loginData.password"
 				class="
-					font-Poppins-Light
+					font-Poppins font-light
 					bg-gray-200
 					dark:bg-gray-800
 					text-lg
@@ -98,7 +100,7 @@
 			<button
 				@click="submit"
 				class="
-					font-Poppins-Medium
+					font-Poppins font-medium
 					text-xl
 					bg-primary
 					text-secondary
@@ -115,7 +117,7 @@
 			>
 				{{ isSignup ? "Sign Up" : "Login" }}
 			</button>
-			<div class="font-Poppins-Light text-lg text-red-600 mt-14">
+			<div class="font-Poppins font-light text-lg text-red-600 mt-14">
 				<ul class="list-disc list-outside">
 					<li v-if="errors.empty_username">Username required</li>
 					<li v-if="errors.invalid_username">

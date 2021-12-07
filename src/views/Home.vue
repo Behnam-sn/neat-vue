@@ -7,7 +7,7 @@
 					class="
 						transition
 						duration-500
-						font-Rubik-Light
+						font-Rubik font-light
 						text-3xl text-gray-500
 						2xl:text-4xl
 						dark:text-gray-400
@@ -20,7 +20,7 @@
 					class="
 						transition
 						duration-500
-						font-Rubik-Medium
+						font-Rubik font-medium
 						text-5xl text-gray-700
 						2xl:text-6xl
 						dark:text-gray-300

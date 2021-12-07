@@ -25,12 +25,15 @@
 							duration-500
 						"
 					>
-						<div class="font-Rubik-Medium text-xl mb-1" dir="auto">
+						<div
+							class="font-Rubik font-medium text-xl mb-1"
+							dir="auto"
+						>
 							{{ note.title }}
 						</div>
 						<pre
 							class="
-								font-Poppins-Light
+								font-Poppins font-light
 								whitespace-pre-wrap
 								h-36
 								overflow-hidden

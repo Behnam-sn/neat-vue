@@ -3,11 +3,11 @@
 		<TitleBar title="Settings" />
 		<div class="flex flex-col items-center justify-center mt-24 lg:mb-16">
 			<div class="flex flex-col pb-6">
-				<label class="font-Poppins-Medium text-lg">Username</label>
+				<label class="font-Poppins font-medium text-lg">Username</label>
 				<input
 					v-model="user.username"
 					class="
-						font-Poppins-Light
+						font-Poppins font-light
 						text-lg
 						bg-gray-200
 						dark:bg-gray-800
@@ -25,11 +25,13 @@
 				/>
 			</div>
 			<div class="flex flex-col pb-6">
-				<label class="font-Poppins-Medium text-lg">Full Name</label>
+				<label class="font-Poppins font-medium text-lg"
+					>Full Name</label
+				>
 				<input
 					v-model="user.full_name"
 					class="
-						font-Poppins-Light
+						font-Poppins font-light
 						text-lg
 						bg-gray-200
 						dark:bg-gray-800
@@ -54,7 +56,7 @@
 			<button
 				@click="changeUser"
 				class="
-					font-Poppins-Medium
+					font-Poppins font-medium
 					bg-green-500
 					rounded-full
 					px-7
@@ -82,7 +84,7 @@
 			<router-link to="/DeleteAccount">
 				<button
 					class="
-						font-Poppins-Medium
+						font-Poppins font-medium
 						bg-red-500
 						rounded-full
 						px-7
@@ -100,7 +102,7 @@
 			<router-link to="/ChangePassword">
 				<button
 					class="
-						font-Poppins-Medium
+						font-Poppins font-medium
 						bg-blue-500
 						rounded-full
 						px-7

@@ -11,7 +11,7 @@
 			lg:mb-0
 		"
 	>
-		<h1 class="font-Poppins-Bold text-5xl capitalize">
+		<h1 class="font-Poppins font-bold text-5xl capitalize">
 			{{ title }}
 		</h1>
 		<LoginButton class="hidden lg:block" v-if="!username" />

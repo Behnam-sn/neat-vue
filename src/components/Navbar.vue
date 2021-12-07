@@ -15,7 +15,7 @@
 	>
 		<div class="flex flex-row justify-between items-center">
 			<router-link to="/">
-				<h1 class="font-Poppins-Medium text-2xl">Neat</h1>
+				<h1 class="font-Poppins font-medium text-2xl">Neat</h1>
 			</router-link>
 			<div class="flex flex-row">
 				<button

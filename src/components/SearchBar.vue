@@ -7,7 +7,7 @@
 				w-full
 				px-12
 				py-3
-				font-Rubik-Light
+				font-Rubik font-light
 				text-lg
 				placeholder-gray-500
 				dark:placeholder-gray-200

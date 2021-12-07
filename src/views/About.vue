@@ -1,15 +1,15 @@
 <template>
 	<div>
 		<TitleBar title="About" />
-		<div class="px-7 lg:px-16 font-Roboto-Regular text-xl">
+		<div class="px-7 lg:px-16 font-Roboto font-normal text-xl">
 			<div class="lg:flex lg:flex-row lg:items-center mt-7">
-				<div class="font-Roboto-Medium mb-2 lg:mb-0 lg:mr-2">
+				<div class="font-Roboto font-medium mb-2 lg:mb-0 lg:mr-2">
 					Developer & designer :
 				</div>
 				<div class="py-2 px-3">Behnam Salehi</div>
 			</div>
 			<div class="lg:flex lg:flex-row lg:items-center mt-7">
-				<div class="font-Roboto-Medium mb-2 lg:mb-0 lg:mr-2">
+				<div class="font-Roboto font-medium mb-2 lg:mb-0 lg:mr-2">
 					My GitHub :
 				</div>
 				<a
@@ -31,7 +31,7 @@
 				</a>
 			</div>
 			<div class="lg:flex lg:flex-row lg:items-center mt-7">
-				<div class="font-Roboto-Medium mb-2 lg:mb-0 lg:mr-2">
+				<div class="font-Roboto font-medium mb-2 lg:mb-0 lg:mr-2">
 					Frontend Repository :
 				</div>
 				<a
@@ -53,7 +53,7 @@
 				</a>
 			</div>
 			<div class="lg:flex lg:flex-row lg:items-center mt-7">
-				<div class="font-Roboto-Medium mb-2 lg:mb-0 lg:mr-2">
+				<div class="font-Roboto font-medium mb-2 lg:mb-0 lg:mr-2">
 					Backend Repository :
 				</div>
 				<a
@@ -74,7 +74,7 @@
 					neat-backend
 				</a>
 			</div>
-			<div class="font-Roboto-Medium mt-7">Tech Stack :</div>
+			<div class="font-Roboto font-medium mt-7">Tech Stack :</div>
 			<div class="flex flex-col lg:flex-row">
 				<a
 					class="

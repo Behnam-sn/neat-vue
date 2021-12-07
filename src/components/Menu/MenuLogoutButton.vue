@@ -18,7 +18,7 @@
 				dark:bg-secondary
 				text-secondary
 				dark:text-primary
-				font-Poppins-Bold
+				font-Poppins font-bold
 				text-xs
 				z-10
 				scale-0

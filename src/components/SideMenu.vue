@@ -20,7 +20,7 @@
 	>
 		<div class="flex flex-col items-center">
 			<router-link to="/">
-				<h1 class="font-Poppins-Medium text-xl my-4">Neat</h1>
+				<h1 class="font-Poppins font-medium text-xl my-4">Neat</h1>
 			</router-link>
 
 			<MenuButton address="/addnote" tooltipText="Add Note">

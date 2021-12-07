@@ -8,7 +8,7 @@
 				flex
 				justify-center
 				items-center
-				font-Poppins-Bold
+				font-Poppins font-bold
 				text-2xl
 				mt-56
 				lg:mt-0

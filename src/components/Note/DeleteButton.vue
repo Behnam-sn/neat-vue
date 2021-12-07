@@ -38,13 +38,13 @@
 					z-10
 				"
 			>
-				<div class="font-Poppins-Medium text-primary mb-2">
+				<div class="font-Poppins font-medium text-primary mb-2">
 					Delete This Note?
 				</div>
 				<button
 					@click="deleteNote"
 					class="
-						font-Poppins-Bold
+						font-Poppins font-bold
 						text-sm
 						bg-red-100
 						hover:bg-red-200
@@ -62,7 +62,7 @@
 				<button
 					@click="toggleBox"
 					class="
-						font-Poppins-Bold
+						font-Poppins font-bold
 						text-sm
 						hover:bg-gray-200
 						text-primary

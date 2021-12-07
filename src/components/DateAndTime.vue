@@ -1,6 +1,6 @@
 <template>
-	<div class="font-Roboto-Bold text-sm lg:text-base my-2 lg:my-3">
-		{{ title }} : <span class="font-Roboto-Medium">{{ value }}</span>
+	<div class="font-Roboto font-bold text-sm lg:text-base my-2 lg:my-3">
+		{{ title }} : <span class="font-Roboto font-medium">{{ value }}</span>
 	</div>
 </template>
 

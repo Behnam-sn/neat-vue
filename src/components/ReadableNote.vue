@@ -26,7 +26,7 @@
 			class="
 				flex
 				justify-end
-				font-Rubik-Medium
+				font-Rubik font-medium
 				text-2xl
 				w-full
 				px-8
@@ -40,7 +40,15 @@
 			</router-link>
 		</div>
 		<div
-			class="font-Rubik-Medium text-2xl w-full px-8 lg:px-20 my-3 lg:my-5"
+			class="
+				font-Rubik font-medium
+				text-2xl
+				w-full
+				px-8
+				lg:px-20
+				my-3
+				lg:my-5
+			"
 			dir="auto"
 		>
 			{{ note.title }}
@@ -52,7 +60,7 @@
 				lg:px-20
 				my-3
 				lg:my-5
-				font-Poppins-Light
+				font-Poppins font-light
 				text-xl
 				whitespace-pre-wrap
 				leading-9

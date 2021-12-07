@@ -7,7 +7,7 @@
 			<div class="flex">
 				<div class="flex items-center mr-9 lg:mr-14">
 					<div
-						class="font-Poppins-Bold duration-300"
+						class="font-Poppins font-bold duration-300"
 						:class="{ 'text-gray-400': note.public }"
 					>
 						Private
@@ -42,7 +42,7 @@
 						></div>
 					</button>
 					<div
-						class="font-Poppins-Bold duration-300"
+						class="font-Poppins font-bold duration-300"
 						:class="{ 'text-gray-400': !note.public }"
 					>
 						Public
@@ -71,7 +71,7 @@
 		<input
 			v-model="note.title"
 			class="
-				font-Rubik-Medium
+				font-Rubik font-medium
 				text-2xl
 				w-full
 				px-8
@@ -88,7 +88,7 @@
 			id="txt"
 			v-model="note.content"
 			class="
-				font-Poppins-Light
+				font-Poppins font-light
 				text-xl
 				w-full
 				px-8
