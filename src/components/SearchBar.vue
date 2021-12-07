@@ -53,9 +53,7 @@ export default {
 		searchText: "",
 	}),
 	computed: {
-		...mapGetters({
-			currnetUser: "getUsername",
-		}),
+		...mapGetters({ currnetUser: "getUsername" }),
 	},
 	watch: {
 		searchText() {

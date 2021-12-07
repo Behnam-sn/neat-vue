@@ -4,10 +4,12 @@ const Notes = {
 	state: () => ({
 		notes: null,
 		searchNotes: null,
+		searching: false,
 	}),
 	getters: {
 		getNotes: (state) => state.notes,
 		getSearchNotes: (state) => state.searchNotes,
+		getSearching: (state) => state.searching,
 	},
 	mutations: {
 		setNotes(state, payload) {
@@ -16,11 +18,13 @@ const Notes = {
 		setSearchNotes(state, payload) {
 			state.searchNotes = payload;
 		},
+		setSearching(state, payload) {
+			state.searching = payload;
+		},
 	},
 	actions: {
 		fetchPublicNotes({ commit, dispatch }) {
 			dispatch("clearSearchNotes");
-
 			axios
 				.get("notes/public-all")
 				.then((response) => {
@@ -32,7 +36,6 @@ const Notes = {
 		},
 		fetchPublicNotesByAuthor({ commit, dispatch }, payload) {
 			dispatch("clearSearchNotes");
-
 			axios
 				.get(`notes/public-author?author=${payload}`)
 				.then((response) => {
@@ -45,7 +48,6 @@ const Notes = {
 		},
 		fetchCurrentUserNotes({ rootState, commit, dispatch }) {
 			dispatch("clearSearchNotes");
-
 			axios
 				.get("notes/", {
 					headers: {
@@ -61,40 +63,52 @@ const Notes = {
 				});
 		},
 		searchAllPublicNotes({ commit }, payload) {
-			axios
-				.get(`notes/public-search-all/?text=${payload}`)
-				.then((response) => {
-					commit("setSearchNotes", response.data);
-				})
-				.catch((error) => {
-					console.log(error);
-				});
+			commit("setSearching", true);
+			setTimeout(() => {
+				axios
+					.get(`notes/public-search-all/?text=${payload}`)
+					.then((response) => {
+						commit("setSearchNotes", response.data);
+						commit("setSearching", false);
+					})
+					.catch((error) => {
+						console.log(error);
+					});
+			}, 1000);
 		},
 		searchPublicNotesByAuthor({ commit }, payload) {
-			axios
-				.get(
-					`notes/public-search-author?text=${payload.text}&author=${payload.author}`
-				)
-				.then((response) => {
-					commit("setSearchNotes", response.data);
-				})
-				.catch((error) => {
-					console.log(error);
-				});
+			commit("setSearching", true);
+			setTimeout(() => {
+				axios
+					.get(
+						`notes/public-search-author?text=${payload.text}&author=${payload.author}`
+					)
+					.then((response) => {
+						commit("setSearchNotes", response.data);
+						commit("setSearching", false);
+					})
+					.catch((error) => {
+						console.log(error);
+					});
+			}, 1000);
 		},
 		searchCurrentUserNotes({ rootState, commit }, payload) {
-			axios
-				.get(`notes/search?text=${payload}`, {
-					headers: {
-						Authorization: "Bearer " + rootState.token,
-					},
-				})
-				.then((response) => {
-					commit("setSearchNotes", response.data);
-				})
-				.catch((error) => {
-					console.log(error);
-				});
+			commit("setSearching", true);
+			setTimeout(() => {
+				axios
+					.get(`notes/search?text=${payload}`, {
+						headers: {
+							Authorization: "Bearer " + rootState.token,
+						},
+					})
+					.then((response) => {
+						commit("setSearchNotes", response.data);
+						commit("setSearching", false);
+					})
+					.catch((error) => {
+						console.log(error);
+					});
+			}, 1000);
 		},
 		clearSearchNotes({ commit }) {
 			commit("setSearchNotes", null);

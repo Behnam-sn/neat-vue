@@ -1,7 +1,9 @@
 <template>
 	<div class="lg:h-vh-85 lg:overflow-y-scroll px-7 lg:px-16">
 		<SearchBar />
+		<YinYangIcon v-if="searching" class="h-12 mx-auto" />
 		<div
+			v-else
 			class="
 				grid grid-cols-1
 				sm:grid-cols-2
@@ -48,10 +50,16 @@ import { mapGetters } from "vuex";
 
 import SearchBar from "./SearchBar.vue";
 
+import YinYangIcon from "../assets/svg/YinYangIcon.vue";
+
 export default {
 	name: "Notes",
 	computed: {
-		...mapGetters({ notes: "getNotes", searchNotes: "getSearchNotes" }),
+		...mapGetters({
+			notes: "getNotes",
+			searchNotes: "getSearchNotes",
+			searching: "getSearching",
+		}),
 		notesList() {
 			if (this.searchNotes === null) {
 				return this.notes;
@@ -62,6 +70,7 @@ export default {
 	},
 	components: {
 		SearchBar,
+		YinYangIcon,
 	},
 };
 </script>
