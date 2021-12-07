@@ -2,7 +2,11 @@
 	<div
 		id="menu"
 		class="
+			fixed
+			inset-y-0
+			left-0
 			h-screen
+			w-20
 			hidden
 			lg:flex
 			flex-col
@@ -11,7 +15,7 @@
 			border-r-2 border-gray-300
 			dark:border-gray-500
 			py-10
-			px-5
+			z-10
 		"
 	>
 		<div class="flex flex-col items-center">
