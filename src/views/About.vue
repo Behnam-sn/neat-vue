@@ -97,7 +97,16 @@
 					target="_blank"
 				>
 					<img src="../assets/img/fastapi.png" />
-					<div>FastAPI</div>
+					<div
+						class="
+							text-primary
+							dark:text-secondary
+							transition
+							duration-500
+						"
+					>
+						FastAPI
+					</div>
 				</a>
 				<a
 					class="
@@ -120,7 +129,16 @@
 					target="_blank"
 				>
 					<img class="lg:h-36" src="../assets/img/vue.png" />
-					<div>Vue.js</div>
+					<div
+						class="
+							text-primary
+							dark:text-secondary
+							transition
+							duration-500
+						"
+					>
+						Vue.js
+					</div>
 				</a>
 				<a
 					class="
@@ -143,7 +161,16 @@
 					target="_blank"
 				>
 					<img class="lg:h-36" src="../assets/img/tailwind.png" />
-					<div>Tailwind CSS</div>
+					<div
+						class="
+							text-primary
+							dark:text-secondary
+							transition
+							duration-500
+						"
+					>
+						Tailwind CSS
+					</div>
 				</a>
 				<a
 					class="
@@ -167,7 +194,16 @@
 					rel="noopener noreferrer"
 				>
 					<img class="lg:h-36" src="../assets/img/fontawesome.png" />
-					<div>Font Awesome</div>
+					<div
+						class="
+							text-primary
+							dark:text-secondary
+							transition
+							duration-500
+						"
+					>
+						Font Awesome
+					</div>
 				</a>
 			</div>
 		</div>

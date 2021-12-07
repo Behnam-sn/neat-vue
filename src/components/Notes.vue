@@ -20,6 +20,8 @@
 							p-7
 							bg-gray-200
 							dark:bg-gray-700
+							text-primary
+							dark:text-secondary
 							rounded-2xl
 							transition
 							duration-500

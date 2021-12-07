@@ -8,7 +8,8 @@
 					v-model="password_update.password"
 					class="
 						font-Poppins font-light
-						text-lg
+						text-lg text-primary
+						dark:text-secondary
 						bg-gray-200
 						dark:bg-gray-800
 						w-80
@@ -32,7 +33,8 @@
 					v-model="password_update.newPassword"
 					class="
 						font-Poppins font-light
-						text-lg
+						text-lg text-primary
+						dark:text-secondary
 						bg-gray-200
 						dark:bg-gray-800
 						w-80
@@ -52,6 +54,8 @@
 				@click="updatePassword"
 				class="
 					font-Poppins font-medium
+					text-primary
+					dark:text-secondary
 					bg-blue-500
 					rounded-full
 					px-7

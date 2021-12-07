@@ -15,8 +15,12 @@
 			<GoBackButton />
 			<div class="flex items-center mr-3">
 				<div
-					class="font-Poppins font-bold duration-300"
-					:class="{ 'text-gray-400': note.public }"
+					class="font-Poppins font-bold transition duration-500"
+					:class="[
+						note.public
+							? 'text-gray-400'
+							: 'text-primary dark:text-secondary',
+					]"
 				>
 					Private
 				</div>
@@ -30,7 +34,7 @@
 						rounded-full
 						p-1
 						mx-4
-						duration-300
+						duration-500
 						cursor-pointer
 					"
 					:class="{ 'bg-green-500': note.public }"
@@ -50,8 +54,12 @@
 					></div>
 				</button>
 				<div
-					class="font-Poppins font-bold duration-300"
-					:class="{ 'text-gray-400': !note.public }"
+					class="font-Poppins font-bold transition duration-500"
+					:class="[
+						!note.public
+							? 'text-gray-400'
+							: 'text-primary dark:text-secondary',
+					]"
 				>
 					Public
 				</div>
@@ -61,6 +69,8 @@
 			v-model="note.title"
 			class="
 				font-Rubik font-medium
+				text-primary
+				dark:text-secondary
 				text-2xl
 				w-full
 				px-8
@@ -68,6 +78,8 @@
 				lg:px-20 lg:py-5
 				bg-transparent
 				focus:outline-none
+				transition
+				duration-500
 			"
 			dir="auto"
 			type="text"
@@ -79,6 +91,8 @@
 			v-model="note.content"
 			class="
 				font-Poppins font-light
+				text-primary
+				dark:text-secondary
 				text-xl
 				w-full
 				px-8
@@ -89,6 +103,8 @@
 				overflow-hidden
 				leading-9
 				focus:outline-none
+				transition
+				duration-500
 			"
 			dir="auto"
 			placeholder="Contect"
@@ -104,6 +120,8 @@
 				right-16
 				bg-secondary
 				dark:bg-primary
+				text-primary
+				dark:text-secondary
 				rounded-full
 				transition
 				duration-500

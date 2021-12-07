@@ -8,7 +8,8 @@
 					v-model="user.username"
 					class="
 						font-Poppins font-light
-						text-lg
+						text-lg text-primary
+						dark:text-secondary
 						bg-gray-200
 						dark:bg-gray-800
 						w-80
@@ -32,7 +33,8 @@
 					v-model="user.full_name"
 					class="
 						font-Poppins font-light
-						text-lg
+						text-lg text-primary
+						dark:text-secondary
 						bg-gray-200
 						dark:bg-gray-800
 						w-80
@@ -57,6 +59,8 @@
 				@click="changeUser"
 				class="
 					font-Poppins font-medium
+					text-primary
+					dark:text-secondary
 					bg-green-500
 					rounded-full
 					px-7
@@ -85,6 +89,8 @@
 				<button
 					class="
 						font-Poppins font-medium
+						text-primary
+						dark:text-secondary
 						bg-red-500
 						rounded-full
 						px-7
@@ -103,6 +109,8 @@
 				<button
 					class="
 						font-Poppins font-medium
+						text-primary
+						dark:text-secondary
 						bg-blue-500
 						rounded-full
 						px-7

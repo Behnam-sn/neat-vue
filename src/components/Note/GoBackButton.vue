@@ -10,6 +10,8 @@
 			rounded-full
 			hover:bg-gray-300
 			dark:hover:bg-gray-500
+			text-primary
+			dark:text-secondary
 			transition
 			duration-500
 		"

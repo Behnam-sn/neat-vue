@@ -9,6 +9,8 @@
 				class="
 					self-end
 					font-Poppins font-light
+					text-primary
+					dark:text-secondary
 					border-2 border-gray-400
 					dark:border-gray-500
 					rounded-full
@@ -26,6 +28,8 @@
 				v-model="loginData.username"
 				class="
 					font-Poppins font-light
+					text-primary
+					dark:text-secondary
 					bg-gray-200
 					dark:bg-gray-800
 					text-lg
@@ -54,6 +58,8 @@
 				v-model="loginData.full_name"
 				class="
 					font-Poppins font-light
+					text-primary
+					dark:text-secondary
 					bg-gray-200
 					dark:bg-gray-800
 					text-lg
@@ -76,6 +82,8 @@
 				v-model="loginData.password"
 				class="
 					font-Poppins font-light
+					text-primary
+					dark:text-secondary
 					bg-gray-200
 					dark:bg-gray-800
 					text-lg
