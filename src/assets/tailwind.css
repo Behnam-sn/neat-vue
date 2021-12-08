@@ -4,6 +4,21 @@
 
 @tailwind utilities;
 
+/* width */
+::-webkit-scrollbar {
+	width: 14px;
+}
+
+/* Track */
+::-webkit-scrollbar-track {
+	background: transparent;
+}
+
+/* Handle */
+::-webkit-scrollbar-thumb {
+	@apply bg-gray-400 rounded-full;
+}
+
 body {
 	@apply relative bg-secondary text-primary dark:bg-primary dark:text-secondary transition duration-500;
 }

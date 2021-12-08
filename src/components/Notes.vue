@@ -28,7 +28,12 @@
 						"
 					>
 						<div
-							class="font-Rubik font-medium text-xl mb-1"
+							class="
+								font-Rubik font-medium
+								text-xl
+								mb-1
+								overflow-hidden
+							"
 							dir="auto"
 						>
 							{{ note.title }}
