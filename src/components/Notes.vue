@@ -1,5 +1,5 @@
 <template>
-	<div class="lg:h-vh-85 lg:overflow-y-scroll px-7 lg:px-16">
+	<div class="px-7 lg:px-16 pb-56">
 		<SearchBar />
 		<YinYangIcon v-if="searching" class="h-12 mx-auto" />
 		<div

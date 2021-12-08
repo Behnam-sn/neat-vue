@@ -3,7 +3,7 @@
 		<Navbar />
 		<SideMenu />
 		<div
-			class="w-full pt-24 lg:pt-0 lg:pl-20 lg:mb-0"
+			class="w-full pt-20 lg:pt-0 lg:pl-20 lg:mb-0"
 			:class="{ 'mb-56': isNotNote }"
 		>
 			<router-view v-slot="{ Component }">
