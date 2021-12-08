@@ -27,11 +27,14 @@
 				flex
 				justify-end
 				font-Rubik font-medium
-				text-2xl
+				text-2xl text-primary
+				dark:text-secondary
 				w-full
 				px-8
 				my-3
 				lg:px-20 lg:my-5
+				transition
+				duration-500
 			"
 		>
 			<div class="pr-3">Author:</div>
@@ -42,12 +45,15 @@
 		<div
 			class="
 				font-Rubik font-medium
-				text-2xl
+				text-2xl text-primary
+				dark:text-secondary
 				w-full
 				px-8
 				lg:px-20
 				my-3
 				lg:my-5
+				transition
+				duration-500
 			"
 			dir="auto"
 		>
@@ -55,16 +61,19 @@
 		</div>
 		<pre
 			class="
+				font-Poppins font-light
+				text-xl text-primary
+				dark:text-secondary
+				whitespace-pre-wrap
+				overflow-hidden
+				leading-9
 				w-full
 				px-8
 				lg:px-20
 				my-3
 				lg:my-5
-				font-Poppins font-light
-				text-xl
-				whitespace-pre-wrap
-				leading-9
-				overflow-hidden
+				transition
+				duration-500
 			"
 			dir="auto"
 			>{{ note.content }}</pre
@@ -76,7 +85,6 @@
 import { mapGetters } from "vuex";
 
 import DateAndTime from "./DateAndTime.vue";
-
 import GoBackButton from "./Note/GoBackButton.vue";
 
 export default {

@@ -5,49 +5,7 @@
 		>
 			<GoBackButton />
 			<div class="flex">
-				<div class="flex items-center mr-9 lg:mr-14">
-					<div
-						class="font-Poppins font-bold duration-300"
-						:class="{ 'text-gray-400': note.public }"
-					>
-						Private
-					</div>
-					<button
-						class="
-							w-14
-							h-8
-							flex
-							items-center
-							bg-gray-300
-							rounded-full
-							p-1
-							mx-4
-							duration-300
-							cursor-pointer
-						"
-						:class="{ 'bg-green-500': note.public }"
-						@click="togglePublic"
-					>
-						<div
-							class="
-								bg-white
-								w-6
-								h-6
-								rounded-full
-								shadow-md
-								transform
-								duration-300
-							"
-							:class="{ 'translate-x-6': note.public }"
-						></div>
-					</button>
-					<div
-						class="font-Poppins font-bold duration-300"
-						:class="{ 'text-gray-400': !note.public }"
-					>
-						Public
-					</div>
-				</div>
+				<TogglePublicButton />
 				<DeleteButton />
 			</div>
 		</div>
@@ -68,63 +26,9 @@
 			/>
 			<DateAndTime title="Modified" :value="note.modified_at" />
 		</div>
-		<input
-			v-model="note.title"
-			class="
-				font-Rubik font-medium
-				text-2xl
-				w-full
-				px-8
-				my-3
-				lg:px-20 lg:my-4
-				bg-transparent
-				focus:outline-none
-			"
-			dir="auto"
-			type="text"
-			placeholder="Title"
-		/>
-		<textarea
-			id="txt"
-			v-model="note.content"
-			class="
-				font-Poppins font-light
-				text-xl
-				w-full
-				px-8
-				my-3
-				lg:px-20 lg:my-4
-				bg-transparent
-				resize-none
-				overflow-hidden
-				leading-9
-				focus:outline-none
-			"
-			dir="auto"
-			placeholder="Contect"
-		></textarea>
-
-		<button
-			@click="updateNote"
-			class="
-				hidden
-				lg:block
-				p-7
-				absolute
-				bottom-16
-				right-16
-				bg-secondary
-				dark:bg-primary
-				rounded-full
-				transition
-				duration-500
-			"
-		>
-			<transition name="send" mode="out-in">
-				<YinYangIcon class="h-9" v-if="loading" />
-				<SendIcon class="h-9" v-else />
-			</transition>
-		</button>
+		<TitleInput />
+		<ContentInput />
+		<SendButton @click="updateNote" />
 	</div>
 </template>
 
@@ -132,11 +36,12 @@
 import { mapGetters, mapActions } from "vuex";
 
 import DateAndTime from "./DateAndTime.vue";
+import TitleInput from "./Note/TitleInput.vue";
+import ContentInput from "./Note/ContentInput.vue";
+import SendButton from "./Note/SendButton.vue";
 import GoBackButton from "./Note/GoBackButton.vue";
 import DeleteButton from "./Note/DeleteButton.vue";
-
-import SendIcon from "../assets/svg/SendIcon.vue";
-import YinYangIcon from "../assets/svg/YinYangIcon.vue";
+import TogglePublicButton from "./Note/TogglePublicButton.vue";
 
 export default {
 	name: "EditableNote",
@@ -147,7 +52,7 @@ export default {
 		this.txtResize();
 	},
 	computed: {
-		...mapGetters({ note: "getNote", loading: "getLoading" }),
+		...mapGetters({ note: "getNote" }),
 	},
 	methods: {
 		...mapActions(["updateNote"]),
@@ -156,16 +61,15 @@ export default {
 			textarea.style.height = "auto";
 			textarea.style.height = textarea.scrollHeight + "px";
 		},
-		togglePublic() {
-			this.note.public = !this.note.public;
-		},
 	},
 	components: {
 		DateAndTime,
+		TitleInput,
+		ContentInput,
+		SendButton,
 		GoBackButton,
 		DeleteButton,
-		SendIcon,
-		YinYangIcon,
+		TogglePublicButton,
 	},
 };
 </script>
