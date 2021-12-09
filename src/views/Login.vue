@@ -148,6 +148,7 @@ import { mapGetters, mapMutations, mapActions } from "vuex";
 export default {
 	name: "Login",
 	mounted: function () {
+		this.resetLoginData();
 		this.resetErrors();
 	},
 	data: () => ({
@@ -161,7 +162,7 @@ export default {
 		}),
 	},
 	methods: {
-		...mapMutations(["resetErrors"]),
+		...mapMutations(["resetLoginData", "resetErrors"]),
 		...mapActions(["checkLoginData", "login", "signup"]),
 		changeMode() {
 			this.isSignup = !this.isSignup;
