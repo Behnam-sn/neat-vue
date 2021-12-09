@@ -42,6 +42,7 @@
 							class="
 								font-Poppins font-light
 								whitespace-pre-wrap
+								break-words
 								h-36
 								overflow-hidden
 							"

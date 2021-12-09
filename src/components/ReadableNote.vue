@@ -24,11 +24,11 @@
 		</div>
 		<div
 			class="
-				flex
-				justify-end
+				text-right
 				font-Rubik font-medium
 				text-2xl text-primary
 				dark:text-secondary
+				break-words
 				w-full
 				px-8
 				my-3
@@ -37,9 +37,8 @@
 				duration-500
 			"
 		>
-			<div class="pr-3">Author:</div>
 			<router-link :to="`/user/${note.author}`">
-				{{ note.author }}
+				Author: {{ note.author }}
 			</router-link>
 		</div>
 		<div
@@ -47,6 +46,7 @@
 				font-Rubik font-medium
 				text-2xl text-primary
 				dark:text-secondary
+				break-words
 				w-full
 				px-8
 				lg:px-20
@@ -65,9 +65,10 @@
 				text-xl text-primary
 				dark:text-secondary
 				whitespace-pre-wrap
-				overflow-hidden
+				break-words
 				leading-9
 				w-full
+				overflow-hidden
 				px-8
 				lg:px-20
 				my-3
