@@ -147,6 +147,9 @@ import { mapGetters, mapMutations, mapActions } from "vuex";
 
 export default {
 	name: "Login",
+	mounted: function () {
+		this.resetErrors();
+	},
 	data: () => ({
 		isSignup: false,
 	}),
