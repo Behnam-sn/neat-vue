@@ -28,11 +28,10 @@
 				v-model="loginData.username"
 				class="
 					font-Poppins font-light
-					text-primary
+					text-lg text-primary
 					dark:text-secondary
 					bg-gray-200
 					dark:bg-gray-800
-					text-lg
 					w-80
 					px-4
 					py-2
@@ -58,11 +57,10 @@
 				v-model="loginData.full_name"
 				class="
 					font-Poppins font-light
-					text-primary
+					text-lg text-primary
 					dark:text-secondary
 					bg-gray-200
 					dark:bg-gray-800
-					text-lg
 					w-80
 					px-4
 					py-2
@@ -82,11 +80,10 @@
 				v-model="loginData.password"
 				class="
 					font-Poppins font-light
-					text-primary
+					text-lg text-primary
 					dark:text-secondary
 					bg-gray-200
 					dark:bg-gray-800
-					text-lg
 					w-80
 					px-4
 					py-2
@@ -156,7 +153,7 @@ export default {
 	}),
 	computed: {
 		...mapGetters({
-			loginIsSafe: "getLoginIsSafe",
+			submitIsSafe: "getSubmitIsSafe",
 			loginData: "getLoginData",
 			errors: "getErrors",
 		}),
@@ -170,7 +167,7 @@ export default {
 		},
 		submit() {
 			this.checkLoginData();
-			if (this.loginIsSafe) {
+			if (this.submitIsSafe) {
 				this.isSignup ? this.signup() : this.login();
 			}
 		},

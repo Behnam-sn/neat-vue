@@ -5,7 +5,7 @@
 			<div class="flex flex-col pb-6">
 				<label class="font-Poppins font-medium text-lg">Password</label>
 				<input
-					v-model="password"
+					v-model="deleteAccountData.password"
 					class="
 						font-Poppins font-light
 						text-lg text-primary
@@ -17,16 +17,21 @@
 						py-2
 						mt-2
 						rounded-lg
-						focus:outline-none focus:ring-2 focus:ring-gray-400
+						ring-2 ring-transparent
+						focus:outline-none focus:ring-gray-400
 						dark:focus:ring-gray-600
 						transition
 						duration-500
 					"
+					:class="{
+						'ring-red-600':
+							errors.empty_password || errors.not_authorised,
+					}"
 					type="password"
 				/>
 			</div>
 			<button
-				@click="deleteUser"
+				@click="submit"
 				class="
 					font-Poppins font-medium
 					text-primary
@@ -44,24 +49,42 @@
 			>
 				Delete Account
 			</button>
+			<div class="font-Poppins font-light text-lg text-red-600 mt-14">
+				<ul class="list-disc list-outside">
+					<li v-if="errors.empty_password">Password required</li>
+					<li v-if="errors.not_authorised">Password is wrong</li>
+				</ul>
+			</div>
 		</div>
 	</div>
 </template>
 
 <script>
-import { mapActions } from "vuex";
+import { mapGetters, mapMutations, mapActions } from "vuex";
 
 import TitleBar from "../components/TitleBar.vue";
 
 export default {
 	name: "DeleteAccount",
-	data: () => ({
-		password: "",
-	}),
+	mounted: function () {
+		this.resetDeleteAccountData();
+		this.resetErrors();
+	},
+	computed: {
+		...mapGetters({
+			submitIsSafe: "getSubmitIsSafe",
+			deleteAccountData: "getDeleteAccountData",
+			errors: "getErrors",
+		}),
+	},
 	methods: {
-		...mapActions(["deleteAccount"]),
-		deleteUser() {
-			this.deleteAccount(this.password);
+		...mapMutations(["resetDeleteAccountData", "resetErrors"]),
+		...mapActions(["checkDeleteAccountData", "deleteAccount"]),
+		submit() {
+			this.checkDeleteAccountData();
+			if (this.submitIsSafe) {
+				this.deleteAccount();
+			}
 		},
 	},
 	components: {
