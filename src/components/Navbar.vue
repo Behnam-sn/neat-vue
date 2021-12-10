@@ -9,6 +9,8 @@
 			px-7
 			bg-secondary
 			dark:bg-primary
+			text-primary
+			dark:text-secondary
 			transition
 			duration-500
 		"
