@@ -17,7 +17,7 @@
 		"
 	>
 		<transition name="send" mode="out-in">
-			<YinYangIcon class="h-9" v-if="loading" />
+			<YinYangIcon class="h-9" v-if="sending" />
 			<SendIcon class="h-9" v-else />
 		</transition>
 	</button>
@@ -33,7 +33,7 @@ export default {
 	name: "SendButton",
 	computed: {
 		...mapGetters({
-			loading: "getLoading",
+			sending: "getSending",
 		}),
 	},
 	components: {

@@ -65,7 +65,8 @@ import EditableNote from "../components/EditableNote.vue";
 
 export default {
 	name: "Note",
-	created: function () {
+	mounted: function () {
+		this.clearNote();
 		this.fetchNote(this.routeId);
 	},
 	computed: {
@@ -75,7 +76,7 @@ export default {
 		},
 	},
 	methods: {
-		...mapActions(["fetchNote"]),
+		...mapActions(["clearNote", "fetchNote"]),
 	},
 	components: {
 		ReadableNote,

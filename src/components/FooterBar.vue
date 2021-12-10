@@ -36,7 +36,7 @@
 				<button v-if="isNote" @click="sendNote">
 					<transition name="send" mode="out-in">
 						<YinYangIcon
-							v-if="loading"
+							v-if="sending"
 							class="
 								h-9
 								text-primary
@@ -86,7 +86,7 @@ export default {
 		...mapGetters({
 			username: "getUsername",
 			note: "getNote",
-			loading: "getLoading",
+			sending: "getSending",
 		}),
 		path() {
 			return this.$route.path.toLowerCase();

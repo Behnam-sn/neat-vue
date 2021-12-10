@@ -4,12 +4,12 @@ const Notes = {
 	state: () => ({
 		notes: null,
 		searchNotes: null,
-		searching: false,
+		loading: false,
 	}),
 	getters: {
 		getNotes: (state) => state.notes,
 		getSearchNotes: (state) => state.searchNotes,
-		getSearching: (state) => state.searching,
+		getLoading: (state) => state.loading,
 	},
 	mutations: {
 		setNotes(state, payload) {
@@ -18,35 +18,41 @@ const Notes = {
 		setSearchNotes(state, payload) {
 			state.searchNotes = payload;
 		},
-		setSearching(state, payload) {
-			state.searching = payload;
+		setLoading(state, payload) {
+			state.loading = payload;
 		},
 	},
 	actions: {
 		fetchPublicNotes({ commit, dispatch }) {
+			commit("setloading", true);
 			dispatch("clearSearchNotes");
 			axios
 				.get("notes/public-all")
 				.then((response) => {
 					commit("setNotes", response.data);
+					commit("setLoading", false);
 				})
 				.catch((error) => {
 					console.log(error);
 				});
 		},
 		fetchPublicNotesByAuthor({ commit, dispatch }, payload) {
+			commit("setloading", true);
 			dispatch("clearSearchNotes");
 			axios
 				.get(`notes/public-author?author=${payload}`)
 				.then((response) => {
 					commit("setNotes", response.data);
+					commit("setLoading", false);
 				})
 				.catch((error) => {
 					commit("setNotes", "notFound");
+					commit("setLoading", false);
 					console.log(error);
 				});
 		},
 		fetchCurrentUserNotes({ rootState, commit, dispatch }) {
+			commit("setloading", true);
 			dispatch("clearSearchNotes");
 			axios
 				.get("notes/", {
@@ -56,9 +62,11 @@ const Notes = {
 				})
 				.then((response) => {
 					commit("setNotes", response.data);
+					commit("setLoading", false);
 				})
 				.catch((error) => {
 					commit("setNotes", "notFound");
+					commit("setLoading", false);
 					console.log(error);
 				});
 		},
@@ -67,7 +75,7 @@ const Notes = {
 				.get(`notes/public-search-all/?text=${payload}`)
 				.then((response) => {
 					commit("setSearchNotes", response.data);
-					commit("setSearching", false);
+					commit("setLoading", false);
 				})
 				.catch((error) => {
 					console.log(error);
@@ -80,7 +88,7 @@ const Notes = {
 				)
 				.then((response) => {
 					commit("setSearchNotes", response.data);
-					commit("setSearching", false);
+					commit("setLoading", false);
 				})
 				.catch((error) => {
 					console.log(error);
@@ -95,7 +103,7 @@ const Notes = {
 				})
 				.then((response) => {
 					commit("setSearchNotes", response.data);
-					commit("setSearching", false);
+					commit("setLoading", false);
 				})
 				.catch((error) => {
 					console.log(error);

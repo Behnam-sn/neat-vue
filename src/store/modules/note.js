@@ -13,24 +13,24 @@ const Note = {
 			created_at: null,
 			modified_at: null,
 		},
-		loading: false,
+		sending: false,
 	}),
 	getters: {
 		getNote: (state) => state.note,
-		getLoading: (state) => state.loading,
+		getSending: (state) => state.sending,
 	},
 	mutations: {
 		setNote(state, payload) {
 			state.note = payload;
 		},
-		setLoading(state, payload) {
-			state.loading = payload;
+		setSending(state, payload) {
+			state.sending = payload;
 		},
 	},
 	actions: {
 		createNote({ rootState, state, commit }) {
 			if (state.note.content != "" || state.note.title != "") {
-				commit("setLoading", true);
+				commit("setSending", true);
 
 				const Note = {
 					title: state.note.title,
@@ -46,7 +46,7 @@ const Note = {
 					})
 					.then((response) => {
 						if (response.status == 200) {
-							commit("setLoading", false);
+							commit("setSending", false);
 							router.push(`/user/${rootState.username}`);
 						}
 					})
@@ -94,7 +94,7 @@ const Note = {
 		},
 		updateNote({ rootState, state, commit }) {
 			if (state.note.content != "" || state.note.title != "") {
-				commit("setLoading", true);
+				commit("setSending", true);
 
 				const Note = {
 					title: state.note.title,
@@ -110,7 +110,7 @@ const Note = {
 					})
 					.then((response) => {
 						if (response.status == 200) {
-							commit("setLoading", false);
+							commit("setSending", false);
 							router.push(`/user/${rootState.username}`);
 						}
 					})
@@ -120,7 +120,7 @@ const Note = {
 			}
 		},
 		deleteNote({ rootState, state, commit }) {
-			commit("setLoading", true);
+			commit("setSending", true);
 
 			axios
 				.delete(`notes/?id=${state.note.id}`, {
@@ -130,7 +130,7 @@ const Note = {
 				})
 				.then((response) => {
 					if (response.status == 200) {
-						commit("setLoading", false);
+						commit("setSending", false);
 						router.push(`/user/${rootState.username}`);
 					}
 				})

@@ -61,7 +61,7 @@ export default {
 			if (this.searchText == "") {
 				this.clearSearchNotes();
 			} else {
-				this.setSearching(true);
+				this.setLoading(true);
 				if (!this.awaitingSearch) {
 					setTimeout(() => {
 						if (this.$route.path == "/public") {
@@ -86,7 +86,7 @@ export default {
 		},
 	},
 	methods: {
-		...mapMutations(["setSearching"]),
+		...mapMutations(["setLoading"]),
 		...mapActions([
 			"searchAllPublicNotes",
 			"searchPublicNotesByAuthor",

@@ -1,7 +1,7 @@
 <template>
 	<div class="px-7 lg:px-16 pb-56">
 		<SearchBar />
-		<YinYangIcon v-if="searching" class="h-12 mx-auto" />
+		<YinYangIcon v-if="loading" class="h-12 mx-auto" />
 		<div
 			v-else
 			class="
@@ -70,7 +70,7 @@ export default {
 		...mapGetters({
 			notes: "getNotes",
 			searchNotes: "getSearchNotes",
-			searching: "getSearching",
+			loading: "getLoading",
 		}),
 		notesList() {
 			if (this.searchNotes === null) {
