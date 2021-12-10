@@ -24,7 +24,7 @@ const Notes = {
 	},
 	actions: {
 		fetchPublicNotes({ commit, dispatch }) {
-			commit("setloading", true);
+			commit("setLoading", true);
 			dispatch("clearSearchNotes");
 			axios
 				.get("notes/public-all")
@@ -37,7 +37,7 @@ const Notes = {
 				});
 		},
 		fetchPublicNotesByAuthor({ commit, dispatch }, payload) {
-			commit("setloading", true);
+			commit("setLoading", true);
 			dispatch("clearSearchNotes");
 			axios
 				.get(`notes/public-author?author=${payload}`)
@@ -52,7 +52,7 @@ const Notes = {
 				});
 		},
 		fetchCurrentUserNotes({ rootState, commit, dispatch }) {
-			commit("setloading", true);
+			commit("setLoading", true);
 			dispatch("clearSearchNotes");
 			axios
 				.get("notes/", {
