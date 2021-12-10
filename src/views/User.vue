@@ -1,17 +1,14 @@
 <template>
-	<div class="h-full">
+	<div>
 		<div
-			v-if="notes === 'notFound'"
+			v-if="notes == 'notFound'"
 			class="
-				w-full
-				h-full
 				flex
 				justify-center
-				items-center
 				font-Poppins font-bold
 				text-2xl
-				mt-56
-				lg:mt-0
+				mt-40
+				lg:mt-72
 			"
 		>
 			User Not Found
