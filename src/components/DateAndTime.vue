@@ -2,7 +2,7 @@
 	<div
 		class="
 			font-Roboto font-bold
-			text-sm
+			text-xs
 			lg:text-base
 			text-primary
 			dark:text-secondary

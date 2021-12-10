@@ -26,7 +26,9 @@
 			class="
 				text-right
 				font-Rubik font-medium
-				text-2xl text-primary
+				text-lg
+				lg:text-2xl
+				text-primary
 				dark:text-secondary
 				break-words
 				w-full
@@ -44,7 +46,9 @@
 		<div
 			class="
 				font-Rubik font-medium
-				text-2xl text-primary
+				text-xl
+				lg:text-2xl
+				text-primary
 				dark:text-secondary
 				break-words
 				w-full
@@ -62,7 +66,9 @@
 		<pre
 			class="
 				font-Poppins font-light
-				text-xl text-primary
+				text-lg
+				lg:text-xl
+				text-primary
 				dark:text-secondary
 				whitespace-pre-wrap
 				break-words

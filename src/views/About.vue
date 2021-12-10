@@ -2,7 +2,7 @@
 	<div>
 		<TitleBar title="About" />
 		<div class="px-7 lg:px-16 font-Roboto font-normal text-xl">
-			<div class="lg:flex lg:flex-row lg:items-center mt-7">
+			<div class="lg:flex lg:flex-row lg:items-center">
 				<div class="font-Roboto font-medium mb-2 lg:mb-0 lg:mr-2">
 					Developer & designer :
 				</div>

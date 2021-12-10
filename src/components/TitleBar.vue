@@ -18,7 +18,9 @@
 		<h1
 			class="
 				font-Poppins font-bold
-				text-5xl text-primary
+				text-4xl
+				lg:text-5xl
+				text-primary
 				dark:text-secondary
 				capitalize
 				transition

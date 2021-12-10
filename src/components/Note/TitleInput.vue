@@ -3,7 +3,9 @@
 		v-model="note.title"
 		class="
 			font-Rubik font-medium
-			text-2xl text-primary
+			text-xl
+			lg:text-2xl
+			text-primary
 			dark:text-secondary
 			w-full
 			px-8

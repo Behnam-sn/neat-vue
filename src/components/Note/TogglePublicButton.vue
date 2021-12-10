@@ -1,7 +1,13 @@
 <template>
 	<div class="flex items-center mr-3">
 		<div
-			class="font-Poppins font-bold transition duration-500"
+			class="
+				font-Poppins font-bold
+				text-sm
+				lg:text-base
+				transition
+				duration-500
+			"
 			:class="[
 				note.public
 					? 'text-gray-400'
@@ -40,7 +46,13 @@
 			></div>
 		</button>
 		<div
-			class="font-Poppins font-bold transition duration-500"
+			class="
+				font-Poppins font-bold
+				text-sm
+				lg:text-base
+				transition
+				duration-500
+			"
 			:class="[
 				!note.public
 					? 'text-gray-400'

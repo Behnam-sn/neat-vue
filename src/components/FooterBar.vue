@@ -7,7 +7,7 @@
 			w-full
 			h-12
 			shadow-xl
-			bg-gray-300
+			bg-gray-100
 			dark:bg-gray-800
 			transition
 			duration-500
@@ -27,7 +27,7 @@
 					rounded-full
 					bg-secondary
 					dark:bg-primary
-					ring-gray-300
+					ring-gray-100
 					dark:ring-gray-800
 					transition
 					duration-500
@@ -48,7 +48,7 @@
 						<SendIcon
 							v-else
 							class="
-								h-8
+								h-7
 								text-primary
 								dark:text-secondary
 								transition
@@ -60,7 +60,7 @@
 				<router-link v-else to="/addnote">
 					<PlusIcon
 						class="
-							h-12
+							h-10
 							text-primary
 							dark:text-secondary
 							transition

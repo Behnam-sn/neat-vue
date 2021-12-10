@@ -2,36 +2,37 @@
 	<div>
 		<TitleBar title="Neat" class="hidden lg:flex" />
 		<div class="flex justify-center px-7 lg:px-16">
-			<div class="mt-36 lg:mt-60">
+			<div class="mt-20 lg:mt-60">
 				<h2
 					class="
+						font-Rubik font-light
+						text-2xl
+						lg:text-4xl
+						text-gray-500
+						dark:text-gray-400
 						transition
 						duration-500
-						font-Rubik font-light
-						text-3xl text-gray-500
-						2xl:text-4xl
-						dark:text-gray-400
-						lg:ml-2
 					"
 				>
 					A Place That You Can Keep Your Notes
 				</h2>
 				<h3
 					class="
-						transition
-						duration-500
 						font-Rubik font-medium
-						text-5xl text-gray-700
-						2xl:text-6xl
+						text-4xl
+						lg:text-6xl
+						text-gray-700
 						dark:text-gray-300
 						mt-6
+						transition
+						duration-500
 					"
 				>
 					All of your notes! public and private.
 				</h3>
 			</div>
 		</div>
-		<div class="flex lg:hidden justify-center mt-20" v-if="!username">
+		<div class="lg:hidden flex justify-center mt-20" v-if="!username">
 			<LoginButton />
 		</div>
 	</div>

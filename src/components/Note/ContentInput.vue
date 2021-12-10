@@ -5,7 +5,9 @@
 		id="txt"
 		class="
 			font-Poppins font-light
-			text-xl text-primary
+			text-lg
+			lg:text-xl
+			text-primary
 			dark:text-secondary
 			leading-9
 			w-full

@@ -30,7 +30,8 @@
 						<div
 							class="
 								font-Rubik font-medium
-								text-xl
+								text-lg
+								lg:text-xl
 								mb-1
 								overflow-hidden
 							"
