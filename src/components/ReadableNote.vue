@@ -1,13 +1,13 @@
 <template>
 	<div>
 		<div
-			class="flex justify-between items-center mx-4 lg:mx-7 my-4 lg:my-6"
+			class="flex justify-between items-center px-4 lg:px-7 my-4 lg:my-6"
 		>
 			<GoBackButton />
 			<div
 				class="
-					mr-4
-					lg:mr-7
+					mr-3
+					lg:mr-5
 					flex flex-col
 					lg:flex-row
 					items-end
@@ -32,7 +32,7 @@
 				dark:text-secondary
 				break-words
 				w-full
-				px-8
+				px-7
 				my-3
 				lg:px-20 lg:my-5
 				transition
@@ -52,7 +52,7 @@
 				dark:text-secondary
 				break-words
 				w-full
-				px-8
+				px-7
 				lg:px-20
 				my-3
 				lg:my-5
@@ -75,7 +75,7 @@
 				leading-9
 				w-full
 				overflow-hidden
-				px-8
+				px-7
 				lg:px-20
 				my-3
 				lg:my-5

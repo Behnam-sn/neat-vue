@@ -1,7 +1,7 @@
 <template>
 	<div>
 		<div
-			class="flex justify-between items-center mx-4 lg:mx-7 my-4 lg:my-6"
+			class="flex justify-between items-center px-4 lg:px-7 my-4 lg:my-6"
 		>
 			<GoBackButton />
 			<div class="flex">
@@ -9,16 +9,7 @@
 				<DeleteButton />
 			</div>
 		</div>
-		<div
-			class="
-				mx-8
-				lg:mx-12
-				flex flex-col
-				lg:flex-row
-				items-end
-				justify-end
-			"
-		>
+		<div class="flex flex-col lg:flex-row items-end justify-end px-7">
 			<DateAndTime
 				title="Created"
 				:value="note.created_at"

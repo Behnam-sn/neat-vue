@@ -8,7 +8,7 @@
 			text-primary
 			dark:text-secondary
 			w-full
-			px-8
+			px-7
 			py-3
 			lg:px-20 lg:py-5
 			bg-transparent

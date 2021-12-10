@@ -10,7 +10,7 @@
 		"
 	>
 		<div
-			class="flex justify-between items-center mx-4 lg:mx-7 py-3 lg:my-5"
+			class="flex justify-between items-center px-4 lg:px-7 my-4 lg:my-6"
 		>
 			<GoBackButton />
 			<TogglePublicButton />
