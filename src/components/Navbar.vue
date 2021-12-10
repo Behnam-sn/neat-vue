@@ -50,7 +50,7 @@
 <script>
 import { mapGetters, mapActions } from "vuex";
 
-import Collapsible from "./NavbarCollapsible.vue";
+import Collapsible from "./Navbar/Collapsible.vue";
 
 import BarsIcon from "../assets/svg/BarsIcon.vue";
 import MoonIcon from "../assets/svg/MoonIcon.vue";

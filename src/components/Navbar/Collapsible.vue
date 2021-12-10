@@ -1,7 +1,7 @@
 <template>
 	<div
 		id="collapsible"
-		class="flex items-end justify-evenly mt-2 transition duration-500"
+		class="flex items-end justify-evenly transition duration-500"
 		:class="[collapseStatus ? 'h-14 opacity-100' : 'h-0 opacity-0']"
 	>
 		<router-link to="/public">
@@ -25,11 +25,11 @@
 <script>
 import { mapGetters, mapActions } from "vuex";
 
-import HomeIcon from "../assets/svg/HomeIcon.vue";
-import UserIcon from "../assets/svg/UserIcon.vue";
-import InfoIcon from "../assets/svg/InfoIcon.vue";
-import CogIcon from "../assets/svg/CogIcon.vue";
-import LogoutIcon from "../assets/svg/LogoutIcon.vue";
+import HomeIcon from "../../assets/svg/HomeIcon.vue";
+import UserIcon from "../../assets/svg/UserIcon.vue";
+import InfoIcon from "../../assets/svg/InfoIcon.vue";
+import CogIcon from "../../assets/svg/CogIcon.vue";
+import LogoutIcon from "../../assets/svg/LogoutIcon.vue";
 
 export default {
 	name: "Collapsible",
