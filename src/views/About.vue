@@ -96,7 +96,12 @@
 					href="https://fastapi.tiangolo.com/"
 					target="_blank"
 				>
-					<img src="../assets/img/fastapi.png" />
+					<img
+						src="../assets/img/fastapi.png"
+						lazy="load"
+						decode="async"
+						alt="FastAPI"
+					/>
 					<div
 						class="
 							text-primary
@@ -128,7 +133,13 @@
 					href="https://vuejs.org/"
 					target="_blank"
 				>
-					<img class="lg:h-36" src="../assets/img/vue.png" />
+					<img
+						class="lg:h-36"
+						src="../assets/img/vue.png"
+						lazy="load"
+						decode="async"
+						alt="Vue.js"
+					/>
 					<div
 						class="
 							text-primary
@@ -160,7 +171,13 @@
 					href="https://tailwindcss.com/"
 					target="_blank"
 				>
-					<img class="lg:h-36" src="../assets/img/tailwind.png" />
+					<img
+						class="lg:h-36"
+						src="../assets/img/tailwind.png"
+						lazy="load"
+						decode="async"
+						alt="Tailwind CSS"
+					/>
 					<div
 						class="
 							text-primary
@@ -193,7 +210,13 @@
 					target="_blank"
 					rel="noopener noreferrer"
 				>
-					<img class="lg:h-36" src="../assets/img/fontawesome.png" />
+					<img
+						class="lg:h-36"
+						src="../assets/img/fontawesome.png"
+						lazy="load"
+						decode="async"
+						alt="Font Awesome"
+					/>
 					<div
 						class="
 							text-primary
