@@ -10,11 +10,11 @@ const User = {
 			created_at: null,
 			modified_at: null,
 		},
-		submitIsSafe: true,
+		submitIsValid: true,
 		loginData: {
-			username: null,
-			full_name: null,
-			password: null,
+			username: "",
+			full_name: "",
+			password: "",
 		},
 		changePasswordData: {
 			password: "",
@@ -35,7 +35,7 @@ const User = {
 	}),
 	getters: {
 		getUser: (state) => state.user,
-		getSubmitIsSafe: (state) => state.submitIsSafe,
+		getSubmitIsValid: (state) => state.submitIsValid,
 		getLoginData: (state) => state.loginData,
 		getChangePasswordData: (state) => state.changePasswordData,
 		getDeleteAccountData: (state) => state.deleteAccountData,
@@ -45,14 +45,14 @@ const User = {
 		setUser(state, payload) {
 			state.user = payload;
 		},
-		setSubmitIsSafe(state, payload) {
-			state.submitIsSafe = payload;
+		setSubmitIsValid(state, payload) {
+			state.submitIsValid = payload;
 		},
 		resetLoginData(state) {
 			state.loginData = {
-				username: null,
-				full_name: null,
-				password: null,
+				username: "",
+				full_name: "",
+				password: "",
 			};
 		},
 		resetChangePasswordData(state) {
@@ -82,50 +82,50 @@ const User = {
 		},
 	},
 	actions: {
-		checkLoginData({ state, commit }) {
+		validateLoginData({ state, commit }) {
 			let allowedChars = /^[0-9a-zA-Z_.-]+$/;
 
 			commit("resetErrors");
-			commit("setSubmitIsSafe", true);
+			commit("setSubmitIsValid", true);
 
 			if (!state.loginData.username) {
 				commit("setErrors", "empty_username");
-				commit("setSubmitIsSafe", false);
+				commit("setSubmitIsValid", false);
 			} else if (!allowedChars.test(state.loginData.username)) {
 				commit("setErrors", "invalid_username");
-				commit("setSubmitIsSafe", false);
+				commit("setSubmitIsValid", false);
 			}
 			if (!state.loginData.password) {
 				commit("setErrors", "empty_password");
-				commit("setSubmitIsSafe", false);
+				commit("setSubmitIsValid", false);
 			}
 		},
-		checkChangePasswordData({ state, commit }) {
+		validateChangePasswordData({ state, commit }) {
 			commit("resetErrors");
-			commit("setSubmitIsSafe", true);
+			commit("setSubmitIsValid", true);
 
 			if (!state.changePasswordData.password) {
 				commit("setErrors", "empty_password");
-				commit("setSubmitIsSafe", false);
+				commit("setSubmitIsValid", false);
 			}
 			if (!state.changePasswordData.new_password) {
 				commit("setErrors", "empty_new_password");
-				commit("setSubmitIsSafe", false);
+				commit("setSubmitIsValid", false);
 			} else if (
 				state.changePasswordData.password ==
 				state.changePasswordData.new_password
 			) {
 				commit("setErrors", "same_password");
-				commit("setSubmitIsSafe", false);
+				commit("setSubmitIsValid", false);
 			}
 		},
-		checkDeleteAccountData({ state, commit }) {
+		validateDeleteAccountData({ state, commit }) {
 			commit("resetErrors");
-			commit("setSubmitIsSafe", true);
+			commit("setSubmitIsValid", true);
 
 			if (!state.deleteAccountData.password) {
 				commit("setErrors", "empty_password");
-				commit("setSubmitIsSafe", false);
+				commit("setSubmitIsValid", false);
 			}
 		},
 		testToken({ rootState, dispatch }) {

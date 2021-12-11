@@ -153,21 +153,21 @@ export default {
 	}),
 	computed: {
 		...mapGetters({
-			submitIsSafe: "getSubmitIsSafe",
+			submitIsValid: "getSubmitIsValid",
 			loginData: "getLoginData",
 			errors: "getErrors",
 		}),
 	},
 	methods: {
 		...mapMutations(["resetLoginData", "resetErrors"]),
-		...mapActions(["checkLoginData", "login", "signup"]),
+		...mapActions(["validateLoginData", "login", "signup"]),
 		changeMode() {
 			this.isSignup = !this.isSignup;
 			this.resetErrors();
 		},
 		submit() {
-			this.checkLoginData();
-			if (this.submitIsSafe) {
+			this.validateLoginData();
+			if (this.submitIsValid) {
 				this.isSignup ? this.signup() : this.login();
 			}
 		},

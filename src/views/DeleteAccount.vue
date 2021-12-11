@@ -72,17 +72,17 @@ export default {
 	},
 	computed: {
 		...mapGetters({
-			submitIsSafe: "getSubmitIsSafe",
+			submitIsValid: "getSubmitIsValid",
 			deleteAccountData: "getDeleteAccountData",
 			errors: "getErrors",
 		}),
 	},
 	methods: {
 		...mapMutations(["resetDeleteAccountData", "resetErrors"]),
-		...mapActions(["checkDeleteAccountData", "deleteAccount"]),
+		...mapActions(["validateDeleteAccountData", "deleteAccount"]),
 		submit() {
-			this.checkDeleteAccountData();
-			if (this.submitIsSafe) {
+			this.validateDeleteAccountData();
+			if (this.submitIsValid) {
 				this.deleteAccount();
 			}
 		},

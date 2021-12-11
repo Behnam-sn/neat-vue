@@ -55,7 +55,9 @@
 					"
 					:class="{
 						'ring-red-600':
-							errors.empty_password || errors.not_authorised,
+							errors.empty_password ||
+							errors.not_authorised ||
+							errors.same_password,
 					}"
 					type="password"
 				/>
@@ -108,17 +110,17 @@ export default {
 	},
 	computed: {
 		...mapGetters({
-			submitIsSafe: "getSubmitIsSafe",
+			submitIsValid: "getSubmitIsValid",
 			changePasswordData: "getChangePasswordData",
 			errors: "getErrors",
 		}),
 	},
 	methods: {
 		...mapMutations(["resetChangePasswordData", "resetErrors"]),
-		...mapActions(["checkChangePasswordData", "changePassword"]),
+		...mapActions(["validateChangePasswordData", "changePassword"]),
 		submit() {
-			this.checkChangePasswordData();
-			if (this.submitIsSafe) {
+			this.validateChangePasswordData();
+			if (this.submitIsValid) {
 				this.changePassword();
 			}
 		},
