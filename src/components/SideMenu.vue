@@ -23,7 +23,10 @@
 				<h1 class="font-Poppins font-medium text-xl my-4">Neat</h1>
 			</router-link>
 
-			<MenuButton address="/addnote" tooltipText="Add Note">
+			<MenuButton
+				:address="username ? '/addnote' : '/login'"
+				tooltipText="Add Note"
+			>
 				<PlusIcon class="h-11 my-4" />
 			</MenuButton>
 		</div>
