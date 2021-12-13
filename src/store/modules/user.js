@@ -129,6 +129,8 @@ const User = {
 			}
 		},
 		testToken({ rootState, dispatch }) {
+			// ping backend server
+			axios.get("");
 			if (rootState.token) {
 				axios
 					.post("auth/test-token", null, {
