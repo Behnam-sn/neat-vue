@@ -1,5 +1,8 @@
 <template>
-	<div class="flex flex-col items-center mt-20 lg:mt-32 mb-16">
+	<div
+		@keyup.enter="submit"
+		class="flex flex-col items-center mt-20 lg:mt-32 mb-16"
+	>
 		<h1 class="hidden lg:block font-Poppins font-bold text-6xl mb-32">
 			Neat
 		</h1>
