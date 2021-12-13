@@ -39,9 +39,6 @@ export default {
 	mounted: function () {
 		this.txtResize();
 	},
-	updated: function () {
-		this.txtResize();
-	},
 	computed: {
 		...mapGetters({ note: "getNote" }),
 	},

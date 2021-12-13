@@ -44,6 +44,17 @@ export default {
 			return this.$route.params.username;
 		},
 	},
+	watch: {
+		routeUsername() {
+			if (this.$route.path.includes("/user")) {
+				if (this.routeUsername === this.currnetUser) {
+					this.fetchCurrentUserNotes();
+				} else {
+					this.fetchPublicNotesByAuthor(this.routeUsername);
+				}
+			}
+		},
+	},
 	methods: {
 		...mapActions(["fetchCurrentUserNotes", "fetchPublicNotesByAuthor"]),
 	},
