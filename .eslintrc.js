@@ -1,4 +1,3 @@
-/* eslint-disable no-undef */
 module.exports = {
 	env: {
 		browser: true,
@@ -10,5 +9,7 @@ module.exports = {
 		sourceType: "module",
 	},
 	plugins: ["vue"],
-	rules: {},
+	rules: {
+		"no-undef": "off",
+	},
 };

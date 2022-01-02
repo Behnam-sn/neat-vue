@@ -1,5 +1,5 @@
 module.exports = {
-	purge: ["./index.html", "./src/**/*.{vue,js,ts,jsx,tsx}"],
+	content: ["./index.html", "./src/**/*.{vue,js,ts,jsx,tsx}"],
 	darkMode: "class",
 	theme: {
 		extend: {
@@ -12,11 +12,6 @@ module.exports = {
 				Roboto: ["'Roboto'", "sans-serif"],
 				Rubik: ["'Rubik'", "sans-serif"],
 			},
-		},
-	},
-	variants: {
-		extend: {
-			scale: ["group-hover"],
 		},
 	},
 	plugins: [],
