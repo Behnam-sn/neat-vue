@@ -22,14 +22,13 @@
 				h-8
 				flex
 				items-center
-				bg-gray-300
 				p-1
 				mx-4
 				rounded-full
 				cursor-pointer
 				duration-500
 			"
-			:class="{ 'bg-green-500': note.public }"
+			:class="[note.public ? 'bg-green-500' : 'bg-gray-300']"
 			@click="togglePublic"
 		>
 			<div
