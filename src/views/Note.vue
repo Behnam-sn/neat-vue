@@ -50,7 +50,7 @@ import ReadableNote from "../components/ReadableNote.vue";
 import EditableNote from "../components/EditableNote.vue";
 
 export default {
-	name: "Note",
+	name: "NotePage",
 	mounted: function () {
 		this.clearNote();
 		this.fetchNote(this.routeId);

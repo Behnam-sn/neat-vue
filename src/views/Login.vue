@@ -146,7 +146,7 @@
 import { mapGetters, mapMutations, mapActions } from "vuex";
 
 export default {
-	name: "Login",
+	name: "LoginPage",
 	mounted: function () {
 		this.resetLoginData();
 		this.resetErrors();

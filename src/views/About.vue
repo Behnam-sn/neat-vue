@@ -237,7 +237,7 @@
 import TitleBar from "../components/TitleBar.vue";
 
 export default {
-	name: "About",
+	name: "TheAbout",
 	components: {
 		TitleBar,
 	},

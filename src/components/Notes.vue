@@ -12,6 +12,7 @@
 				gap-8
 			"
 		>
+			<!-- eslint-disable-next-line vue/no-v-for-template-key -->
 			<template v-for="note in notesList" :key="note.id">
 				<router-link :to="'/note/' + note.id">
 					<div
@@ -65,7 +66,7 @@ import SearchBar from "./SearchBar.vue";
 import YinYangIcon from "../assets/svg/YinYangIcon.vue";
 
 export default {
-	name: "Notes",
+	name: "TheNotes",
 	computed: {
 		...mapGetters({
 			notes: "getNotes",

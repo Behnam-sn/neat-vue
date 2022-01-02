@@ -57,7 +57,7 @@ import MoonIcon from "../assets/svg/MoonIcon.vue";
 import SunIcon from "../assets/svg/SunIcon.vue";
 
 export default {
-	name: "Navbar",
+	name: "TheNavbar",
 	computed: {
 		...mapGetters({
 			theme: "getTheme",

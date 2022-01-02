@@ -12,7 +12,7 @@ import TitleBar from "../components/TitleBar.vue";
 import Notes from "../components/Notes.vue";
 
 export default {
-	name: "Public",
+	name: "PublicPage",
 	mounted: function () {
 		this.fetchPublicNotes();
 	},

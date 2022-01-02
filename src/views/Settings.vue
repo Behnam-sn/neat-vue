@@ -138,7 +138,7 @@ import TitleBar from "../components/TitleBar.vue";
 import DateAndTime from "../components/DateAndTime.vue";
 
 export default {
-	name: "Settings",
+	name: "SettingsPage",
 	created: function () {
 		this.fetchUser(this.username);
 	},

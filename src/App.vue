@@ -24,7 +24,6 @@ import SideMenu from "./components/SideMenu.vue";
 import FooterBar from "./components/FooterBar.vue";
 
 export default {
-	name: "Home",
 	created: function () {
 		this.initTheme();
 		this.testToken();

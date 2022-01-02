@@ -32,7 +32,7 @@ import CogIcon from "../../assets/svg/CogIcon.vue";
 import LogoutIcon from "../../assets/svg/LogoutIcon.vue";
 
 export default {
-	name: "Collapsible",
+	name: "CollapsibleDetails",
 	computed: {
 		...mapGetters({
 			collapseStatus: "getCollapseStatus",

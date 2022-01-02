@@ -45,7 +45,7 @@ import TitleBar from "../components/TitleBar.vue";
 import LoginButton from "../components/LoginButton.vue";
 
 export default {
-	name: "Home",
+	name: "HomePage",
 	computed: {
 		...mapGetters({ username: "getUsername" }),
 	},
