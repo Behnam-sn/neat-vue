@@ -1,5 +1,5 @@
 <template>
-	<div class="px-7 lg:px-16 pb-56">
+	<div class="px-7 xl:px-16 pb-56">
 		<SearchBar />
 		<YinYangIcon v-if="loading" class="h-12 mx-auto" />
 		<div
@@ -31,7 +31,7 @@
 							class="
 								font-Rubik font-medium
 								text-lg
-								lg:text-xl
+								2xl:text-xl
 								mb-1
 								overflow-hidden
 							"

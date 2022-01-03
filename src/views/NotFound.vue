@@ -1,15 +1,12 @@
 <template>
 	<div
 		class="
-			w-full
-			h-full
 			flex
 			justify-center
-			items-center
 			font-Poppins font-bold
 			text-2xl
-			mt-56
-			lg:mt-0
+			mt-40
+			lg:mt-72
 		"
 	>
 		404 Page Not Found

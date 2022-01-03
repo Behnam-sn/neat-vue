@@ -4,7 +4,7 @@
 			class="
 				font-Poppins font-bold
 				text-sm
-				lg:text-base
+				2xl:text-base
 				transition
 				duration-500
 			"
@@ -48,7 +48,7 @@
 			class="
 				font-Poppins font-bold
 				text-sm
-				lg:text-base
+				2xl:text-base
 				transition
 				duration-500
 			"

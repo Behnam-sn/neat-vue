@@ -1,7 +1,7 @@
 <template>
 	<div
 		class="
-			lg:sticky lg:top-0
+			xl:sticky xl:top-0
 			z-10
 			flex
 			justify-between
@@ -10,7 +10,7 @@
 			dark:bg-primary
 			py-7
 			px-7
-			lg:px-16
+			xl:px-16
 			transition
 			duration-500
 		"
@@ -19,7 +19,7 @@
 			class="
 				font-Poppins font-bold
 				text-4xl
-				lg:text-5xl
+				xl:text-5xl
 				text-primary
 				dark:text-secondary
 				capitalize
@@ -29,7 +29,7 @@
 		>
 			{{ title }}
 		</h1>
-		<LoginButton class="hidden lg:block" v-if="!username" />
+		<LoginButton class="hidden xl:block" v-if="!username" />
 	</div>
 </template>
 

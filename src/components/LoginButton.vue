@@ -3,7 +3,6 @@
 		to="/login"
 		class="
 			font-Rubik font-normal
-			text-base
 			bg-primary
 			dark:bg-secondary
 			text-secondary

@@ -2,7 +2,7 @@
 	<div
 		class="
 			z-10
-			lg:hidden
+			xl:hidden
 			w-full
 			fixed
 			py-6

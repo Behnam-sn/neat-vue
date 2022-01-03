@@ -1,7 +1,7 @@
 <template>
 	<div
 		class="
-			lg:hidden
+			xl:hidden
 			fixed
 			bottom-0
 			w-full

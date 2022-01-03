@@ -1,18 +1,31 @@
 <template>
 	<div>
 		<TitleBar title="Change Password" />
-		<div class="flex flex-col items-center justify-center mt-24 mb-16">
+		<div
+			class="
+				flex flex-col
+				items-center
+				justify-center
+				mt-12
+				2xl:mt-24
+				xl:mb-16
+			"
+		>
 			<div class="flex flex-col pb-6">
-				<label class="font-Poppins font-medium text-lg">Password</label>
+				<label class="font-Poppins font-medium 2xl:text-lg"
+					>Password</label
+				>
 				<input
 					v-model="changePasswordData.password"
 					class="
 						font-Poppins font-light
-						text-lg text-primary
+						2xl:text-lg
+						text-primary
 						dark:text-secondary
 						bg-gray-200
 						dark:bg-gray-800
-						w-80
+						w-72
+						2xl:w-80
 						px-4
 						py-2
 						mt-2
@@ -31,18 +44,20 @@
 				/>
 			</div>
 			<div class="flex flex-col pb-6">
-				<label class="font-Poppins font-medium text-lg"
+				<label class="font-Poppins font-medium 2xl:text-lg"
 					>New Password</label
 				>
 				<input
 					v-model="changePasswordData.new_password"
 					class="
 						font-Poppins font-light
-						text-lg text-primary
+						2xl:text-lg
+						text-primary
 						dark:text-secondary
 						bg-gray-200
 						dark:bg-gray-800
-						w-80
+						w-72
+						2xl:w-80
 						px-4
 						py-2
 						mt-2
@@ -66,6 +81,8 @@
 				@click="submit"
 				class="
 					font-Poppins font-medium
+					text-sm
+					2xl:text-base
 					text-primary
 					dark:text-secondary
 					bg-blue-500

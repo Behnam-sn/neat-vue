@@ -2,24 +2,36 @@
 	<div>
 		<TitleBar title="Settings" />
 		<div
-			class="flex flex-col items-center justify-center lg:mt-24 lg:mb-16"
+			class="
+				flex flex-col
+				items-center
+				justify-center
+				mt-12
+				2xl:mt-24
+				xl:mb-16
+			"
 		>
 			<div class="flex flex-col pb-6">
-				<label class="font-Poppins font-medium text-lg">Username</label>
+				<label class="font-Poppins font-medium 2xl:text-lg"
+					>Username</label
+				>
 				<input
 					v-model="user.username"
 					class="
 						font-Poppins font-light
-						text-lg text-primary
+						2xl:text-lg
+						text-primary
 						dark:text-secondary
 						bg-gray-200
 						dark:bg-gray-800
-						w-80
+						w-72
+						2xl:w-80
 						px-4
 						py-2
 						mt-2
 						rounded-lg
-						focus:outline-none focus:ring-2 focus:ring-gray-400
+						ring-2 ring-transparent
+						focus:outline-none focus:ring-gray-400
 						dark:focus:ring-gray-600
 						transition
 						duration-500
@@ -28,23 +40,26 @@
 				/>
 			</div>
 			<div class="flex flex-col pb-6">
-				<label class="font-Poppins font-medium text-lg"
+				<label class="font-Poppins font-medium 2xl:text-lg"
 					>Full Name</label
 				>
 				<input
 					v-model="user.full_name"
 					class="
 						font-Poppins font-light
-						text-lg text-primary
+						2xl:text-lg
+						text-primary
 						dark:text-secondary
 						bg-gray-200
 						dark:bg-gray-800
-						w-80
+						w-72
+						2xl:w-80
 						px-4
 						py-2
 						mt-2
 						rounded-lg
-						focus:outline-none focus:ring-2 focus:ring-gray-400
+						ring-2 ring-transparent
+						focus:outline-none focus:ring-gray-400
 						dark:focus:ring-gray-600
 						transition
 						duration-500
@@ -52,7 +67,7 @@
 					type="text"
 				/>
 			</div>
-			<div class="w-80">
+			<div class="w-72 2xl:w-80">
 				<DateAndTime title="Created" :value="user.created_at" />
 				<DateAndTime title="Modified" :value="user.modified_at" />
 			</div>
@@ -61,6 +76,8 @@
 				@click="changeUser"
 				class="
 					font-Poppins font-medium
+					text-sm
+					2xl:text-base
 					text-primary
 					dark:text-secondary
 					bg-green-500
@@ -91,6 +108,8 @@
 				<button
 					class="
 						font-Poppins font-medium
+						text-sm
+						2xl:text-base
 						text-primary
 						dark:text-secondary
 						bg-red-500
@@ -111,6 +130,8 @@
 				<button
 					class="
 						font-Poppins font-medium
+						text-sm
+						2xl:text-base
 						text-primary
 						dark:text-secondary
 						bg-blue-500

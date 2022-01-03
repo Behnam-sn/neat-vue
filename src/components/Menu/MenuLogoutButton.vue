@@ -3,7 +3,7 @@
 		@click="logout"
 		class="flex items-center justify-center relative group"
 	>
-		<LogoutIcon class="h-9 my-4" />
+		<LogoutIcon class="h-8 2xl:h-9 my-4" />
 		<div
 			class="
 				absolute

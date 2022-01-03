@@ -17,8 +17,8 @@
 		@click="changeTheme"
 	>
 		<transition name="fade" mode="out-in">
-			<SunIcon class="h-11 p-2" v-if="theme == 'dark'" />
-			<MoonIcon class="h-11 p-2" v-else />
+			<SunIcon class="h-10 2xl:h-11 p-2" v-if="theme == 'dark'" />
+			<MoonIcon class="h-10 2xl:h-11 p-2" v-else />
 		</transition>
 
 		<div

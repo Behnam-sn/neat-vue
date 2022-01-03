@@ -1,7 +1,7 @@
 <template>
 	<div>
 		<TitleBar title="About" />
-		<div class="px-7 lg:px-16 font-Roboto font-normal text-xl">
+		<div class="px-7 xl:px-16 font-Roboto font-normal text-xl">
 			<div class="lg:flex lg:flex-row lg:items-center">
 				<div class="font-Roboto font-medium mb-2 lg:mb-0 lg:mr-2">
 					Developer & designer :
@@ -75,10 +75,10 @@
 				</a>
 			</div>
 			<div class="font-Roboto font-medium mt-7">Tech Stack :</div>
-			<div class="flex flex-col lg:flex-row">
+			<div class="flex flex-col xl:flex-row lg:px-48 xl:px-0">
 				<a
 					class="
-						lg:w-1/4
+						xl:w-1/4
 						flex flex-col
 						justify-center
 						items-center
@@ -115,7 +115,7 @@
 				</a>
 				<a
 					class="
-						lg:w-1/4
+						xl:w-1/4
 						flex flex-col
 						justify-center
 						items-center
@@ -134,7 +134,7 @@
 					target="_blank"
 				>
 					<img
-						class="lg:h-36"
+						class="xl:h-36"
 						src="../assets/img/vue.png"
 						lazy="load"
 						decode="async"
@@ -153,7 +153,7 @@
 				</a>
 				<a
 					class="
-						lg:w-1/4
+						xl:w-1/4
 						flex flex-col
 						justify-center
 						items-center
@@ -172,7 +172,7 @@
 					target="_blank"
 				>
 					<img
-						class="lg:h-36"
+						class="xl:h-36"
 						src="../assets/img/tailwind.png"
 						lazy="load"
 						decode="async"
@@ -191,7 +191,7 @@
 				</a>
 				<a
 					class="
-						lg:w-1/4
+						xl:w-1/4
 						flex flex-col
 						justify-center
 						items-center
@@ -211,7 +211,7 @@
 					rel="noopener noreferrer"
 				>
 					<img
-						class="lg:h-36"
+						class="xl:h-36"
 						src="../assets/img/fontawesome.png"
 						lazy="load"
 						decode="async"

@@ -5,7 +5,7 @@
 			bottom-16
 			right-16
 			hidden
-			lg:block
+			xl:block
 			bg-secondary
 			dark:bg-primary
 			text-primary
@@ -17,8 +17,8 @@
 		"
 	>
 		<transition name="send" mode="out-in">
-			<YinYangIcon class="h-9" v-if="sending" />
-			<SendIcon class="h-9" v-else />
+			<YinYangIcon class="h-8 2xl:h-9" v-if="sending" />
+			<SendIcon class="h-8 2xl:h-9" v-else />
 		</transition>
 	</button>
 </template>

@@ -1,9 +1,18 @@
 <template>
 	<div
 		@keyup.enter="submit"
-		class="flex flex-col items-center mt-20 lg:mt-32 mb-16"
+		class="flex flex-col items-center mt-20 lg:mt-20 2xl:mt-32 mb-16"
 	>
-		<h1 class="hidden lg:block font-Poppins font-bold text-6xl mb-32">
+		<h1
+			class="
+				hidden
+				lg:block
+				font-Poppins font-bold
+				text-6xl
+				mb-20
+				2xl:mb-32
+			"
+		>
 			Neat
 		</h1>
 		<div class="flex flex-col items-center">
@@ -12,7 +21,7 @@
 				class="
 					self-end
 					font-Poppins font-light
-					text-primary
+					text-sm text-primary
 					dark:text-secondary
 					border-2 border-gray-400
 					dark:border-gray-500
@@ -31,11 +40,13 @@
 				v-model="loginData.username"
 				class="
 					font-Poppins font-light
-					text-lg text-primary
+					2xl:text-lg
+					text-primary
 					dark:text-secondary
 					bg-gray-200
 					dark:bg-gray-800
-					w-80
+					w-72
+					2xl:w-80
 					px-4
 					py-2
 					mt-8
@@ -60,11 +71,13 @@
 				v-model="loginData.full_name"
 				class="
 					font-Poppins font-light
-					text-lg text-primary
+					2xl:text-lg
+					text-primary
 					dark:text-secondary
 					bg-gray-200
 					dark:bg-gray-800
-					w-80
+					w-72
+					2xl:w-80
 					px-4
 					py-2
 					mt-5
@@ -83,11 +96,13 @@
 				v-model="loginData.password"
 				class="
 					font-Poppins font-light
-					text-lg text-primary
+					2xl:text-lg
+					text-primary
 					dark:text-secondary
 					bg-gray-200
 					dark:bg-gray-800
-					w-80
+					w-72
+					2xl:w-80
 					px-4
 					py-2
 					mt-5
@@ -109,13 +124,15 @@
 				@click="submit"
 				class="
 					font-Poppins font-medium
-					text-xl
+					text-lg
+					2xl:text-xl
 					bg-primary
 					text-secondary
 					dark:bg-secondary dark:text-primary
 					rounded-full
-					px-16
+					px-14
 					py-3
+					2xl:px-16 2xl:py-3
 					mt-12
 					focus:outline-none focus:ring-2 focus:ring-gray-400
 					dark:focus:ring-gray-600
@@ -125,7 +142,7 @@
 			>
 				{{ isSignup ? "Sign Up" : "Login" }}
 			</button>
-			<div class="font-Poppins font-light text-lg text-red-600 mt-14">
+			<div class="font-Poppins font-light 2xl:text-lg text-red-600 mt-14">
 				<ul class="list-disc list-outside">
 					<li v-if="errors.empty_username">Username required</li>
 					<li v-if="errors.invalid_username">

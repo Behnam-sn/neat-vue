@@ -8,7 +8,7 @@
 				px-12
 				py-3
 				font-Rubik font-light
-				text-lg
+				2xl:text-lg
 				placeholder-gray-500
 				dark:placeholder-gray-200
 				bg-gray-100

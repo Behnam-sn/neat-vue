@@ -9,8 +9,9 @@
 			dark:text-secondary
 			w-full
 			px-7
-			py-3
-			lg:px-20 lg:py-5
+			my-3
+			lg:px-12 lg:my-4
+			xl:px-20 xl:my-5
 			bg-transparent
 			focus:outline-none
 			transition

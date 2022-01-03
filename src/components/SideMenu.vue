@@ -8,13 +8,14 @@
 			h-screen
 			w-20
 			hidden
-			lg:flex
+			xl:flex
 			flex-col
 			items-center
 			justify-between
 			border-r-2 border-gray-300
 			dark:border-gray-500
-			py-10
+			py-7
+			2xl:py-10
 			z-10
 		"
 	>
@@ -27,19 +28,19 @@
 				:address="username ? '/addnote' : '/login'"
 				tooltipText="Add Note"
 			>
-				<PlusIcon class="h-11 my-4" />
+				<PlusIcon class="h-10 2xl:h-11 my-4" />
 			</MenuButton>
 		</div>
 		<div class="flex flex-col items-center">
 			<MenuButton address="/public" tooltipText="Public Notes">
-				<HomeIcon class="h-9 my-4" />
+				<HomeIcon class="h-8 2xl:h-9 my-4" />
 			</MenuButton>
 
 			<MenuButton
 				:address="username ? `/user/${username}` : '/login'"
 				:tooltipText="username ? 'Your Notes' : 'Login'"
 			>
-				<UserIcon class="h-9 my-4" />
+				<UserIcon class="h-8 2xl:h-9 my-4" />
 			</MenuButton>
 
 			<MenuButton
@@ -47,11 +48,11 @@
 				address="/settings"
 				tooltipText="Settings"
 			>
-				<CogIcon class="h-9 my-4" />
+				<CogIcon class="h-8 2xl:h-9 my-4" />
 			</MenuButton>
 
 			<MenuButton address="/about" tooltipText="About">
-				<InfoIcon class="h-9 my-4" />
+				<InfoIcon class="h-8 2xl:h-9 my-4" />
 			</MenuButton>
 		</div>
 		<div class="flex flex-col items-center">

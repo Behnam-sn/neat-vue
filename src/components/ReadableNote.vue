@@ -1,7 +1,7 @@
 <template>
 	<div>
 		<div
-			class="flex justify-between items-center px-4 lg:px-7 my-4 lg:my-6"
+			class="flex justify-between items-center px-4 xl:px-7 my-4 xl:my-6"
 		>
 			<GoBackButton />
 			<div
@@ -27,14 +27,16 @@
 				text-right
 				font-Rubik font-medium
 				text-lg
-				lg:text-2xl
+				lg:text-xl
+				xl:text-2xl
 				text-primary
 				dark:text-secondary
 				break-words
 				w-full
 				px-7
 				my-3
-				lg:px-20 lg:my-5
+				lg:px-12 lg:my-4
+				xl:px-20 xl:my-5
 				transition
 				duration-500
 			"
@@ -53,9 +55,9 @@
 				break-words
 				w-full
 				px-7
-				lg:px-20
 				my-3
-				lg:my-5
+				lg:px-12 lg:my-4
+				xl:px-20 xl:my-5
 				transition
 				duration-500
 			"
@@ -76,9 +78,9 @@
 				w-full
 				overflow-hidden
 				px-7
-				lg:px-20
 				my-3
-				lg:my-5
+				lg:px-12 lg:my-4
+				xl:px-20 xl:my-5
 				transition
 				duration-500
 			"
