@@ -81,12 +81,12 @@
 					text-primary
 					dark:text-secondary
 					bg-green-500
+					hover:bg-green-400
+					dark:hover:bg-green-600
 					rounded-full
 					px-7
 					py-2
 					mt-8
-					hover:bg-green-400
-					dark:hover:bg-green-600
 					transition
 					duration-500
 				"
@@ -113,12 +113,12 @@
 						text-primary
 						dark:text-secondary
 						bg-red-500
+						hover:bg-red-400
+						dark:hover:bg-red-600
 						rounded-full
 						px-7
 						py-2
 						mt-8
-						hover:bg-red-400
-						dark:hover:bg-red-600
 						transition
 						duration-500
 					"
@@ -135,12 +135,12 @@
 						text-primary
 						dark:text-secondary
 						bg-blue-500
+						hover:bg-blue-400
+						dark:hover:bg-blue-600
 						rounded-full
 						px-7
 						py-2
 						mt-8
-						hover:bg-blue-400
-						dark:hover:bg-blue-600
 						transition
 						duration-500
 					"
