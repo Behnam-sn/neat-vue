@@ -1,19 +1,6 @@
 <template>
 	<div
-		class="
-			z-10
-			xl:hidden
-			w-full
-			fixed
-			py-6
-			px-7
-			bg-secondary
-			dark:bg-primary
-			text-primary
-			dark:text-secondary
-			transition
-			duration-500
-		"
+		class="z-10 xl:hidden w-full fixed py-6 px-7 bg-secondary dark:bg-primary text-primary dark:text-secondary transition duration-500"
 	>
 		<div class="flex flex-row justify-between items-center">
 			<router-link to="/">
@@ -21,16 +8,7 @@
 			</router-link>
 			<div class="flex flex-row">
 				<button
-					class="
-						bg-primary
-						text-secondary
-						dark:bg-secondary dark:text-primary
-						p-1
-						mr-5
-						rounded-md
-						transition
-						duration-500
-					"
+					class="bg-primary text-secondary dark:bg-secondary dark:text-primary p-1 mr-5 rounded-md transition duration-500"
 					@click="changeTheme"
 				>
 					<transition name="fade" mode="out-in">
