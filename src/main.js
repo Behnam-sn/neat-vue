@@ -10,12 +10,12 @@ import "./assets/index.css";
 axios.defaults.baseURL = "https://evening-plateau-38171.herokuapp.com/api/v1/"; // heroku backend
 
 axios.interceptors.response.use(undefined, function (error) {
-	if (error) {
-		const originalRequest = error.config;
-		if (error.response.status === 401 && !originalRequest._retry) {
-			originalRequest._retry = true;
-		}
-	}
+  if (error) {
+    const originalRequest = error.config;
+    if (error.response.status === 401 && !originalRequest._retry) {
+      originalRequest._retry = true;
+    }
+  }
 });
 
 const app = createApp(App);
