@@ -2,18 +2,18 @@
 
 Neat is a note app
 
-## Neat-Frontend
+## Neat-vue
 
 This is the frontend repository
 
 ## Tech Stack
 
--   Vite
--   Vue (3)
--   Vuex
--   Vue-Router
--   Axios
--   Tailwind CSS
+- Vite
+- Vue (3)
+- Vuex
+- Vue-Router
+- Axios
+- Tailwind CSS
 
 ## Neat-Backend
 
